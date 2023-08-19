@@ -1,3 +1,5 @@
+@http://graphicdesignjunction.com/2013/02/flat-icons-of-social-media/
+*/
 *{
   margin: 0;
   box-sizing: border-box;
@@ -9,12 +11,6 @@ body{
     font-family: Arial, Helvetica, sans-serif; 
   }
 
-main{
-  display: flex;
-  width: 100%;
-  height: 100%;
-  background-color: #006699;
-}  
 
 .container{
     width: 300px;
@@ -118,6 +114,58 @@ main{
 .menu__link:hover{
     background: rgb(233, 238, 240)  ;
     color: #0e0a0a;
+}
+
+a { 
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  color: #000;
+}
+.social { 
+  list-style:none;
+   margin-top:2em;
+}
+.social li { 
+  display:inline;
+   float:left; 
+   margin: 0 40px 0 0;
+}
+.social li a {
+ display:block; 
+ width:64px; 
+ height:64px;
+  position:relative;
+}
+.social li a strong {
+ position: absolute;
+  left: 0px; 
+  top: 10px;
+}
+
+li.fb { 
+  background:url("https://3.bp.blogspot.com/-GBtZIVeafFU/UZ1FYjGvufI/AAAAAAAACII/HGNZIJO1oT0/s1600/facebook-64.png") #3B5998;
+}
+li.twitter {
+ background:url("https://2.bp.blogspot.com/-ks0tKggjK-w/UZ1FYhudbWI/AAAAAAAACIM/smFlLtwfbxk/s1600/twitter-64.png") #0092cb; 
+} 
+
+.social:hover li {
+ opacity:0.3;
+}
+.social li { 
+  transition-property: opacity; 
+  transition-duration: 500ms; 
+}
+.social li a strong {
+  opacity:0; 
+  transition-property: opacity, top;
+   transition-duration: 250ms;
+}
+.social li:hover { 
+  opacity:1; 
+}
+.social li:hover a strong { 
+  opacity:1; 
+  top:-23px; 
 }
 
 @media(min-width:1024px){
