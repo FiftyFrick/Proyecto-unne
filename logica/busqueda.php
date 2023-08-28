@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$conexion= mysqli_connect("localhost","root","","efecto4t");
+$conexion= mysqli_connect("localhost","root","123456","_______");
 
 $buscar = $_POST["buscar"];
 

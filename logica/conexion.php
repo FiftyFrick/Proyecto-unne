@@ -3,8 +3,8 @@
 
 $host = "localhost";
 $usuario= "root";
-$clave= "";
-$bd= "efecto4t";
+$clave= "123456";
+$bd= "______";
 
 $conexion= mysqli_connect($host,$usuario,$clave,$bd);
 /*
