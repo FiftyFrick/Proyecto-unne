@@ -154,10 +154,11 @@ h4 {
 }
 
 h5{
-  text-align: left;
+  text-align: center;
 }
 
 .Result-busqueda{
+  text-align: center;
   width: 70%;
   height: 200px;
   border: solid 1px #000000 ;
