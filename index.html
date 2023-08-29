@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FaCENa</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/styleIndex.css">
 </head>
 
 
@@ -34,17 +34,13 @@
         </article>
         <article>
           <center><h3 class="FaCENa">FaCENA</h3>
-          <br>
+          
           <h5>FACULTAD DE CIENCIAS EXACTAS</h5>
-          <br>
+          
           <h5>Y NATURALES Y AGRIMENSURA</h5>
           </center>
         </article>
       </section>
-
-          <!--          
-          <span class="icon-menu" id="btn-menu"></span>-->
-      </div>
 
     </header>
 
@@ -53,6 +49,8 @@
           <li><a href="#">Inicio</a></li>
           <li><a href="#">Estadistica</a></li>
           <li><a href="#">FaCENA</a></li>
+          <li><a href="login.html">Administracion</a></li>
+
       </ul>
     </nav>
 
@@ -70,7 +68,7 @@
               <div class="Buscador">
                 <h3>Buscador de Programas Analiticos</h3>
 
-                <form action="">
+                <form action="logica/busqueda.php" method="post">
                   <article>
                     <label for="carrera">Carrera:</label>
                     <input type="text" id="carrera" name="carrera" value="Todos">
@@ -94,27 +92,16 @@
   
                   <input type="submit" value="Buscar">
                 </form>
-                <!-- 
-                <h4>Carrera<br><input type="text" name="Carrera"></h4>
-    
-                <h4>Plan de Estudio<br><input type="text" name="plan_de_estudio"></h4>
-    
-                <h4>Asignatura<br><input type="text" name="asignatura"></h4>
-    
-                <h4>Responsables<br><input type="text" name="rol"></h4>
-    
-                <br><br>
-    
-                <form class="text">
-                  <input class="button" type="button"  value="Buscar">
-                </form> -->
+
               </div>
         
           </center>
           <br>
           <center>
             <section class="Result-busqueda">
-              <h5>Resultado de la busqueda: se encontraron XXresultados</h5>
+              <h5>Resultado de la busqueda: se encontraron XXresultados</h5> 
+
+              <h1>descargar</h1>
               <br><br>
               <br><br>     
               </section>
