@@ -9,7 +9,7 @@
 
     $ID =  $return["id"];   
 
-    $del_user = "DELETE FROM bd_cuentas WHERE id = $ID ";
+    $del_user = "DELETE FROM UNNE_Programas WHERE id = $ID ";
     $sql_del=mysqli_query($conexion,$del_user);
 
     session_destroy();
