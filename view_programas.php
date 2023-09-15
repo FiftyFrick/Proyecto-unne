@@ -1,15 +1,8 @@
 <?php
-// Conexión a la base de datos (reemplaza con tus datos)
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "UNNE_Programas";
+// Conexión a la base de datos
+include "logica/conexion.php";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
 
 // Consulta para obtener los datos de la tabla Programas
 $sql = "SELECT id_programa, asignatura, id_carrera, id_plan, cuatrimestre, Responsable, Resolucion_CD, fecha_resolucion, documento FROM Programas";

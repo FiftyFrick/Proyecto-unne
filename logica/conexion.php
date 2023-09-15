@@ -3,12 +3,20 @@
 
 $host = "localhost";
 $usuario= "root";
-$clave= "123456";
-$bd= "______";
+$clave= "";
+$bd= "UNNE_Programas";
 
-$conexion= mysqli_connect($host,$usuario,$clave,$bd);
+$conn= mysqli_connect($host,$usuario,$clave,$bd);
+
+
+//$conn = new mysqli($host,$usuario,$clave,$bd);
+
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
+
 /*
-if($conexion){
+if($conn){
     echo "conectado correctamente";
 
 }else{

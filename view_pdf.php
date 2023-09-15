@@ -1,15 +1,8 @@
 <?php
-// Conexión a la base de datos (reemplaza con tus datos)
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "UNNE_Programas";
+// Conexión a la base de datos
+include "logica/conexion.php";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
 
 // Obtener el contenido del archivo PDF desde la base de datos
 $id_programa = $_GET["id_programa"]; // Cambiar al parámetro adecuado
