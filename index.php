@@ -8,7 +8,9 @@ include "logica/conexion.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FaCENa</title>
+    <title>Facultad de Ciencias Exactas y Naturales y Agrimensura | FaCENA – UNNE</title>
+    <link rel="shortcut icon" href="http://exa.unne.edu.ar/r/wp-content/uploads/2019/07/browsericon.gif" type="image/gif">
+
     <link rel="stylesheet" type="text/css" href="css/styleIndex.css">
 </head>
 
@@ -53,7 +55,7 @@ include "logica/conexion.php";
       <ul>
           <li><a href="#">Inicio</a></li>
           <li><a href="#">Estadistica</a></li>
-          <li><a href="#">FaCENA</a></li>
+          <li><a href="https://exa.unne.edu.ar/r/">FaCENA</a></li>
           <li><a href="login.html">Administracion</a></li>
 
       </ul>
@@ -102,48 +104,71 @@ include "logica/conexion.php";
           </center>
           <br>
           <center>
+            
             <section class="Result-busqueda">
-              <h5>Resultado de la busqueda: se encontraron XXresultados</h5> 
+              <article>
+                <?php
+                    $consulta2 = "SELECT COUNT(*) AS total FROM programas";
+                    $result = $conn->query($consulta2);
 
-              <br><br>
-              <a href="upload_form.html">subir programa</a>
-              <br>
-              <!-- <a href="view_programas.php">Ver lista de Programas</a> -->
-              <br><br>
+                    // Verificar si la consulta fue exitosa
+                    if ($result) {
+                      $row = $result->fetch_assoc();
+                      $total = $row['total'];
+                    } else {
+                      $total = "Error en la consulta: " . $conn->error;
+                    }
+                  ?>
+                  <h3>Resultado de la busqueda: se encontraron  <?php echo $total; ?> resultados</h3> 
+              </article>
               
-              <?php
-                // Consulta para obtener los datos de la tabla Programas
-                $sql = "SELECT id_programa, asignatura, id_carrera, id_plan, cuatrimestre, Responsable, Resolucion_CD, fecha_resolucion, documento FROM Programas";
-                $result = $conn->query($sql);
-                ?>
-                <table border="1">
-                  <tr>
-                      <th>ID Programa</th>
-                      <th>Asignatura</th>
-                      <th>ID Carrera</th>
-                      <th>ID Plan</th>
-                      <th>Cuatrimestre</th>
-                      <th>Responsable</th>
-                      <th>Resolución CD</th>
-                      <th>Fecha Resolución</th>
-                      <th>Documento</th>
-                  </tr>
-                  <?php while ($row = $result->fetch_assoc()) : ?>
-                      <tr>
-                          <td><?php echo $row["id_programa"]; ?></td>
-                          <td><?php echo $row["asignatura"]; ?></td>
-                          <td><?php echo $row["id_carrera"]; ?></td>
-                          <td><?php echo $row["id_plan"]; ?></td>
-                          <td><?php echo $row["cuatrimestre"]; ?></td>
-                          <td><?php echo $row["Responsable"]; ?></td>
-                          <td><?php echo $row["Resolucion_CD"]; ?></td>
-                          <td><?php echo $row["fecha_resolucion"]; ?></td>
-                          <td><?php echo $row["documento"]; ?> <a href="pdf_viewer.html">ver documento</a></td>
-                      </tr>
-                  <?php endwhile; ?>
-              </table>
+              <article>
+                <br><br>
+                <a href="upload_form.html">subir programa</a>
+                <br>
+                <!-- <a href="view_programas.php">Ver lista de Programas</a> -->
+                <br><br>
+              </article>
+
+              <article>
+
+                <?php
+                  // Consulta para obtener los datos de la tabla Programas
+                  $sql = "SELECT id_programa, asignatura, id_carrera, id_plan, cuatrimestre, Responsable, Resolucion_CD, fecha_resolucion, documento FROM Programas";
+                  $result = $conn->query($sql);
+                  ?>
+                  <table border="1">
+                    <tr>
+                        <th>ID Programa</th>
+                        <th>Asignatura</th>
+                        <th>ID Carrera</th>
+                        <th>ID Plan</th>
+                        <th>Cuatrimestre</th>
+                        <th>Responsable</th>
+                        <th>Resolución CD</th>
+                        <th>Fecha Resolución</th>
+                        <th>Documento</th>
+                    </tr>
+                    <?php while ($row = $result->fetch_assoc()) : ?>
+                        <tr>
+                            <td><?php echo $row["id_programa"]; ?></td>
+                            <td><?php echo $row["asignatura"]; ?></td>
+                            <td><?php echo $row["id_carrera"]; ?></td>
+                            <td><?php echo $row["id_plan"]; ?></td>
+                            <td><?php echo $row["cuatrimestre"]; ?></td>
+                            <td><?php echo $row["Responsable"]; ?></td>
+                            <td><?php echo $row["Resolucion_CD"]; ?></td>
+                            <td><?php echo $row["fecha_resolucion"]; ?></td>
+                            <!-- <td><a href="pdf_viewer copy.php?id_programa=<?php echo $row["id_programa"]; ?>">ver documento</a></td> -->
+                        </tr>
+                    <?php endwhile; ?>
+                </table>
+
+              </article>
+              
+              <a href="documentos/index.php">ver documentos</a>
                            
-              </section>
+            </section>
           </center>
           <br>
 

@@ -1,0 +1,63 @@
+/* Front End CSS */
+#simple-instagram-wrap {
+
+}
+#simple-instagram-wrap .simple-instagram-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#simple-instagram-wrap .simple-instagram-list .simple-instagram-list-item {
+    float: left;
+    margin:  0 10px 10px 0;
+    padding: 0;
+    width: 150px;
+}
+#simple-instagram-wrap .simple-instagram-list .simple-instagram-list-item img {
+    max-width: 100%;
+    height: auto;
+}
+#simple-instagram-wrap .simple-instagram-list .simple-instagram-list-item:before {
+    display: none;
+}
+#simple-instagram-wrap .si-follow-me {
+    clear: both;
+    text-align: center;
+    padding: 20px 0;
+}
+#simple-instagram-wrap .si-follow-me a {
+    display: inline-block;
+    background: #222222;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    border: 0;
+    line-height: 35px;
+    border-radius: 5px;
+    padding: 0 20px;
+    transition: background, 350ms;
+}
+#simple-instagram-wrap .si-follow-me a:hover {
+    background: #8B8B8B;
+}
+.simple-instagram-caption {
+    font-size: 13px;
+    line-height: 20px;
+    background: #222222;
+    padding: 5px;
+    color: #ffffff;
+}
+
+/* Widget */
+#si-widget {
+
+}
+#si-widget img {
+    max-width: 100%;
+}
+#si-widget .simple-instagram-list .simple-instagram-list-item {
+    float: none;
+    margin:  0 0 20px 0;
+    padding: 0;
+    width: inherit;
+}

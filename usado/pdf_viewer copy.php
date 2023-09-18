@@ -7,9 +7,19 @@
 </head>
 <body>
     <h1>Visor de PDF</h1>
-    <iframe src="view_pdf.php?id_programa=1" width="800" height="600"></iframe>
+    <?php
+    include ("logica/conexion.php")
 
+    //&query = "select * from "
+    ?>
+
+    <iframe src="view_pdf.php?id_programa=<?php    $id_programa['id_programa'];?> " width="800" height="600"></iframe>
+
+
+    
     <h2>descargar</h2>
+
+    
 
 
 

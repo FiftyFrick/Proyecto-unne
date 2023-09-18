@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Archivo</title>
+    <link rel="stylesheet" href="css/upload.css">
+</head>
+<body>
+
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $asignatura = $_POST["asignatura"];
@@ -16,11 +26,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include "logica/conexion.php";
 
     // Insertar los datos en la base de datos
-    $sql = "INSERT INTO Programas (asignatura, documento) VALUES ('$asignatura', '$documento')";
+    $sql = "INSERT INTO programas (asignatura, documento) VALUES ('$asignatura', '$documento')";
 
     // $sql = "INSERT INTO Programas (asignatura, id_carrera, id_plan, cuatrimestre, Responsable, Resolucion_CD, fecha_resolucion, documento) 
     // VALUES ('$asignatura','$id_carrera','$id_plan','$cuatrimestre','$Responsable','$Resolucion_CD','$fecha_resolucion', '$documento')";
-    if ($conn->query($sql) === TRUE) {
+    
+    $sql = "INSERT INTO programas (asignatura, documento) VALUES ('$asignatura', '$documento)";
+    $resultado= mysqli_query($conn,$sql);
+
+   
+   if ($resultado === TRUE) {
         echo "Archivo subido y almacenado correctamente.";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
@@ -29,3 +44,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+</body>
+</html>
