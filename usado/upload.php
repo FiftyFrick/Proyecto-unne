@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    if ($resultado === TRUE) {
         echo "Archivo subido y almacenado correctamente.";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        // echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
     $conn->close();
