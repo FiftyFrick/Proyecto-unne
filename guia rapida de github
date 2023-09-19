@@ -1,0 +1,62 @@
+trabajar con github 
+grupo 5 
+Tec.sup. desarrollo de software 
+
+git config --global user.name "<nombre del usuario que está realizando los cambios>" (Para todos los proyectos que se relizarán)
+git config --global user.email "<email del usuario que está realizando los cambios>" (Para todos los proyectos que se relizarán)
+
+crear una carpeta de proyecto
+abrir carpeta dentro del visual studio code
+crear un archivo index.html
+añadir sintaxis de html
+luego 
+
+-----------------------------------------------------
+* iniciar un repositorio git
+    - git init
+
+*crear un repositorio local y añadir el repositorio remoto
+
+    git remote add <escribir un nombre para el servidor local> <dirección del servidor remoto>
+
+    - git remote add origin https://github.com/FiftyFrick/Proyecto-unne.git  (direcciona nuestro repo. local al repositorio remoto)
+
+- git status
+
+- git add . (incorpora temporalmente todos los cambios realizados del proyecto local)
+
+- git commit -m "agregue el 1er index"  (incorpora un comentario a los cambios guardados anteriormente dentro de "git add . ")
+
+- git push  (sube al repositorio remoto todos los cambios guardados en "git add . ")
+    
+    -fatal: La rama actual master no tiene una rama upstream.
+    Para realizar un push de la rama actual y configurar el remoto como upstream, use
+
+        - git push --set-upstream origin master (direcciona la rama local master hacia la rama remota master)
+
+------------------------------------
+* en mi caso voy a crear una rama local llamada "walter"
+
+git branch (muestra todas las ramas locales)
+
+git branch walter (crea una rama local llamada walter)
+    - git branch (verificamos que nuestra rama se creo correctamente)
+
+git checkout walter (Nos lleva hacia la branch o rama especificada )
+    - git status (verificamos en que rama estamos)
+       
+git push --set-upstream origin walter (direcciona la rama local llamada walter hacia la rama remota llamada walter)
+
+-------------------------------------
+
+*clonar el repositorio remoto
+
+    git clone <dirección del repositorio> <nombre que deseo colocar al repositorio clonado>
+
+    - git clone https://github.com/FiftyFrick/Proyecto-unne.git 
+
+
+--------------------------------------------
+
+
+
