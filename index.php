@@ -57,8 +57,18 @@ include "logica/conexion.php";
           <li><a href="#">Estadistica</a></li>
           <li><a href="https://exa.unne.edu.ar/r/">FaCENA</a></li>
           <li><a href="login.html">Administracion</a></li>
-
       </ul>
+
+      <ul>
+        <li><a href="carga de datos/upload_Carreras.php">Cargar Carreras</a></li>
+        <li><a href="carga de datos/upload_Asignaturas.php">Cargar Asignaturas</a></li>
+        <li><a href="carga de datos/upload_Plan de estudio.php">Cargar Plan de Estudio</a></li>
+      </ul>
+
+      <ul>
+      <li><a href="carga de datos/upload_Programas.php">Cargar Programas</a></li>
+      </ul>
+
     </nav>
 
     <!-- 
