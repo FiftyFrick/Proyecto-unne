@@ -77,12 +77,13 @@ include "../logica/conexion.php";
 
                 <?php
                   // Consulta para obtener los datos de la tabla Programas
-                  $sql = "SELECT id_programa, asignatura, id_carrera, id_plan, cuatrimestre, Responsable, Resolucion_CD, fecha_resolucion, documento FROM Programas";
+                  $sql = "SELECT * FROM Programas";
                   $result = $conn->query($sql);
                   ?>
                   <table border="1">
                     <tr>
                         <th>ID Programa</th>
+                        <th>Nombre Programa</th>
                         <!-- --------------------> 
                         <th>ID Asignatura</th>
                         <th>Nombre de Asignatura</th>
@@ -97,13 +98,17 @@ include "../logica/conexion.php";
                         <th>Responsable</th>
                         <th>Resolución CD</th>
                         <th>Fecha Resolución</th>
-                        <th>Documento</th>
-                    </tr>
-                    <?php while ($row = $result->fetch_assoc()) : ?>
-                        <tr>
-                            <td><?php echo $row["id_programa"]; ?></td>
+                        <!-- ------------------->
+                        <th>ID Documento</th>
+                        <th>Archivo PDF</th>
 
-                            <td><?php echo $row["asignatura"]; ?></td>
+                      </tr>
+                    <?php while ($row = $result->fetch_assoc()) : ?>
+                          <tr>
+                            <td><?php echo $row["id_programa"]; ?></td>
+                            <td><?php echo $row["nom_programa"]; ?></td>
+
+                            <td><?php echo $row["id_asignatura"]; ?></td>
                             <td><?php echo $row["nom_asignatura"]; ?></td>
 
                             <td><?php echo $row["id_carrera"]; ?></td>
@@ -113,11 +118,14 @@ include "../logica/conexion.php";
                             <td><?php echo $row["nom_plan"]; ?></td>
 
                             <td><?php echo $row["cuatrimestre"]; ?></td>
-                            <td><?php echo $row["Responsable"]; ?></td>
-                            <td><?php echo $row["Resolucion_CD"]; ?></td>
+                            <td><?php echo $row["responsable"]; ?></td>
+                            <td><?php echo $row["resolucion_CD"]; ?></td>
                             <td><?php echo $row["fecha_resolucion"]; ?></td>
-                            <td><!-- <a href="pdf_viewer copy.php?id_programa=<?php echo $row["id_programa"]; ?> --> ">ver documento</a></td> 
-                        </tr>
+
+                            <td><?php echo $row["id_documento"]; ?></td>
+                            <td><?php echo $row["archivo"]; ?></td>
+
+                          </tr>
                     <?php endwhile; ?>
                 </table>
 
@@ -130,3 +138,4 @@ include "../logica/conexion.php";
     
 </body>
 </html>
+

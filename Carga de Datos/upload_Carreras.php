@@ -54,13 +54,13 @@ include "../logica/conexion.php";
                   ?>
                   <table border="1">
                     <tr>
-                        <th>ID Carreras</th>
-                        <th>Nombre Carreras</th>
+                        <th>ID Carrera</th>
+                        <th>Nombre Carrera</th>
                     </tr>
                     <?php while ($row = $result->fetch_assoc()) : ?>
                         <tr>
-                            <td><?php echo $row["id_carreras"]; ?></td>
-                            <td><?php echo $row["nom_carreras"]; ?></td>
+                            <td><?php echo $row["id_carrera"]; ?></td>
+                            <td><?php echo $row["nombre_carrera"]; ?></td>
                         </tr>
                     <?php endwhile; ?>
                 </table>

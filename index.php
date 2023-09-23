@@ -60,8 +60,10 @@ include "logica/conexion.php";
       </ul>
 
       <ul>
-        <li><a href="carga de datos/upload_Carreras.php">Cargar Carreras</a></li>
+        <li><a href="carga de datos/upload_carrera_asign.php">Cargar Carreras/Asignaturas</a></li>
+        <li><a href="carga de datos/upload_carreras.php">Cargar Carreras</a></li>
         <li><a href="carga de datos/upload_Asignaturas.php">Cargar Asignaturas</a></li>
+
         <li><a href="carga de datos/upload_Plan de estudio.php">Cargar Plan de Estudio</a></li>
       </ul>
 
@@ -87,8 +89,18 @@ include "logica/conexion.php";
                 <form action="logica/busqueda.php" method="post">
                   <article>
                     <label for="carrera">Carrera:</label>
-                    <input type="text" id="carrera" name="carrera" value="Todos">
+                      <select id="carrera" name="carrera">
+                        <?php
+                        // Consulta para obtener los datos de la tabla Programas
+                          $sql = "SELECT * FROM carreras";
+                        $resultcarrera = $conn->query($sql);
+                        ?>
+                        <?php while ($row = $resultcarrera->fetch_assoc()) : ?>
+                          <option value="<?php echo $row["id_carrera"]; ?>"><?php echo $row["nombre_carrera"];?></option>
+                        <?php endwhile; ?>
+                      </select>
                   </article>
+
                   <br>
                   <article>
                     <label for="plan">Plan de Estudio:</label>
@@ -97,8 +109,18 @@ include "logica/conexion.php";
                   <br>
                   <article>
                     <label for="asignatura">Asignatura:</label>
-                    <input type="text" id="asignatura" name="asignatura" value="Todos">
-                   </article>
+                    <select id="asignatura" name="asignatura">
+
+                    <?php
+                        // Consulta para obtener los datos de la tabla Programas
+                          $sql = "SELECT * FROM asignaturas";
+                        $resultasig = $conn->query($sql);
+                        ?>
+                        <?php while ($row = $resultasig->fetch_assoc()) : ?>
+                          <option value="<?php echo $row["id_asignatura"]; ?>"><?php echo $row["nom_asignatura"];?></option>
+                        <?php endwhile; ?>
+                      </select>
+                  </article>
                   <br>
                   <article>
                     <label for="responsable">Responsable:</label>
@@ -144,7 +166,8 @@ include "logica/conexion.php";
 
                 <?php
                   // Consulta para obtener los datos de la tabla Programas
-                  $sql = "SELECT id_programa, asignatura, id_carrera, id_plan, cuatrimestre, Responsable, Resolucion_CD, fecha_resolucion, documento FROM Programas";
+                  $sql = "SELECT * FROM programas";
+                  // id_programa, id_asignatura, id_carrera, id_plan, cuatrimestre, Responsable, Resolucion_CD, fecha_resolucion, id_documento
                   $result = $conn->query($sql);
                   ?>
                   <table border="1">
@@ -157,19 +180,19 @@ include "logica/conexion.php";
                         <th>Responsable</th>
                         <th>Resolución CD</th>
                         <th>Fecha Resolución</th>
-                        <th>Documento</th>
+                        <th>ID Documento</th>
                     </tr>
                     <?php while ($row = $result->fetch_assoc()) : ?>
                         <tr>
                             <td><?php echo $row["id_programa"]; ?></td>
-                            <td><?php echo $row["asignatura"]; ?></td>
+                            <td><?php echo $row["id_asignatura"]; ?></td>
                             <td><?php echo $row["id_carrera"]; ?></td>
                             <td><?php echo $row["id_plan"]; ?></td>
                             <td><?php echo $row["cuatrimestre"]; ?></td>
-                            <td><?php echo $row["Responsable"]; ?></td>
-                            <td><?php echo $row["Resolucion_CD"]; ?></td>
+                            <td><?php echo $row["responsable"]; ?></td>
+                            <td><?php echo $row["resolucion_CD"]; ?></td>
                             <td><?php echo $row["fecha_resolucion"]; ?></td>
-                            <!-- <td><a href="pdf_viewer copy.php?id_programa=<?php echo $row["id_programa"]; ?>">ver documento</a></td> -->
+                            <td><?php echo $row["id_documento"]; ?></td>
                         </tr>
                     <?php endwhile; ?>
                 </table>
