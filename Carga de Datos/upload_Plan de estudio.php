@@ -1,6 +1,6 @@
 <?php
 // Conexión a la base de datos
-include "../logica/conexion.php";
+include "consultas.php";
 ?>
 
 <!DOCTYPE html>
@@ -42,12 +42,6 @@ include "../logica/conexion.php";
         <label for="res_modif">Resolucion Modificada:</label>
         <input type="text" id="res_modif" name="res_modif">
         <br>
-        
-<!-- 
-        <label for="documento">Documento (PDF):</label>
-        <input type="file" id="documento" name="documento">
-        <br> -->
-
         <input type="submit" value="Subir">
     </form>
 
@@ -55,28 +49,11 @@ include "../logica/conexion.php";
             
             <section class="Result-busqueda">
               <article>
-                <?php
-                    $consulta2 = "SELECT COUNT(*) AS total FROM plan_de_estudio";
-                    $result = $conn->query($consulta2);
-
-                    // Verificar si la consulta fue exitosa
-                    if ($result) {
-                      $row = $result->fetch_assoc();
-                      $total = $row['total'];
-                    } else {
-                      $total = "Error en la consulta: " . $conn->error;
-                    }
-                  ?>
-                  <h3>Resultado de la busqueda: se encontraron  <?php echo $total; ?> resultados</h3> 
+                  <h3>Resultado de la busqueda: se encontraron  <?php echo $totalPlan; ?> resultados</h3> 
               </article>
 
               <article>
 
-                <?php
-                  // Consulta para obtener los datos de la tabla Programas
-                  $sql = "SELECT * FROM plan_de_estudio";
-                  $result = $conn->query($sql);
-                  ?>
                   <table border="1">
                     <tr>
                         <th>ID Plan</th>
@@ -91,7 +68,7 @@ include "../logica/conexion.php";
                         <th>Resolucion Modificada</th>
 
                     </tr>
-                    <?php while ($row = $result->fetch_assoc()) : ?>
+                    <?php while ($row = $resultPlan->fetch_assoc()) : ?>
                         <tr>
                             <td><?php echo $row["id_plan"]; ?></td>
                             <td><?php echo $row["nombre_plan"]; ?></td>

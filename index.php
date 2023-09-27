@@ -1,6 +1,7 @@
 <?php
 // Conexión a la base de datos
 include "logica/conexion.php";
+// include "Carga de Datos/consultas.php";
 ?>
 
 <html lang="es">
@@ -54,21 +55,19 @@ include "logica/conexion.php";
     <nav>
       <ul>
           <li><a href="#">Inicio</a></li>
-          <li><a href="#">Estadistica</a></li>
+          <!-- <li><a href="#">Estadistica</a></li> -->
           <li><a href="https://exa.unne.edu.ar/r/">FaCENA</a></li>
           <li><a href="login.html">Administracion</a></li>
       </ul>
 
       <ul>
         <li><a href="carga de datos/upload_carrera_asign.php">Cargar Carreras/Asignaturas</a></li>
-        <li><a href="carga de datos/upload_carreras.php">Cargar Carreras</a></li>
-        <li><a href="carga de datos/upload_Asignaturas.php">Cargar Asignaturas</a></li>
+        <!-- <li><a href="carga de datos/upload_carreras.php">Cargar Carreras</a></li>
+        <li><a href="carga de datos/upload_Asignaturas.php">Cargar Asignaturas</a></li> -->
 
         <li><a href="carga de datos/upload_Plan de estudio.php">Cargar Plan de Estudio</a></li>
-      </ul>
 
-      <ul>
-      <li><a href="carga de datos/upload_Programas.php">Cargar Programas</a></li>
+        <li><a href="carga de datos/upload_Programas.php">Cargar Programas</a></li>
       </ul>
 
     </nav>
@@ -104,27 +103,46 @@ include "logica/conexion.php";
                   <br>
                   <article>
                     <label for="plan">Plan de Estudio:</label>
-                    <input type="text" id="plan" name="plan" value="Todos">
-                  </article>
-                  <br>
-                  <article>
-                    <label for="asignatura">Asignatura:</label>
-                    <select id="asignatura" name="asignatura">
-
-                    <?php
+                    
+                    <select id="plan" name="plan">
+                        <?php
                         // Consulta para obtener los datos de la tabla Programas
-                          $sql = "SELECT * FROM asignaturas";
-                        $resultasig = $conn->query($sql);
-                        ?>
-                        <?php while ($row = $resultasig->fetch_assoc()) : ?>
-                          <option value="<?php echo $row["id_asignatura"]; ?>"><?php echo $row["nom_asignatura"];?></option>
+                        $consultPlan = "SELECT * FROM plan_de_estudio";
+                        $resultPlan = $conn->query($consultPlan);
+                                                
+                        while ($rowPlan = $resultPlan->fetch_assoc()) : ?>
+                          <option value="<?php echo $rowPlan["id_plan"]; ?>"><?php echo $rowPlan["nombre_plan"];?></option>
                         <?php endwhile; ?>
                       </select>
                   </article>
                   <br>
                   <article>
+                    <label for="asignatura">Asignatura:</label>
+                    <select id="asignatura" name="asignatura">
+                      <?php
+                        // Consulta para obtener los datos de la tabla Programas
+                        $sql = "SELECT * FROM asignaturas";
+                        $resultasig = $conn->query($sql);
+                        while ($row = $resultasig->fetch_assoc()) : ?>
+                          <option value="<?php echo $row["id_asignatura"]; ?>"><?php echo $row["nom_asignatura"];?></option>
+                      <?php endwhile; ?>
+                    </select>
+                  </article>
+                  <br>
+                  <article>
                     <label for="responsable">Responsable:</label>
-                    <input type="text" id="responsable" name="responsable" value="Todos">
+
+                    <select id="carrera" name="carrera">
+                        <?php
+                          // Consulta para obtener los datos de la tabla Programas
+                          $consultProgramas = "SELECT * FROM Programas";
+                          $resultProgramas = $conn->query($consultProgramas);
+                        
+                        while ($row = $resultProgramas->fetch_assoc()) : ?>
+                          <option value="<?php echo $row["id_carrera"]; ?>"><?php echo $row["responsable"];?></option>
+                        <?php endwhile; ?>
+                      </select>
+
                   </article>
                   <br>
   
@@ -148,18 +166,16 @@ include "logica/conexion.php";
                       $row = $result->fetch_assoc();
                       $total = $row['total'];
                     } else {
-                      $total = "Error en la consulta: " . $conn->error;
+                      $total = "Error en la consulta: " . $conn->$error;
                     }
                   ?>
                   <h3>Resultado de la busqueda: se encontraron  <?php echo $total; ?> resultados</h3> 
               </article>
               
               <article>
-                <br><br>
-                <a href="upload_form.html">subir programa</a>
+                <!-- <a href="upload_form.html">subir programa</a> -->
                 <br>
                 <!-- <a href="view_programas.php">Ver lista de Programas</a> -->
-                <br><br>
               </article>
 
               <article>

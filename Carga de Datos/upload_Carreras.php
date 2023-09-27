@@ -19,40 +19,32 @@ include "consultas.php";
         <label for="carreras">Carreras:</label>
         <input type="text" id="carreras" name="carreras">
         <br>
-<!-- 
-        <label for="documento">Documento (PDF):</label>
-        <input type="file" id="documento" name="documento">
-        <br> -->
-
         <input type="submit" value="Subir">
     </form>
 
     <center>
-            
-            <section class="Result-busqueda">
-              <article>
-                  <h3>Resultado de la busqueda: se encontraron  <?php echo $total; ?> resultados</h3> 
-              </article>
+        <section class="Result-busqueda">
+            <article>
+                <h3>Resultado de la busqueda: se encontraron  <?php echo $totalCarreras; ?> resultados</h3> 
+            </article>
 
-              <article>
-                  <table border="1">
+            <article>
+                <table border="1">
+                <tr>
+                    <th>ID Carrera</th>
+                    <th>Nombre Carrera</th>
+                </tr>
+                <?php while ($row = $resultcarrera->fetch_assoc()) : ?>
                     <tr>
-                        <th>ID Carrera</th>
-                        <th>Nombre Carrera</th>
+                        <td><?php echo $row["id_carrera"]; ?></td>
+                        <td><?php echo $row["nombre_carrera"]; ?></td>
                     </tr>
-                    <?php while ($row = $resultcarrera->fetch_assoc()) : ?>
-                        <tr>
-                            <td><?php echo $row["id_carrera"]; ?></td>
-                            <td><?php echo $row["nombre_carrera"]; ?></td>
-                        </tr>
-                    <?php endwhile; ?>
-                </table>
+                <?php endwhile; ?>
+            </table>
 
-              </article>
-              
-                           
-            </section>
-          </center>
+            </article>
+        </section>
+    </center>
           
 
 </body>

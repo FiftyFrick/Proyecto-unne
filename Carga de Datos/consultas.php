@@ -1,19 +1,78 @@
 <?php
 // Conexión a la base de datos
-include "../logica/conexion.php";
+require "../logica/conexion.php";
 
-$countcarreras = "SELECT COUNT(*) AS total FROM carreras";
-$resultCountCarreras = $conn->query($countcarreras);
+$countCarreras = "SELECT COUNT(*) AS total FROM carreras";
+$resultCountCarreras = $conn->query($countCarreras);
 
 // Verificar si la consulta fue exitosa
 if ($resultCountCarreras) {
   $row = $resultCountCarreras->fetch_assoc();
-  $total = $row['total'];
+  $totalCarreras = $row['total'];
 } else {
-  $total = "Error en la consulta: " . $conn->$error;
+  $totalCarreras = "Error en la consulta: " . $conn->$error;
 }
 
 $consultcarreras = "SELECT * FROM carreras";
 $resultcarrera = $conn->query($consultcarreras);
+
+// ------------------------------------------------------------------------
+
+$countAsignaturas = "SELECT COUNT(*) AS total FROM asignaturas";
+$resultCountAsignatura = $conn->query($countAsignaturas);
+
+// Verificar si la consulta fue exitosa
+if ($resultCountAsignatura) {
+  $row = $resultCountAsignatura->fetch_assoc();
+  $totalAsignaturas = $row['total'];
+} else {
+  $totalAsignaturas = "Error en la consulta: " . $conn->$error;
+}
+
+// Consulta para obtener los datos de la tabla Programas
+$consultAsignaturas = "SELECT * FROM asignaturas";
+$resultAsignaturas = $conn->query($consultAsignaturas);
+
+// ------------------------------------------------------------------------
+
+$countPlan = "SELECT COUNT(*) AS total FROM plan_de_estudio";
+$resultCountPlan = $conn->query($countPlan);
+
+// Verificar si la consulta fue exitosa
+if ($resultCountPlan) {
+  $rowPlan = $resultCountPlan->fetch_assoc();
+  $totalPlan = $rowPlan['total'];
+} else {
+  $totalPlan = "Error en la consulta: " . $conn->$error;
+}
+
+// Consulta para obtener los datos de la tabla Programas
+$consultPlan = "SELECT * FROM plan_de_estudio";
+$resultPlan = $conn->query($consultPlan);
+
+// ------------------------------------------------------------------------
+
+$countProgramas = "SELECT COUNT(*) AS total FROM programas";
+$resultCountProgramas = $conn->query($countProgramas);
+
+// Verificar si la consulta fue exitosa
+if ($resultCountProgramas) {
+  $row = $resultCountProgramas->fetch_assoc();
+  $totalProgramas = $row['total'];
+} else {
+  $totalProgramas = "Error en la consulta: " . $conn->$error;
+}
+
+// Consulta para obtener los datos de la tabla Programas
+$consultProgramas = "SELECT * FROM Programas";
+$resultProgramas = $conn->query($consultProgramas);
+
+// ------------------------------------------------------------------------
+
+
+
+
+
+
 
 ?>

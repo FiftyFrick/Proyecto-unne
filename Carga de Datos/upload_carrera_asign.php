@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+
+<?php
+// Conexión a la base de datos
+include "consultas.php";
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,8 +28,7 @@
 
     </div>
 
-    <div>
-            
+    <div>   
         <form action="upload.php" method="post" enctype="multipart/form-data">
             
             <label for="asignatura">Asignatura:</label>
@@ -32,54 +37,56 @@
 
             <input type="submit" value="Subir">
         </form>
-
-        <!-- <center> 
-                
-                <section class="Result-busqueda">
-                <article>
-                    <?php
-                        $consulta2 = "SELECT COUNT(*) AS total FROM asignaturas";
-                        $result = $conn->query($consulta2);
-
-                        // Verificar si la consulta fue exitosa
-                        if ($result) {
-                        $row = $result->fetch_assoc();
-                        $total = $row['total'];
-                        } else {
-                        $total = "Error en la consulta: " . $conn->error;
-                        }
-                    ?>
-                    <h3>Resultado de la busqueda: se encontraron  <?php echo $total; ?> resultados</h3> 
-                </article>
-
-                <article>
-
-                    <?php
-                    // Consulta para obtener los datos de la tabla Programas
-                    $sql = "SELECT * FROM asignaturas";
-                    $result = $conn->query($sql);
-                    ?>
-                    <table border="1">
-                        <tr>
-                            <th>ID Asignatura</th>
-                            <th>Nombre Asignatura</th>
-                        </tr>
-                        <?php while ($row = $result->fetch_assoc()) : ?>
-                            <tr>
-                                <td><?php echo $row["id_asignatura"]; ?></td>
-                                <td><?php echo $row["nom_asignatura"]; ?></td>
-                            </tr>
-                        <?php endwhile; ?>
-                    </table>
-
-                </article>
-                
-                            
-                </section>
-            </center>
-            -->
-            
     </div>
+
+    <center>
+        <section class="Result-busqueda">
+            <article>
+                <h3>Resultado de la busqueda: se encontraron  <?php echo $totalCarreras; ?> resultados</h3> 
+            </article>
+
+            <article>
+                <table border="1">
+                <tr>
+                    <th>ID Carrera</th>
+                    <th>Nombre Carrera</th>
+                </tr>
+                <?php while ($row = $resultcarrera->fetch_assoc()) : ?>
+                    <tr>
+                        <td><?php echo $row["id_carrera"]; ?></td>
+                        <td><?php echo $row["nombre_carrera"]; ?></td>
+                    </tr>
+                <?php endwhile; ?>
+            </table>
+
+            </article>
+        </section>
+
+        <section class="Result-busqueda">
+
+            <article>
+                <h3>Resultado de la busqueda: se encontraron  <?php echo $totalAsignaturas; ?> resultados</h3> 
+            </article>
+
+            <article>
+                <table border="1">
+                <tr>
+                    <th>ID Asignatura</th>
+                    <th>Nombre Asignatura</th>
+                </tr>
+                <?php while ($row = $resultAsignaturas->fetch_assoc()) : ?>
+                    <tr>
+                        <td><?php echo $row["id_asignatura"]; ?></td>
+                        <td><?php echo $row["nom_asignatura"]; ?></td>
+                    </tr>
+                <?php endwhile; ?>
+            </table>
+            </article>
+
+        </section>
+
+    </center>
+
     
 </body>
 </html>
