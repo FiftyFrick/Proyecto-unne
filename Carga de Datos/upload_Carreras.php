@@ -1,6 +1,7 @@
 <?php
 // Conexión a la base de datos
-include "../logica/conexion.php";
+include "consultas.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -30,34 +31,16 @@ include "../logica/conexion.php";
             
             <section class="Result-busqueda">
               <article>
-                <?php
-                    $consulta2 = "SELECT COUNT(*) AS total FROM carreras";
-                    $result = $conn->query($consulta2);
-
-                    // Verificar si la consulta fue exitosa
-                    if ($result) {
-                      $row = $result->fetch_assoc();
-                      $total = $row['total'];
-                    } else {
-                      $total = "Error en la consulta: " . $conn->error;
-                    }
-                  ?>
                   <h3>Resultado de la busqueda: se encontraron  <?php echo $total; ?> resultados</h3> 
               </article>
 
               <article>
-
-                <?php
-                  // Consulta para obtener los datos de la tabla Programas
-                  $sql = "SELECT * FROM carreras";
-                  $result = $conn->query($sql);
-                  ?>
                   <table border="1">
                     <tr>
                         <th>ID Carrera</th>
                         <th>Nombre Carrera</th>
                     </tr>
-                    <?php while ($row = $result->fetch_assoc()) : ?>
+                    <?php while ($row = $resultcarrera->fetch_assoc()) : ?>
                         <tr>
                             <td><?php echo $row["id_carrera"]; ?></td>
                             <td><?php echo $row["nombre_carrera"]; ?></td>
