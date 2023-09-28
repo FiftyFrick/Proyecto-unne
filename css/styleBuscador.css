@@ -1,0 +1,52 @@
+body {
+    background-color: #003366;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    margin: 0;
+  }
+  
+  header {
+    background-color: #0099CC;
+    padding: 10px;
+  }
+  
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo a {
+    color: #FFFFFF;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  
+  .buscador form {
+    display: flex;
+  }
+  
+  .buscador input[type="text"] {
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  .buscador button[type="submit"] {
+    padding: 8px 12px;
+    background-color: #003366;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+  
+  .buscador input[type="text"]:focus {
+    outline: none;
+  }
+  
+  .buscador button[type="submit"]:hover {
+    background-color: #006699;
+  }
+  
