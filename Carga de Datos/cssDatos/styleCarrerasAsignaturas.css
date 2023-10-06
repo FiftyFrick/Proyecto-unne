@@ -1,0 +1,81 @@
+/* Estilos generales para la página */
+body {
+    background-color: #dddddd;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex; /* Utilizamos flexbox para dividir la página en dos partes */
+    height: 100vh; /* Altura total de la ventana gráfica del navegador */
+}
+
+.left,
+.right {
+    flex: 1; /* Ambos divs ocupan el mismo espacio */
+    padding: 20px;
+    border: 1px solid #ccc; /* Borde para separar las partes */
+}
+
+/* Estilos específicos para cada sección si es necesario */
+.left {
+    background-color: #f0f0f0;
+}
+
+.right {
+    background-color: #f0f0f0;
+}
+
+/* Estilos adicionales según sea necesario para tus formularios y tablas */
+
+/* Estilos para el formulario */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilos para los campos del formulario */
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo para el botón de enviar */
+form input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Cambiar el estilo del botón en hover */
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+form select{
+    text-align: center;
+    width: 100%;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(66, 66, 66);
+    border-radius: 5px;
+  }
+  

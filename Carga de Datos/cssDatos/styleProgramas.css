@@ -1,0 +1,112 @@
+/* Estilos generales para la página */
+body {
+    background-color: #dddddd;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos generales para el formulario */
+form{
+    max-width: 80%;
+    margin: 0 auto; /* Centra el formulario en la página */
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.seleccion {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+}
+.seleccion article{
+    display: flex;
+    flex-direction: row;
+    min-width: 30%;
+    margin-right: auto;
+}
+.seleccion article label{
+    min-width: 50%;
+    margin-right: 0%;
+    padding-left: 0%;
+}
+.seleccion article select{
+    padding-right: 0%;
+    margin: auto;
+    min-width: 50%;
+    justify-content: flex-start; /* Alinea el botón a la derecha del contenedor */
+
+
+}
+
+
+
+
+
+/* Estilos para las filas */
+.fila {
+    display: flex; /* Utiliza flexbox para organizar elementos en fila */
+    justify-content: space-between; /* Espacio entre elementos en la fila */
+    margin-bottom: 10px; /* Espacio entre filas */
+}
+
+/* Estilos para las etiquetas */
+.fila label {
+    min-width: 10%;
+    max-width: 30%;
+    width: auto;
+    margin-right: 2px; /* Espacio entre etiquetas y campos de entrada */
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Estilos para el contenedor del botón */
+.boton-container {
+    flex: 1; /* El contenedor del botón ocupa el mismo espacio que las etiquetas */
+    display: flex; /* Utiliza flexbox para alinear el botón a la derecha */
+    justify-content: flex-end; /* Alinea el botón a la derecha del contenedor */
+}
+
+/* Estilos para el botón de envío */
+.boton {
+    width: auto;
+    margin-top: 10px; /* Espacio entre el último campo y el botón de envío */
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilos para los campos de entrada */
+.fila input {
+    flex: 2; /* Cada campo de entrada ocupa el doble de espacio que la etiqueta */
+    min-width: 20%;
+    max-width: 30%;
+    width: auto;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form select{
+    text-align: center;
+    min-width: 20%;
+    max-width: 40%;
+    width: auto;
+
+    padding: 5px 20px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(66, 66, 66);
+    border-radius: 5px;
+  }
+
+.tabla{
+    text-align: center;
+    font-size: 12px;
+}
+

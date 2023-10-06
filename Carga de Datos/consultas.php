@@ -16,6 +16,10 @@ if ($resultCountCarreras) {
 $consultcarreras = "SELECT * FROM carreras";
 $resultcarrera = $conn->query($consultcarreras);
 
+$listacarreras = "SELECT * FROM carreras";
+$resultlistcarrera = $conn->query($listacarreras);
+
+
 // ------------------------------------------------------------------------
 
 $countAsignaturas = "SELECT COUNT(*) AS total FROM asignaturas";
@@ -33,6 +37,10 @@ if ($resultCountAsignatura) {
 $consultAsignaturas = "SELECT * FROM asignaturas";
 $resultAsignaturas = $conn->query($consultAsignaturas);
 
+$listaAsig = "SELECT * FROM asignaturas";
+$resultListAsig = $conn->query($listaAsig);
+
+
 // ------------------------------------------------------------------------
 
 $countPlan = "SELECT COUNT(*) AS total FROM plan_de_estudio";
@@ -49,6 +57,10 @@ if ($resultCountPlan) {
 // Consulta para obtener los datos de la tabla Programas
 $consultPlan = "SELECT * FROM plan_de_estudio";
 $resultPlan = $conn->query($consultPlan);
+
+$listaPlan = "SELECT * FROM plan_de_estudio";
+$resultListPlan = $conn->query($listaPlan);
+
 
 // ------------------------------------------------------------------------
 
