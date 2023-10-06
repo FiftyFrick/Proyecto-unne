@@ -57,7 +57,8 @@ include "logica/conexion.php";
           <li><a href="#">Inicio</a></li>
           <!-- <li><a href="#">Estadistica</a></li> -->
           <li><a href="https://exa.unne.edu.ar/r/">FaCENA</a></li>
-          <li><a href="login.html">Administracion</a></li>
+
+          <li><a href="cuenta/login.html">Administracion</a></li>
       </ul>
 
       <ul>
