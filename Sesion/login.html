@@ -35,22 +35,18 @@
         </div>
 
         <div class="container-form">
-          <form>
-            <label for="email">Usuario</label>
-            <input
-              type="text"
-              id="usename"
-              placeholder="Escriba su usuario"
-              autofocus
-            />
+          
+
+          <form action="logica/loguear.php" method="post" enctype="multipart/form-data">
+
+            <label for="usuario">Usuario</label>
+            
+            <input type="text" id="usuario" placeholder="Escriba su usuario" autofocus >
 
             <div class="container-input">
-              <label for="password">Contraseña</label>
-              <input
-                type="password"
-                id="password"
-                placeholder="Escriba Contraseña"
-              />
+              <label for="clave">Contraseña</label>
+              <input type="password" id="clave" placeholder="Escriba Contraseña" >
+
               <i id="reveal-password" class="bi bi-eye-slash"></i>
             </div>
 

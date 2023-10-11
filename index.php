@@ -58,10 +58,30 @@ include "logica/conexion.php";
           <!-- <li><a href="#">Estadistica</a></li> -->
           <li><a href="https://exa.unne.edu.ar/r/">FaCENA</a></li>
 
-          <li><a href="cuenta/login.html">Administracion</a></li>
-      </ul>
+          <?php
+            session_start();
+            error_reporting(0);
+            $varsession = $_SESSION ['username'];
 
+            if ($varsession == null ){
+                echo '<li><a href="Sesion/login.html">Administracion</a></li>';
+            }else{
+              echo "<strong> Bienvenido $varsession </strong>";
+            ?>
+      </ul>
       <ul>
+          <?php
+              echo '<li><a href="carga de datos/upload_carrera_asign.php">Cargar Carreras/Asignaturas</a></li>';
+
+              echo '<li><a href="carga de datos/upload_Plan de estudio.php">Cargar Plan de Estudio</a></li>';
+              
+              echo '<li><a href="carga de datos/upload_Programas.php">Cargar Programas</a></li>';
+
+            }
+          ?>
+
+
+     
         <li><a href="carga de datos/upload_carrera_asign.php">Cargar Carreras/Asignaturas</a></li>
         <!-- <li><a href="carga de datos/upload_carreras.php">Cargar Carreras</a></li>
         <li><a href="carga de datos/upload_Asignaturas.php">Cargar Asignaturas</a></li> -->
