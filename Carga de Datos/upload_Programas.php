@@ -59,7 +59,7 @@ include "consultas.php";
       <div class="fila">
           <section class="seleccion">
             <article>
-              <label for="nombre_asignatura">Nombre Asignatura:</label>
+              <label for="nombre_asignatura"> Asignatura:</label>
               <select id="asignatura" name="asignatura">
                 <?php
                   while ($row = $resultListAsig->fetch_assoc()) : ?>
@@ -69,7 +69,7 @@ include "consultas.php";
             </article>
             
             <article>
-              <label for="nombre_crrera">Nombre Carrera:</label>
+              <label for="nombre_crrera"> Carrera:</label>
               <select id="nombre_carrera" name="nombre_carrera">
                 <?php while ($rowlistanombre = $resultlistcarrera->fetch_assoc()) : ?>
                     <option value="<?php echo $rowlistanombre["id_carrera"]; ?>"><?php echo $rowlistanombre["nombre_carrera"];?></option>
@@ -78,7 +78,7 @@ include "consultas.php";
             </article>
           
               <article>
-                <label for="nombre_plan">Nombre Plan:</label>
+                <label for="nombre_plan">Plan:</label>
                 <select id="nombre_plan" name="nombre_plan">
                   <?php while ($rowlistaPlan = $resultListPlan->fetch_assoc()) : ?>
                       <option value="<?php echo $rowlistaPlan["id_plan"]; ?>"><?php echo $rowlistaPlan["nombre_plan"];?></option>

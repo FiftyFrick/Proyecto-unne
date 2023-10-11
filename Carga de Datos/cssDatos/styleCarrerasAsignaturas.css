@@ -1,6 +1,6 @@
 /* Estilos generales para la página */
 body {
-    background-color: #dddddd;
+    background-color: #979494;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -15,16 +15,16 @@ body {
 .right {
     flex: 1; /* Ambos divs ocupan el mismo espacio */
     padding: 20px;
-    border: 1px solid #ccc; /* Borde para separar las partes */
+    border: 1px solid #e9e6e6; /* Borde para separar las partes */
 }
 
 /* Estilos específicos para cada sección si es necesario */
 .left {
-    background-color: #f0f0f0;
+    background-color: #f1e9df;
 }
 
 .right {
-    background-color: #f0f0f0;
+    background-color: #f1e9df;
 }
 
 /* Estilos adicionales según sea necesario para tus formularios y tablas */
@@ -34,9 +34,9 @@ form {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f4f4f4;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    background-color: #919191;
+    border: 1px solid #c71212;
+    border-radius: 32px;
 }
 
 /* Estilos para los campos del formulario */
@@ -51,25 +51,44 @@ form input[type="file"] {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
     border-radius: 5px;
 }
 
 /* Estilo para el botón de enviar */
 form input[type="submit"] {
-    background-color: #007BFF;
+    background-color: #040607;
     color: #fff;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 40px;
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 /* Cambiar el estilo del botón en hover */
-form input[type="submit"]:hover {
-    background-color: #0056b3;
+form input[type="submit"]::after, input[type="submit"]::before{
+    content: "";
+    position: absolute;
+    opacity: 0,3;
+    background-color: #e7aaaa;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
 }
-
+form input[type="submit"]:hover {
+    transform: translate(-10px , -10px)
+}
+form input[type="submit"]:hover::after{
+    transform: translate(5px , 5px);
+}
+form input[type="submit"]:hover::before{
+    transform: translate(10px , 10px);
+}
 form select{
     text-align: center;
     width: 100%;
@@ -79,3 +98,19 @@ form select{
     border-radius: 5px;
   }
   
+/*Estilo de la tabla*/
+table{
+    border-color: #040607;
+    background-color: beige;
+    
+}
+th {
+    background-color: #000000;
+    color: #fff;
+}
+table tr:nth-child(odd){
+    background-color: rgba(140, 156, 247, 0.918);
+}
+table tr:nth-child(even){
+    background-color: #c3bef3;
+}

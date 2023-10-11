@@ -12,12 +12,11 @@ include "consultas.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="cssDatos/styleCarrerasAsignaturas.css">
- 
-
 </head>
 <body>
     <header>
     <link rel="stylesheet" href="cssDatos/cabecera.css">
+    
 
       <section class="portada">
         <article class="logo">
@@ -79,13 +78,13 @@ include "consultas.php";
 
                     <input type="submit" value="Subir">
                     </form>
-
+                    <br>
                     <section class="Result-busqueda">
                         <article>
                             <h3>Resultado de la busqueda: se encontraron  <?php echo $totalCarreras; ?> resultados</h3> 
                         </article>
 
-                        <article>
+                        <article >
                             <table border="1">
                             <tr>
                                 <th>ID Carrera</th>
@@ -126,7 +125,7 @@ include "consultas.php";
                     <input type="submit" value="Subir">
                     </form>
 
-       
+                    <br>
                     <section class="Result-busqueda">
 
                         <article>

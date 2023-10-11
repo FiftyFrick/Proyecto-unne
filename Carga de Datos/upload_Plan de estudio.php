@@ -97,14 +97,14 @@ include "consultas.php";
     </form>
     
     <center>
-            
+            <br>
             <section class="Result-busqueda">
               <article>
                   <h3>Resultado de la busqueda: se encontraron  <?php echo $totalPlan; ?> resultados</h3> 
               </article>
 
               <article>
-
+              <br>
                   <table border="1">
                     <tr>
                         <th>ID Plan</th>
