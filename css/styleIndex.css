@@ -217,3 +217,18 @@ footer section article {
   margin: auto;
 }
 
+/*Estilo de la tabla */
+table{
+  border-color: #040607;
+  background-color: rgb(253, 253, 253);
+}
+th {
+  background-color: #000000;
+  color: #fff;
+}
+table tr:nth-child(odd){
+  background-color: rgba(190, 199, 247, 0.918);
+}
+table tr:nth-child(even){
+  background-color: #dfddf0;
+}

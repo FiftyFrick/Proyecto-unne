@@ -101,16 +101,15 @@ form select{
 /*Estilo de la tabla*/
 table{
     border-color: #040607;
-    background-color: beige;
-    
+    background-color: rgb(253, 253, 253);
 }
 th {
     background-color: #000000;
     color: #fff;
 }
 table tr:nth-child(odd){
-    background-color: rgba(140, 156, 247, 0.918);
+    background-color: rgba(190, 199, 247, 0.918);
 }
 table tr:nth-child(even){
-    background-color: #c3bef3;
+    background-color: #dfddf0;
 }
