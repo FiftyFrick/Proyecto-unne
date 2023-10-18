@@ -1,6 +1,6 @@
 /* Estilos generales para la página */
 body {
-    background-color: #dddddd;
+    background-color: #eceaea;
     font-family: Arial, sans-serif;
 }
 
@@ -10,9 +10,9 @@ form{
     margin: 0 auto; /* Centra el formulario en la página */
     margin-top: 50px;
     padding: 20px;
-    background-color: #f4f4f4;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    background-color: #a8a7a7;
+    border: 1px solid #b10f0f;
+    border-radius: 40px;
 }
 .seleccion {
     width: 100%;
@@ -36,7 +36,7 @@ form{
     margin: auto;
     min-width: 50%;
     justify-content: flex-start; /* Alinea el botón a la derecha del contenedor */
-
+    text-align: center;
 
 }
 
@@ -57,9 +57,11 @@ form{
     max-width: 30%;
     width: auto;
     margin-right: 2px; /* Espacio entre etiquetas y campos de entrada */
-    display: block;
     margin-bottom: 5px;
     font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 /* Estilos para el contenedor del botón */
@@ -73,11 +75,11 @@ form{
 .boton {
     width: auto;
     margin-top: 10px; /* Espacio entre el último campo y el botón de envío */
-    background-color: #007BFF;
+    background-color: #0c0d0e;
     color: #fff;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 40px;
     cursor: pointer;
 }
 
@@ -89,7 +91,7 @@ form{
     width: auto;
     padding: 8px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #fff6f6;
     border-radius: 5px;
 }
 
@@ -101,12 +103,31 @@ form select{
 
     padding: 5px 20px;
     margin-bottom: 10px;
-    border: 1px solid rgb(66, 66, 66);
+    border: 1px solid rgb(247, 240, 240);
     border-radius: 5px;
   }
 
 .tabla{
     text-align: center;
-    font-size: 12px;
+    /* font-size: 10px; */
+    border-color: #040607;
+    background-color: rgb(253, 253, 253);
 }
+th {
+    text-align: center;
+
+    background-color: #000000;
+    color: #fff;
+}
+.tabla tr:nth-child(odd){
+    text-align: center;
+
+    background-color: rgba(190, 199, 247, 0.918);
+}
+.tabla tr:nth-child(even){
+    text-align: center;
+
+    background-color: #dddafa;
+}
+
 
