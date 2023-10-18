@@ -40,8 +40,24 @@ include "consultas.php";
           <li><a href="../index.php">Inicio</a></li>
           <li><a href="https://exa.unne.edu.ar/r/">FaCENA</a></li>
 
-          <li><a href="../cuenta/login.html">Administracion</a></li>
-      </ul>
+          <?php
+            // session_start();
+            error_reporting(0);
+            $varsession = $_SESSION ['username'];
+
+            if ($varsession == null ){
+                echo '<li><a href="Sesion/login.html">Administracion</a></li>';
+            }else{
+              echo "<li> <a href='#'> <strong> Bienvenido $varsession </strong> </a> </li>";
+
+              echo "<li> <a href='Sesion/logica/salir.php'>   Cerrar Sesion </a> </li>";
+
+              // echo "<li> <a href='Sesion/mi_cuenta.php'> Mi cuenta </a> </li>";
+
+              // echo "<li> <a href='Sesion/registro.html'> Registrar Nuevo Adimistrador </a> </li>";
+            }
+
+            ?>      </ul>
 
       <ul>
         <li><a href="../carga de datos/upload_carrera_asign.php">Cargar Carreras/Asignaturas</a></li>
