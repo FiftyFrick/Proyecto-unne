@@ -55,7 +55,9 @@ if ($resultCountPlan) {
 }
 
 // Consulta para obtener los datos de la tabla Programas
-$consultPlan = "SELECT * FROM plan_de_estudio";
+$consultPlan = "SELECT * FROM plan_de_estudio 
+INNER JOIN carreras ON carreras.id_carrera = plan_de_estudio.id_carrera
+";
 $resultPlan = $conn->query($consultPlan);
 
 $listaPlan = "SELECT * FROM plan_de_estudio";

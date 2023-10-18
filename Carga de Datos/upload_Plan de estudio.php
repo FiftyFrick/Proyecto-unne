@@ -111,7 +111,6 @@ include "consultas.php";
                     <tr>
                         <th>ID Plan</th>
                         <th>Nombre Plan de Estudio</th>
-                        <th>ID Carrera</th>
                         <th>Nombre Carrera</th>
                         <th>Fecha de inicio</th>
                         <th>Fecha de fin</th>
@@ -125,7 +124,6 @@ include "consultas.php";
                         <tr>
                             <td><?php echo $row["id_plan"]; ?></td>
                             <td><?php echo $row["nombre_plan"]; ?></td>
-                            <td><?php echo $row["id_carrera"]; ?></td>
                             <td><?php echo $row["nombre_carrera"]; ?></td>
                             <td><?php echo $row["fecha_inicio"]; ?></td>
                             <td><?php echo $row["fecha_fin"]; ?></td>
@@ -133,8 +131,6 @@ include "consultas.php";
                             <td><?php echo $row["res_sd"]; ?></td>
                             <td><?php echo $row["res_coneau"]; ?></td>
                             <td><?php echo $row["res_modif"]; ?></td>
-
-
                         </tr>
                     <?php endwhile; ?>
                 </table>

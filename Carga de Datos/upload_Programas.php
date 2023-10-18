@@ -38,7 +38,6 @@ include "consultas.php";
     <nav>
       <ul>
           <li><a href="../index.php">Inicio</a></li>
-          <!-- <li><a href="#">Estadistica</a></li> -->
           <li><a href="https://exa.unne.edu.ar/r/">FaCENA</a></li>
 
           <li><a href="../cuenta/login.html">Administracion</a></li>
@@ -46,8 +45,6 @@ include "consultas.php";
 
       <ul>
         <li><a href="../carga de datos/upload_carrera_asign.php">Cargar Carreras/Asignaturas</a></li>
-        <!-- <li><a href="carga de datos/upload_carreras.php">Cargar Carreras</a></li>
-        <li><a href="carga de datos/upload_Asignaturas.php">Cargar Asignaturas</a></li> -->
 
         <li><a href="../carga de datos/upload_Plan de estudio.php">Cargar Plan de Estudio</a></li>
 
@@ -63,6 +60,7 @@ include "consultas.php";
             <article>
               <label for="nombre_asignatura">Nombre Asignatura:</label>
               <select id="asignatura" name="asignatura">
+                <option value=""></option>
                 <?php
                   while ($row = $resultListAsig->fetch_assoc()) : ?>
                     <option value="<?php echo $row["id_asignatura"]; ?>"><?php echo $row["nom_asignatura"];?></option>
@@ -73,6 +71,7 @@ include "consultas.php";
             <article>
               <label for="nombre_crrera">Nombre Carrera:</label>
               <select id="nombre_carrera" name="nombre_carrera">
+                <option value=""></option>
                 <?php while ($rowlistanombre = $resultlistcarrera->fetch_assoc()) : ?>
                     <option value="<?php echo $rowlistanombre["id_carrera"]; ?>"><?php echo $rowlistanombre["nombre_carrera"];?></option>
                 <?php endwhile; ?>
@@ -82,6 +81,7 @@ include "consultas.php";
               <article>
                 <label for="nombre_plan">Nombre Plan:</label>
                 <select id="nombre_plan" name="nombre_plan">
+                  <option value=""></option>
                   <?php while ($rowlistaPlan = $resultListPlan->fetch_assoc()) : ?>
                       <option value="<?php echo $rowlistaPlan["id_plan"]; ?>"><?php echo $rowlistaPlan["nombre_plan"];?></option>
                   <?php endwhile; ?>
@@ -96,7 +96,11 @@ include "consultas.php";
         <input type="text" id="cuatrimestre" name="cuatrimestre">
         <br>
         <label for="Responsable">Responsable:</label>
-        <select id="carrera" name="carrera">
+        <input type="text" id="responsable" name="responsable">
+
+        <select id="responsable" name="responsable">
+          <option value=""></option>
+
         <?php
         // Consulta para obtener los datos de la tabla Programas
         $consultResponsable = "SELECT * FROM Programas";
@@ -106,7 +110,7 @@ include "consultas.php";
           <option value="<?php echo $rowResponsable["id_carrera"]; ?>"><?php echo $rowResponsable["responsable"];?></option>
         <?php endwhile; ?>
         </select>        
-                      <br>
+      <br>
       </div>
       <br>        
       <div class="fila">  
@@ -114,7 +118,7 @@ include "consultas.php";
         <input type="text" id="Resolucion_CD" name="Resolucion_CD">
         <br>
         <label for="fecha_resolucion">Fecha Resolucion:</label>
-        <input type="text" id="fecha_resolucion" name="fecha_resolucion">
+        <input type="date" id="fecha_resolucion" name="fecha_resolucion">
         <br>
       </div>
 
@@ -136,22 +140,18 @@ include "consultas.php";
           <article>
               <h3>Resultado de la busqueda: se encontraron  <?php echo $totalProgramas; ?> resultados</h3> 
           </article>
-        </center>
+          </center>
 
         <article class="tabla">
-
+        <center>
           <table border="1">
             <tr>
               <th>ID Programa</th>
-              <th>Nombre Programa</th>
               <!-- --------------------> 
-              <!-- <th>ID Asignatura</th> -->
               <th>Nombre de Asignatura</th>
               <!-- ------------------->
-              <!-- <th>ID Carrera</th> -->
               <th>Nombre de Carrera</th>
               <!-- -------------------->
-              <!-- <th>ID Plan</th> -->
               <th>Nombre de Plan de Estudio</th>
               <!-- ------------------->
               <th>Cuatrimestre</th>
@@ -160,37 +160,38 @@ include "consultas.php";
               <th>Fecha Resolución</th>
               <!-- ------------------->
               <th>ID Documento</th>
-              <th>Archivo PDF</th>
+              <!-- <th>Archivo PDF</th> -->
             </tr>
+            <?php
+            $consulta = "SELECT * FROM programas
+                                INNER JOIN carreras ON carreras.id_carrera = programas.id_carrera
+                                INNER JOIN asignaturas ON asignaturas.id_asignatura = programas.id_asignatura
+                                INNER JOIN plan_de_estudio ON plan_de_estudio.id_plan = programas.id_plan
+                                ";
+                                $result = $conn->query($consulta);
 
-            <?php while ($rowPlan = $resultProgramas->fetch_assoc()) : ?>
-            
-            <tr>
-              <td><?php echo $rowPlan["id_programa"]; ?></td>
-              <td><?php echo $rowPlan["nom_programa"]; ?></td>
+                                while ($rowPro = $result->fetch_assoc()) : 
+                            
+                                      ?>
+                                      <tr>
+                                      <td><?php echo $rowPro["id_programa"]; ?></td>
+                                      <td><?php echo $rowPro["nom_asignatura"]; ?></td>
+                                      <td><?php echo $rowPro["nombre_carrera"]; ?></td>
+                                      <td><?php echo $rowPro["nombre_plan"]; ?></td>
+                                      <td><?php echo $rowPro["cuatrimestre"]; ?></td>
+                                      <td><?php echo $rowPro["responsable"]; ?></td>
+                                      <td><?php echo $rowPro["resolucion_CD"]; ?></td>
+                                      <td><?php echo $rowPro["fecha_resolucion"]; ?></td>
+                                      <td><?php echo $rowPro["archivo_PDF"]; ?></td>
+                                    </tr>
+                                    <?php
+                                  endwhile; ?>
 
-              <!-- <td><?php echo $rowPlan["id_asignatura"]; ?></td> -->
-              <td><?php echo $rowPlan["nom_asignatura"]; ?></td>
 
-              <!-- <td><?php echo $rowPlan["id_carrera"]; ?></td> -->
-              <td><?php echo $rowPlan["nom_carrera"]; ?></td>
-
-              <!-- <td><?php echo $rowPlan["id_plan"]; ?></td> -->
-              <td><?php echo $rowPlan["nom_plan"]; ?></td>
-
-              <td><?php echo $rowPlan["cuatrimestre"]; ?></td>
-              <td><?php echo $rowPlan["responsable"]; ?></td>
-              <td><?php echo $rowPlan["resolucion_CD"]; ?></td>
-              <td><?php echo $rowPlan["fecha_resolucion"]; ?></td>
-
-              <td><?php echo $rowPlan["id_documento"]; ?></td>
-              <td><?php echo $rowPlan["archivo"]; ?></td>
-
-            </tr>
-            <?php endwhile; ?>
           </table>
+          </center>
         </article>
-
+    
       </section>
     
   </body>

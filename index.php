@@ -70,9 +70,9 @@ include "logica/conexion.php";
 
               echo "<li> <a href='Sesion/logica/salir.php'>   Cerrar Sesion </a> </li>";
 
-              echo "<li> <a href='Sesion/mi_cuenta.php'> Mi cuenta </a> </li>";
+              // echo "<li> <a href='Sesion/mi_cuenta.php'> Mi cuenta </a> </li>";
 
-              echo "<li> <a href='Sesion/registro.html'> Registrar Nuevo Adimistrador </a> </li>";
+              // echo "<li> <a href='Sesion/registro.html'> Registrar Nuevo Adimistrador </a> </li>";
 
 
             ?>
@@ -88,15 +88,6 @@ include "logica/conexion.php";
             }
           ?>
 
-
-<!--      
-        <li><a href="carga de datos/upload_carrera_asign.php">Cargar Carreras/Asignaturas</a></li>
-        <li><a href="carga de datos/upload_carreras.php">Cargar Carreras</a></li>
-        <li><a href="carga de datos/upload_Asignaturas.php">Cargar Asignaturas</a></li> 
-
-        <li><a href="carga de datos/upload_Plan de estudio.php">Cargar Plan de Estudio</a></li>
-
-        <li><a href="carga de datos/upload_Programas.php">Cargar Programas</a></li> -->
       </ul>
 
     </nav>

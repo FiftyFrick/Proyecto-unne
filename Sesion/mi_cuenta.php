@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,25 +7,17 @@
     <title>Mi Cuenta</title>
     <link rel="stylesheet" href="css/mi_cuenta.css">
 </head>
-<body background="img/depositphotos_536271542-stock-video-dark-green-hex-grid-background.jpg">
+<body>
     
     <header>
-        <h1>Efecto 4T</h1>
-        <h3>Portal exclusivo Desarrollador </h3>      
     </header>
 
     <nav class="menu"> 
         <ul>
             <li>
-                <a href="inicio.php">Inicio</a> 
+                <a href="../index.php">Inicio</a> 
             </li>
             <li>
-            <a href="Repuestos.php">Repuestos</a> 
-            </li>
-            <li>
-                <a href="locales.php">Locales</a>
-                
-            </li>
             
             <li>
                 <?php
@@ -39,8 +31,6 @@
                         echo "<strong> Bienvenido $varsession </strong>  ";
                         
                         echo "<li> <a href='logica/salir.php'> Cerrar Sesion </a> </li>";
-
-                        echo "<li> <a href='mi_cuenta.php'> Mi cuenta </a> </li>";
                         
                     }
                 ?>
@@ -61,14 +51,12 @@
                     
                     <?php
 
-                            include "logica/conexion.php";
+                            include "../logica/conexion.php";
                             
-                            $sql =("SELECT * from bd_cuentas where usuario = '$varsession' ");
-                            
-                            $res_sql=mysqli_query($conexion,$sql);
-
-                            while ($mostrar=mysqli_fetch_array($res_sql)){
-                                                        
+                            $sql =("SELECT * from bd_cuentas where usuario = '$varsession' ");                           
+                            $res_sql = $conn->query($sql);
+                            while ($mostrar = $res_sql->fetch_assoc()) {
+                                                       
                     ?><tr>
                     <tr>
                         <td>Nombre</td>
