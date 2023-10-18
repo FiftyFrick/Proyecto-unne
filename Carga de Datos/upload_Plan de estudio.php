@@ -8,7 +8,9 @@ include "consultas.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subir Archivo</title>
+    <title>Carga de Plan de Estudio</title>
+    <link rel="shortcut icon" href="http://exa.unne.edu.ar/r/wp-content/uploads/2019/07/browsericon.gif" type="image/gif">
+
     <link rel="stylesheet" href="cssDatos/stylePlanDeEstudio.css">
 </head>
 <body>
@@ -97,19 +99,18 @@ include "consultas.php";
     </form>
     
     <center>
-            <br>
+            
             <section class="Result-busqueda">
               <article>
                   <h3>Resultado de la busqueda: se encontraron  <?php echo $totalPlan; ?> resultados</h3> 
               </article>
 
               <article>
-              <br>
+
                   <table border="1">
                     <tr>
                         <th>ID Plan</th>
                         <th>Nombre Plan de Estudio</th>
-                        <th>ID Carrera</th>
                         <th>Nombre Carrera</th>
                         <th>Fecha de inicio</th>
                         <th>Fecha de fin</th>
@@ -123,7 +124,6 @@ include "consultas.php";
                         <tr>
                             <td><?php echo $row["id_plan"]; ?></td>
                             <td><?php echo $row["nombre_plan"]; ?></td>
-                            <td><?php echo $row["id_carrera"]; ?></td>
                             <td><?php echo $row["nombre_carrera"]; ?></td>
                             <td><?php echo $row["fecha_inicio"]; ?></td>
                             <td><?php echo $row["fecha_fin"]; ?></td>
@@ -131,8 +131,6 @@ include "consultas.php";
                             <td><?php echo $row["res_sd"]; ?></td>
                             <td><?php echo $row["res_coneau"]; ?></td>
                             <td><?php echo $row["res_modif"]; ?></td>
-
-
                         </tr>
                     <?php endwhile; ?>
                 </table>

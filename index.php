@@ -54,21 +54,40 @@ include "logica/conexion.php";
 
     <nav>
       <ul>
-          <li><a href="#">Inicio</a></li>
+          <li><a href="index.php">Inicio</a></li>
           <!-- <li><a href="#">Estadistica</a></li> -->
           <li><a href="https://exa.unne.edu.ar/r/">FaCENA</a></li>
 
-          <li><a href="cuenta/login.html">Administracion</a></li>
+          <?php
+            // session_start();
+            error_reporting(0);
+            $varsession = $_SESSION ['username'];
+
+            if ($varsession == null ){
+                echo '<li><a href="Sesion/login.html">Administracion</a></li>';
+            }else{
+              echo "<li> <a href='#'> <strong> Bienvenido $varsession </strong> </a> </li>";
+
+              echo "<li> <a href='Sesion/logica/salir.php'>   Cerrar Sesion </a> </li>";
+
+              // echo "<li> <a href='Sesion/mi_cuenta.php'> Mi cuenta </a> </li>";
+
+              // echo "<li> <a href='Sesion/registro.html'> Registrar Nuevo Adimistrador </a> </li>";
+
+
+            ?>
       </ul>
-
       <ul>
-        <li><a href="carga de datos/upload_carrera_asign.php">Cargar Carreras/Asignaturas</a></li>
-        <!-- <li><a href="carga de datos/upload_carreras.php">Cargar Carreras</a></li>
-        <li><a href="carga de datos/upload_Asignaturas.php">Cargar Asignaturas</a></li> -->
+          <?php
+              echo '<li><a href="carga de datos/upload_carrera_asign.php">Cargar Carreras/Asignaturas</a></li>';
 
-        <li><a href="carga de datos/upload_Plan de estudio.php">Cargar Plan de Estudio</a></li>
+              echo '<li><a href="carga de datos/upload_Plan de estudio.php">Cargar Plan de Estudio</a></li>';
+              
+              echo '<li><a href="carga de datos/upload_Programas.php">Cargar Programas</a></li>';
 
-        <li><a href="carga de datos/upload_Programas.php">Cargar Programas</a></li>
+            }
+          ?>
+
       </ul>
 
     </nav>
@@ -86,18 +105,20 @@ include "logica/conexion.php";
         	<center>
               <div class="Buscador">
 
-                <form action="logica/busqueda.php" method="post">
+                <form action="" method="get">
                   <article>
                     <label for="carrera">Carrera:</label>
-                      <select id="carrera" name="carrera">
-                        <?php
-                        // Consulta para obtener los datos de la tabla Programas
-                          $sql = "SELECT * FROM carreras";
-                        $resultcarrera = $conn->query($sql);
-                        ?>
-                        <?php while ($row = $resultcarrera->fetch_assoc()) : ?>
-                          <option value="<?php echo $row["id_carrera"]; ?>"><?php echo $row["nombre_carrera"];?></option>
-                        <?php endwhile; ?>
+                      <select id="carrera" type="text" name="buscarCarrera">
+                      <option value="0" ></option>
+
+                      <?php
+                      // Consulta para obtener los datos de la tabla Carreras
+                      $sql = "SELECT * FROM carreras";
+                      $resultcarrera = $conn->query($sql);
+                      while ($row = $resultcarrera->fetch_assoc()) {
+                        echo '<option value="' . $row["id_carrera"] . '">' . $row["nombre_carrera"] . '</option>';
+                      }
+                      ?>
                       </select>
                   </article>
 
@@ -105,7 +126,9 @@ include "logica/conexion.php";
                   <article>
                     <label for="plan">Plan de Estudio:</label>
                     
-                    <select id="plan" name="plan">
+                    <select id="plan" name="buscarPlan">
+                        <option value="0"></option>
+
                         <?php
                         // Consulta para obtener los datos de la tabla Programas
                         $consultPlan = "SELECT * FROM plan_de_estudio";
@@ -119,7 +142,9 @@ include "logica/conexion.php";
                   <br>
                   <article>
                     <label for="asignatura">Asignatura:</label>
-                    <select id="asignatura" name="asignatura">
+                    <select id="asignatura" name="buscarAsignatura">
+                    <option value="0"></option>
+
                       <?php
                         // Consulta para obtener los datos de la tabla Programas
                         $sql = "SELECT * FROM asignaturas";
@@ -133,21 +158,23 @@ include "logica/conexion.php";
                   <article>
                     <label for="responsable">Responsable:</label>
 
-                    <select id="carrera" name="carrera">
+                    <select id="responsable" name="buscarResponsable">
+                    <option value="0"></option>
+
                         <?php
                           // Consulta para obtener los datos de la tabla Programas
                           $consultProgramas = "SELECT * FROM Programas";
                           $resultProgramas = $conn->query($consultProgramas);
                         
                         while ($row = $resultProgramas->fetch_assoc()) : ?>
-                          <option value="<?php echo $row["id_carrera"]; ?>"><?php echo $row["responsable"];?></option>
+                          <option value="<?php echo $row["id_programa"]; ?>"><?php echo $row["responsable"];?></option>
                         <?php endwhile; ?>
                       </select>
 
                   </article>
                   <br>
   
-                  <input type="submit" value="Buscar">
+                  <input type="submit" name="enviar" value="Buscar">
                 </form>
 
               </div>
@@ -158,19 +185,114 @@ include "logica/conexion.php";
             
             <section class="Result-busqueda">
               <article>
-                <?php
-                    $consulta2 = "SELECT COUNT(*) AS total FROM programas";
-                    $result = $conn->query($consulta2);
+              <table border="1">
+                    <tr>
+                        <th>ID Programa</th>
+                        <th>Asignatura</th>
+                        <th>Carrera	</th>
+                        <th>Plan</th>
+                        <th>Cuatrimestre</th>
+                        <th>Responsable</th>
+                        <th>Resolución CD</th>
+                        <th>Fecha Resolución</th>
+                        <th>ID Documento</th>
+                    </tr>
 
-                    // Verificar si la consulta fue exitosa
-                    if ($result) {
-                      $row = $result->fetch_assoc();
-                      $total = $row['total'];
-                    } else {
-                      $total = "Error en la consulta: " . $conn->$error;
-                    }
-                  ?>
-                  <h3>Resultado de la busqueda: se encontraron  <?php echo $total; ?> resultados</h3> 
+              <?php
+                        include "logica/conexion.php";
+// 1- buscarCarrera  //2-buscarPlan // 3-buscarAsignatura //4-buscarResponsable
+// 1- carreras.id_carrera //2 - asignaturas.id_asignatura // 3 - plan_de_estudio.id_plan // 4- id_programa                                          
+
+                                if (isset($_GET['buscarCarrera']) && $_GET['buscarCarrera'] > 0) {
+                                  $busqueda = $_GET['buscarCarrera'];
+                                  $idColumna = 'carreras.id_carrera';
+                              } elseif (isset($_GET['buscarPlan']) && $_GET['buscarPlan'] > 0) {
+                                  $busqueda = $_GET['buscarPlan'];
+                                  $idColumna = 'plan_de_estudio.id_plan';
+                              } elseif (isset($_GET['buscarAsignatura']) && $_GET['buscarAsignatura'] > 0) {
+                                  $busqueda = $_GET['buscarAsignatura'];
+                                  $idColumna = 'asignaturas.id_asignatura';
+                              } elseif (isset($_GET['buscarResponsable']) && $_GET['buscarResponsable'] > 0) {
+                                  $busqueda = $_GET['buscarResponsable'];
+                                  $idColumna = 'id_programa';
+                              }
+                              
+                                $consulta = "SELECT * FROM programas
+                                            INNER JOIN carreras ON carreras.id_carrera = programas.id_carrera
+                                            INNER JOIN asignaturas ON asignaturas.id_asignatura = programas.id_asignatura
+                                            INNER JOIN plan_de_estudio ON plan_de_estudio.id_plan = programas.id_plan
+                                            
+                                            WHERE $idColumna LIKE '$busqueda'";
+                                $result = $conn->query($consulta);
+                                if (isset($_GET['enviar'])) {
+                                 // if
+                                  while ($row = $result->fetch_assoc()) : 
+                            
+                                      ?>
+                                      <tr>
+                                      <td><?php echo $row["id_programa"]; ?></td>
+                                      <td><?php echo $row["nom_asignatura"]; ?></td>
+                                      <td><?php echo $row["nombre_carrera"]; ?></td>
+                                      <td><?php echo $row["nombre_plan"]; ?></td>
+                                      <td><?php echo $row["cuatrimestre"]; ?></td>
+                                      <td><?php echo $row["responsable"]; ?></td>
+                                      <td><?php echo $row["resolucion_CD"]; ?></td>
+                                      <td><?php echo $row["fecha_resolucion"]; ?></td>
+                                      <td><?php echo $row["id_documento"]; ?></td>
+                                    </tr>
+                                    <?php
+                                  endwhile; 
+                                   
+                            }else{
+                              $consulta = "SELECT * FROM programas
+                                            INNER JOIN carreras ON carreras.id_carrera = programas.id_carrera
+                                            INNER JOIN asignaturas ON asignaturas.id_asignatura = programas.id_asignatura
+                                            INNER JOIN plan_de_estudio ON plan_de_estudio.id_plan = programas.id_plan
+                                          ";
+                              $result = $conn->query($consulta);
+                              ?>
+                              <article class="contador del resultado">
+                              <?php
+                                  $contTotal = "SELECT COUNT(*) AS total FROM programas";
+                                  $resultTotal = $conn->query($contTotal);
+
+                                  // Verificar si la consulta fue exitosa
+                                  if ($resultTotal) {
+                                    $row = $resultTotal->fetch_assoc();
+                                    $total = $row['total'];
+                                  } else {
+                                    $total = "Error en la consulta: " . $conn->$error;
+                                  }
+                                ?>
+                                <h3>Resultado de la busqueda: se encontraron  <?php echo $total; ?> resultados</h3> 
+                            </article>
+                            <?php
+                              while ($row = $result->fetch_assoc()) : 
+                            
+                                ?>
+                                <tr>
+                                <td><?php echo $row["id_programa"]; ?></td>
+                                <td><?php echo $row["nom_asignatura"]; ?></td>
+                                <td><?php echo $row["nombre_carrera"]; ?></td>
+                                <td><?php echo $row["nombre_plan"]; ?></td>
+                                <td><?php echo $row["cuatrimestre"]; ?></td>
+                                <td><?php echo $row["responsable"]; ?></td>
+                                <td><?php echo $row["resolucion_CD"]; ?></td>
+                                <td><?php echo $row["fecha_resolucion"]; ?></td>
+                                <td><?php echo $row["id_documento"]; ?></td>
+                              </tr>
+
+                              
+                              <?php
+
+                              
+                            endwhile;  
+                           
+                            }
+                            ?>
+
+
+                         </table>
               </article>
               
               <article>
@@ -178,43 +300,12 @@ include "logica/conexion.php";
                 <br>
                 <!-- <a href="view_programas.php">Ver lista de Programas</a> -->
               </article>
-<center> <article>
 
-<?php
-  // Consulta para obtener los datos de la tabla Programas
-  $sql = "SELECT * FROM programas";
-  // id_programa, id_asignatura, id_carrera, id_plan, cuatrimestre, Responsable, Resolucion_CD, fecha_resolucion, id_documento
-  $result = $conn->query($sql);
-  ?>
-  <table border="1">
-    <tr>
-        <th>ID Programa</th>
-        <th>Asignatura</th>
-        <th>ID Carrera</th>
-        <th>ID Plan</th>
-        <th>Cuatrimestre</th>
-        <th>Responsable</th>
-        <th>Resolución CD</th>
-        <th>Fecha Resolución</th>
-        <th>ID Documento</th>
-    </tr>
-    <?php while ($row = $result->fetch_assoc()) : ?>
-        <tr>
-            <td><?php echo $row["id_programa"]; ?></td>
-            <td><?php echo $row["id_asignatura"]; ?></td>
-            <td><?php echo $row["id_carrera"]; ?></td>
-            <td><?php echo $row["id_plan"]; ?></td>
-            <td><?php echo $row["cuatrimestre"]; ?></td>
-            <td><?php echo $row["responsable"]; ?></td>
-            <td><?php echo $row["resolucion_CD"]; ?></td>
-            <td><?php echo $row["fecha_resolucion"]; ?></td>
-            <td><?php echo $row["id_documento"]; ?></td>
-        </tr>
-    <?php endwhile; ?>
-</table>
 
-</article></center>
              
+
+              
+              
               
               <a href="documentos/index.php">ver documentos</a>
                            

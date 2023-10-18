@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-09-2023 a las 00:42:34
+-- Tiempo de generación: 18-10-2023 a las 05:23:44
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -44,6 +44,29 @@ INSERT INTO `asignaturas` (`id_asignatura`, `nom_asignatura`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `bd_cuentas`
+--
+
+CREATE TABLE `bd_cuentas` (
+  `id` int(10) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `apellido` varchar(100) DEFAULT NULL,
+  `email` varchar(200) DEFAULT NULL,
+  `usuario` varchar(100) NOT NULL,
+  `clave` varchar(100) NOT NULL,
+  `administrador` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `bd_cuentas`
+--
+
+INSERT INTO `bd_cuentas` (`id`, `nombre`, `apellido`, `email`, `usuario`, `clave`, `administrador`) VALUES
+(1, 'walter', 'rodriguez', 'walter-541@hotmail.com', 'Walter', '1234', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `carreras`
 --
 
@@ -73,8 +96,15 @@ CREATE TABLE `documentos` (
   `id_documento` int(11) NOT NULL,
   `nombre_doc` varchar(200) NOT NULL,
   `descripcion` varchar(500) NOT NULL,
-  `archivo` varchar(500) NOT NULL
+  `archivo` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `documentos`
+--
+
+INSERT INTO `documentos` (`id_documento`, `nombre_doc`, `descripcion`, `archivo`) VALUES
+(1, 'testeo', '', 0x496d706c656d656e746163696f6e207920646562756767696e672e706466);
 
 -- --------------------------------------------------------
 
@@ -113,6 +143,7 @@ INSERT INTO `plan_de_estudio` (`id_plan`, `nombre_plan`, `id_carrera`, `fecha_in
 
 CREATE TABLE `programas` (
   `id_programa` int(11) NOT NULL,
+  `nombre_programa` varchar(100) NOT NULL,
   `id_asignatura` int(11) NOT NULL,
   `id_carrera` int(11) NOT NULL,
   `id_plan` int(11) NOT NULL,
@@ -120,18 +151,20 @@ CREATE TABLE `programas` (
   `responsable` varchar(100) NOT NULL,
   `resolucion_CD` varchar(50) NOT NULL,
   `fecha_resolucion` date NOT NULL,
-  `id_documento` int(11) DEFAULT NULL
+  `nombre_documento` varchar(100) DEFAULT NULL,
+  `descripcion_doc` varchar(100) DEFAULT NULL,
+  `archivo_PDF` longblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `programas`
 --
 
-INSERT INTO `programas` (`id_programa`, `id_asignatura`, `id_carrera`, `id_plan`, `cuatrimestre`, `responsable`, `resolucion_CD`, `fecha_resolucion`, `id_documento`) VALUES
-(1, 1, 1, 1, 'primer', 'Torres German', '1196/2017', '0000-00-00', 0),
-(2, 2, 3, 4, 'primer', 'Mata Liliana', '0585/2012', '0000-00-00', 0),
-(3, 2, 3, 4, 'primer', 'Mata Liliana', '0321/2000', '0000-00-00', 0),
-(4, 3, 3, 4, 'primer', 'Caputo Liliana', '0076/2018', '0000-00-00', 0);
+INSERT INTO `programas` (`id_programa`, `nombre_programa`, `id_asignatura`, `id_carrera`, `id_plan`, `cuatrimestre`, `responsable`, `resolucion_CD`, `fecha_resolucion`, `nombre_documento`, `descripcion_doc`, `archivo_PDF`) VALUES
+(1, '', 1, 1, 1, 'primer', 'Torres German', '1196/2017', '0000-00-00', NULL, NULL, NULL),
+(2, '', 2, 3, 4, 'primer', 'Mata Liliana', '0585/2012', '0000-00-00', NULL, NULL, NULL),
+(3, '', 2, 3, 4, 'primer', 'Mata Liliana', '0321/2000', '0000-00-00', NULL, NULL, NULL),
+(4, '', 3, 3, 4, 'primer', 'Caputo Liliana', '0076/2018', '0000-00-00', NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -142,6 +175,12 @@ INSERT INTO `programas` (`id_programa`, `id_asignatura`, `id_carrera`, `id_plan`
 --
 ALTER TABLE `asignaturas`
   ADD PRIMARY KEY (`id_asignatura`);
+
+--
+-- Indices de la tabla `bd_cuentas`
+--
+ALTER TABLE `bd_cuentas`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `carreras`
@@ -167,9 +206,8 @@ ALTER TABLE `plan_de_estudio`
 --
 ALTER TABLE `programas`
   ADD PRIMARY KEY (`id_programa`),
-  ADD KEY `id_asignatura` (`id_asignatura`,`id_carrera`,`id_plan`,`id_documento`),
+  ADD KEY `id_asignatura` (`id_asignatura`,`id_carrera`,`id_plan`),
   ADD KEY `id_plan` (`id_plan`),
-  ADD KEY `id_documento` (`id_documento`),
   ADD KEY `id_carrera` (`id_carrera`);
 
 --
@@ -183,6 +221,12 @@ ALTER TABLE `asignaturas`
   MODIFY `id_asignatura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de la tabla `bd_cuentas`
+--
+ALTER TABLE `bd_cuentas`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `carreras`
 --
 ALTER TABLE `carreras`
@@ -192,7 +236,7 @@ ALTER TABLE `carreras`
 -- AUTO_INCREMENT de la tabla `documentos`
 --
 ALTER TABLE `documentos`
-  MODIFY `id_documento` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_documento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `plan_de_estudio`

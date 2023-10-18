@@ -109,18 +109,24 @@ form select{
 
 .tabla{
     text-align: center;
-    font-size: 10px;
+    /* font-size: 10px; */
     border-color: #040607;
     background-color: rgb(253, 253, 253);
 }
 th {
+    text-align: center;
+
     background-color: #000000;
     color: #fff;
 }
 .tabla tr:nth-child(odd){
+    text-align: center;
+
     background-color: rgba(190, 199, 247, 0.918);
 }
 .tabla tr:nth-child(even){
+    text-align: center;
+
     background-color: #dddafa;
 }
 
