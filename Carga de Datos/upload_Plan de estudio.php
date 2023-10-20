@@ -77,6 +77,16 @@ include "consultas.php";
     <div class="fila">
         <label for="plan_de_estudio">Nombre Plan de Estudio:</label>
         <input type="text" id="plan_de_estudio" name="plan_de_estudio">
+        <select id="nombre_plan" name="nombre_plan">
+                  <option value=""></option>
+                  <?php 
+                    $conPlan = "SELECT  DISTINCT nombre_plan  FROM plan_de_estudio";
+                    $resuPlan = $conn->query($conPlan);
+
+                  while ($rowlisPlan = $resuPlan->fetch_assoc()) : ?>
+                      <option value="<?php echo $rowlisPlan["nombre_plan"]; ?>"><?php echo $rowlisPlan["nombre_plan"];?></option>
+                  <?php endwhile; ?>
+                </select>
     </div>
 
     <div class="fila">
@@ -90,9 +100,9 @@ include "consultas.php";
             </select>
         
         <label for="fecha_inicio">Fecha Inicio:</label>
-        <input type="text" id="fecha_inicio" name="fecha_inicio">
+        <input type="date" id="fecha_inicio" name="fecha_inicio">
         <label for="fecha_fin">Fecha Fin:</label>
-        <input type="text" id="fecha_fin" name="fecha_fin">
+        <input type="date" id="fecha_fin" name="fecha_fin">
     </div>
 
     <div class="fila">
