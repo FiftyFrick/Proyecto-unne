@@ -21,7 +21,19 @@ include "header.php";
     
 
     <form action="upload.php" method="post" enctype="multipart/form-data" class="formulario">
-    
+    <div class="fila">
+        <label for="N_plan">Plan de Estudio Numero:</label>
+        <select id="id_plan" name="id_plan">
+                  <option value=""></option>
+                  <?php 
+                    $conPlan = "SELECT * FROM plan_de_estudio";
+                    $resuPlan = $conn->query($conPlan);
+
+                  while ($rowlisPlan = $resuPlan->fetch_assoc()) : ?>
+                      <option value="<?php echo $rowlisPlan["id_plan"]; ?>"><?php echo $rowlisPlan["id_plan"];?></option>
+                  <?php endwhile; ?>
+                </select>
+    </div>
     <div class="fila">
         <label for="plan_de_estudio">Nombre Plan de Estudio:</label>
         <input type="text" id="plan_de_estudio" name="plan_de_estudio">
@@ -63,10 +75,17 @@ include "header.php";
         <label for="res_modif">Resolucion Modificada:</label>
         <input type="text" id="res_modif" name="res_modif">
     </div>
+    <div >
+           
+        <label for="visible">visible:</label>
+        <input type="checkbox" value="visible">
+        <br>
+        
+    </div>
 
     <div class="fila">
         <div class="boton-container">
-            <input type="submit" value="Subir" class="boton">
+            <input type="submit" value="Modificar" class="boton">
         </div>
     </div>
 
@@ -83,7 +102,7 @@ include "header.php";
 
                   <table border="1">
                     <tr>
-                        <th>ID Plan</th>
+                        <th>N° Plan</th>
                         <th>Nombre Plan de Estudio</th>
                         <th>Nombre Carrera</th>
                         <th>Fecha de inicio</th>

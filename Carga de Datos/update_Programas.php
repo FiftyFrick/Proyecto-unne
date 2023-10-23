@@ -21,6 +21,19 @@ include "consultas.php";
   ?>
     <form action="upload.php" method="post" enctype="multipart/form-data">
 
+    <div class="fila">
+        <label for="N_programa">Programa Numero:</label>
+        <select id="id_programa" name="id_programa">
+                  <option value=""></option>
+                  <?php 
+                    $conPlan = "SELECT * FROM programas";
+                    $resuPlan = $conn->query($conPlan);
+
+                  while ($rowlisPlan = $resuPlan->fetch_assoc()) : ?>
+                      <option value="<?php echo $rowlisPlan["id_programa"]; ?>"><?php echo $rowlisPlan["id_programa"];?></option>
+                  <?php endwhile; ?>
+                </select>
+    </div>
       <div class="fila">
           <section class="seleccion">
             <article>
@@ -96,10 +109,14 @@ include "consultas.php";
         <label for="documento">Documento (PDF):</label>
         <input type="file" id="documento" name="documento">
         <br>
+       
         <div class="boton-container">
-            <input type="submit" value="Subir" class="boton">
+        <label for="visible">visible:</label>
+           <input type="checkbox" value="visible">
+           <br>
+            <input type="submit" value="Modificar" class="boton">
         </div>
-    </div>
+      </div>
 
     </form>
 
@@ -116,7 +133,7 @@ include "consultas.php";
         <center>
           <table border="1">
             <tr>
-              <th>ID Programa</th>
+              <th>N° Programa</th>
               <!-- --------------------> 
               <th>Nombre de Asignatura</th>
               <!-- ------------------->
