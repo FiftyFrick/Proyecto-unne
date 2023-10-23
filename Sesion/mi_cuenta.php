@@ -9,16 +9,15 @@
 </head>
 <body>
     
-    <header>
-    </header>
+    
 
     <nav class="menu"> 
         <ul>
             <li>
                 <a href="../index.php">Inicio</a> 
             </li>
-            <li>
             
+
             <li>
                 <?php
                     session_start();
@@ -151,7 +150,8 @@
                 <table>
                     <tr>
                         <form name="eliminar" action="logica/delete_user.php" method="POST">
-                        <td align="center" ><input type="submit"  value="ELIMINAR" /></td>
+                            <td align="center" >
+                                <input type="submit"  value="ELIMINAR" /></td>
                         </form>
                     </tr>
                 </table>
