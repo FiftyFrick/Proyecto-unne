@@ -238,7 +238,7 @@ include "logica/conexion.php";
                                       <td><?php echo $row["responsable"]; ?></td>
                                       <td><?php echo $row["resolucion_CD"]; ?></td>
                                       <td><?php echo $row["fecha_resolucion"]; ?></td>
-                                      <td><?php echo $row["id_documento"]; ?></td>
+                                      <td><?php echo $row["archivo_PDF"]; ?></td>
                                     </tr>
                                     <?php
                                   endwhile; 
@@ -280,7 +280,9 @@ include "logica/conexion.php";
                                 <td><?php echo $row["responsable"]; ?></td>
                                 <td><?php echo $row["resolucion_CD"]; ?></td>
                                 <td><?php echo $row["fecha_resolucion"]; ?></td>
-                                <td><?php echo $row["id_documento"]; ?></td>
+                                <!-- <td><?php echo $row["archivo_PDF"]; ?></td> -->
+                                <td> <a href="mostrarpdf.php?id_programa=<?php echo $row["id_programa"]; ?>">ver documento</a> </td>
+
                               </tr>
 
                               
