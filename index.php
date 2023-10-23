@@ -70,9 +70,9 @@ include "logica/conexion.php";
 
               echo "<li> <a href='Sesion/logica/salir.php'>   Cerrar Sesion </a> </li>";
 
-              // echo "<li> <a href='Sesion/mi_cuenta.php'> Mi cuenta </a> </li>";
+               echo "<li> <a href='Sesion/mi_cuenta.php'> Mi cuenta </a> </li>";
 
-              // echo "<li> <a href='Sesion/registro.html'> Registrar Nuevo Adimistrador </a> </li>";
+              echo "<li> <a href='Sesion/registro.html'> Registrar Nuevo Adimistrador </a> </li>";
 
 
             ?>
