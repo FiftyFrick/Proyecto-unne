@@ -169,8 +169,11 @@ include "consultas.php";
                                       <td><?php echo $rowPro["responsable"]; ?></td>
                                       <td><?php echo $rowPro["resolucion_CD"]; ?></td>
                                       <td><?php echo $rowPro["fecha_resolucion"]; ?></td>
-                                      <td><?php echo $rowPro["archivo_PDF"]; ?></td>
-                                    </tr>
+                                      <td><a href="../mostrarpdf.php
+                                ?id_programa=<?php echo $rowPro["id_programa"];?> 
+                                &nom_asignatura=<?php echo $rowPro["nom_asignatura"];?>
+                                &nombre_carrera=<?php echo $rowPro["nombre_carrera"];?>
+                                ">ver documento</a></td>                                    </tr>
                                     <?php
                                   endwhile; ?>
 
