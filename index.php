@@ -280,9 +280,11 @@ include "logica/conexion.php";
                                 <td><?php echo $row["responsable"]; ?></td>
                                 <td><?php echo $row["resolucion_CD"]; ?></td>
                                 <td><?php echo $row["fecha_resolucion"]; ?></td>
-                                <!-- <td><?php echo $row["archivo_PDF"]; ?></td> -->
-                                <td> <a href="mostrarpdf.php?id_programa=<?php echo $row["id_programa"]; ?>">ver documento</a> </td>
-
+                                <td><a href="mostrarpdf.php
+                                ?id_programa=<?php echo $row["id_programa"];?> 
+                                &nom_asignatura=<?php echo $row["nom_asignatura"];?>
+                                &nombre_carrera=<?php echo $row["nombre_carrera"];?>
+                                ">ver documento</a></td>                                
                               </tr>
 
                               
