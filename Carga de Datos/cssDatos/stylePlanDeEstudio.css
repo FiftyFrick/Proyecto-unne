@@ -1,0 +1,95 @@
+/* Estilos generales para la página */
+body {
+    background-color: #f1eeea;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos generales para el formulario */
+.formulario{
+    max-width: 80%;
+    margin: 0 auto; /* Centra el formulario en la página */
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #afacac;
+    border: 1px solid #df1616;
+    border-radius: 32px;
+}
+
+/* Estilos para las filas */
+.fila {
+    display: flex; /* Utiliza flexbox para organizar elementos en fila */
+    justify-content: space-between; /* Espacio entre elementos en la fila */
+    margin-bottom: 10px; /* Espacio entre filas */
+}
+
+/* Estilos para las etiquetas */
+.fila label {
+    margin-right: 10px; /* Espacio entre etiquetas y campos de entrada */
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Estilos para los campos de entrada */
+.fila input {
+    flex: 2; /* Cada campo de entrada ocupa el doble de espacio que la etiqueta */
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+form select{
+    text-align: center;
+    width: auto;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(66, 66, 66);
+    border-radius: 5px;
+  }
+  
+
+/* Estilos para el contenedor del botón */
+.boton-container {
+    flex: 0; /* El contenedor del botón ocupa el mismo espacio que las etiquetas */
+    display: flex; /* Utiliza flexbox para alinear el botón a la derecha */
+    justify-content: flex-end; /* Alinea el botón a la derecha del contenedor */
+}
+
+/* Estilos para el botón de envío */
+.boton {
+    margin-top: 10px; /* Espacio entre el último campo y el botón de envío */
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/*Estilo de la tabla*/
+table{
+    border-color: #040607;
+    background-color: rgb(253, 253, 253);
+    text-align: center;
+
+}
+th {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+
+}
+table tr:nth-child(odd){
+    background-color: rgba(190, 199, 247, 0.918);
+    text-align: center;
+
+}
+table tr:nth-child(even){
+    background-color: #dfddf0;
+    text-align: center;
+
+}

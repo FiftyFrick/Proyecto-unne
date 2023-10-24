@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Archivo</title>
+    <link rel="stylesheet" href="../css/upload.css">
+</head>
+<body>
+
+    <form action="update_doc.php" method="post" enctype="multipart/form-data">
+        
+         <label for="nombre_doc">nombre_doc:</label>
+        <input type="text" id="nombre_doc" name="nombre_doc">
+        <br>
+        
+        <label for="descripcion">descripcion:</label>
+        <input type="text" id="descripcion" name="descripcion">
+        <br>
+      
+        <label for="archivo">archivo (PDF) 4mb MAX:</label>
+        <input type="file" id="archivo" name="archivo">
+        <br>
+
+        <input type="submit" value="Subir">
+    </form>
+    
+</body>
+</html>

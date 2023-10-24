@@ -1,0 +1,92 @@
+
+header, section, footer, aside, nav, article {
+    display: block;
+    font-size: 20px;
+    color:  white ;
+
+}
+/*----- */
+header{
+    text-align: center;
+}
+/*--------*/
+body{	
+    color: #ffffff;
+    background: no-repeat center url("../img/fondo_panal_verde.jpg") ;
+    background-size:cover ;
+    background-position:center;
+    background-attachment: fixed;
+    display: block;
+    margin: 0%;
+}
+
+nav{
+    background-color: #aa1313;
+    color: #ffffff;
+    position: sticky;
+    top: -1px;
+    text-align: center;
+    font-size: 1.4em;
+    display: flex ;
+    justify-content: center;
+}
+
+.menu li{
+    text-align: center;
+    list-style: none;
+    padding: 10%;
+    display: contents;
+    font-size: 30px;
+ }
+
+.fullbox{
+    margin: 0%;
+}
+
+.crud{
+    display: flex;
+    flex-direction: row;
+}
+
+.crud div{
+    background: rgba(174, 175, 174, 0.884) ; 
+    border: #f52626ad solid 1px;
+    width: 40%;
+    margin: 1.5%;
+    text-align: center;
+    font-size: 1.1em;
+    color: black;
+}
+
+.select-info-user{
+    opacity: 1;
+}
+table{
+    margin: auto;
+    height: 2%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.3em;
+}
+td{
+   height:5%;
+}
+
+.Delete-info-user {
+    border-radius: 40px;
+}
+table input[type="submit"]{
+    background-color: black;
+    color: #ffffff;
+    padding: 30px 30px;
+    border-radius: 32px;
+    text-align: center;
+}
+.update-info-user{
+    border-radius: 40px;
+}
+
+.select-info-user{
+    border-radius: 40px;
+}
+
