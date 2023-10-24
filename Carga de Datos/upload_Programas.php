@@ -25,7 +25,7 @@ include "consultas.php";
           <section class="seleccion">
             <article>
               <label for="nombre_asignatura">Nombre Asignatura:</label>
-              <select id="asignatura" name="asignatura">
+              <select id="asignatura" name="asignatura" required>
                 <option value=""></option>
                 <?php
                   while ($row = $resultListAsig->fetch_assoc()) : ?>
@@ -36,7 +36,7 @@ include "consultas.php";
             
             <article>
               <label for="nombre_crrera">Nombre Carrera:</label>
-              <select id="nombre_carrera" name="nombre_carrera">
+              <select id="nombre_carrera" name="nombre_carrera" required>
                 <option value=""></option>
                 <?php while ($rowlistanombre = $resultlistcarrera->fetch_assoc()) : ?>
                     <option value="<?php echo $rowlistanombre["id_carrera"]; ?>"><?php echo $rowlistanombre["nombre_carrera"];?></option>
@@ -46,7 +46,7 @@ include "consultas.php";
           
               <article>
                 <label for="nombre_plan">Nombre Plan:</label>
-                <select id="nombre_plan" name="nombre_plan">
+                <select id="nombre_plan" name="nombre_plan" required>
                   <option value=""></option>
                   <?php 
                     $consultPlan = "SELECT  DISTINCT nombre_plan  FROM plan_de_estudio";
@@ -66,20 +66,17 @@ include "consultas.php";
         <input type="text" id="cuatrimestre" name="cuatrimestre">
         <br>
         <label for="Responsable">Responsable:</label>
-        <input type="text" id="responsable" name="responsable">
-
-        <select id="responsable" name="responsable">
+        <input type="text" id="responsable" name="responsable" list="opciones_responsable">
+        <datalist id="opciones_responsable">
           <option value=""></option>
-
           <?php
-            // Consulta para obtener los datos de la tabla Programas
-            $consultProgramas = "SELECT  DISTINCT responsable  FROM Programas";
-            $resultProgramas = $conn->query($consultProgramas);
-          
-          while ($row = $resultProgramas->fetch_assoc()) : ?>
-            <option value="<?php echo $row["responsable"]; ?>"><?php echo $row["responsable"];?></option>
-          <?php endwhile; ?>
-        </select>        
+          $consultProgramas = "SELECT DISTINCT responsable FROM Programas";
+          $resultProgramas = $conn->query($consultProgramas);
+          while ($row = $resultProgramas->fetch_assoc()) {
+            echo '<option value="' . $row["responsable"] . '">';
+          }
+          ?>
+        </datalist>        
       <br>
       </div>
       <br>        
@@ -116,7 +113,7 @@ include "consultas.php";
         <center>
           <table border="1">
             <tr>
-              <th>ID Programa</th>
+              <th>N° Programa</th>
               <!-- --------------------> 
               <th>Nombre de Asignatura</th>
               <!-- ------------------->
@@ -129,7 +126,7 @@ include "consultas.php";
               <th>Resolución CD</th>
               <th>Fecha Resolución</th>
               <!-- ------------------->
-              <th>ID Documento</th>
+              <th>Documento PDF</th>
               <!-- <th>Archivo PDF</th> -->
             </tr>
             <?php

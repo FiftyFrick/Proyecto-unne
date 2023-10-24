@@ -102,7 +102,7 @@ include "header.php";
                         <article>
                             <table border="1">
                             <tr>
-                                <th>ID Asignatura</th>
+                                <th>N° Asignatura</th>
                                 <th>Nombre Asignatura</th>
                             </tr>
                             <?php while ($row = $resultAsignaturas->fetch_assoc()) : ?>
