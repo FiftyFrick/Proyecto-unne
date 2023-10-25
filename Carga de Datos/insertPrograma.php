@@ -14,6 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $resolucion_CD = $_POST['Resolucion_CD'];
         $fecha_resolucion = $_POST['fecha_resolucion'];
 
+        echo $nombre_carrera ;
+        echo $nombre_plan ;
+        echo $asignatura ;
+
         // Verifica la existencia de archivos en el formulario
         if (isset($_FILES['archivo'])) {
             // Obtener datos del formulario
@@ -47,8 +51,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 echo "Solo se permiten archivos PDF.";
             }
-        } else {
+            
+         }
+         else {
             echo "No se ha seleccionado ningún archivo.";
+
+            $insertPrograma = "INSERT INTO programas (id_asignatura, id_carrera, id_plan, cuatrimestre, responsable, resolucion_CD, fecha_resolucion)
+                            VALUES ('$asignatura', '$nombre_carrera', '$nombre_plan', '$cuatrimestre', '$responsable', '$resolucion_CD', '$fecha_resolucion')";
+                    $resultado = mysqli_query($conn, $insertPrograma);
+
+                    if ($resultado) {
+                        // Redirigir de vuelta a la página anterior con un mensaje de éxito
+                        header("Location: {$_SERVER['HTTP_REFERER']}?mensaje=exito");
+                        
+                        
+                    } else {
+                        echo "Error al insertar el programa: " . mysqli_error($conn);
+                    }exit(); // Asegurar que el script se detenga después de redirigir
         }
     }
 } else {

@@ -19,7 +19,7 @@ include "consultas.php";
   <?php
   include "header.php";
   ?>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
+    <form action="insertPrograma.php" method="post" enctype="multipart/form-data">
 
       <div class="fila">
           <section class="seleccion">
@@ -53,7 +53,7 @@ include "consultas.php";
                     $resultPlan = $conn->query($consultPlan);
 
                   while ($rowlistaPlan = $resultPlan->fetch_assoc()) : ?>
-                      <option value="<?php echo $rowlistaPlan["nombre_plan"]; ?>"><?php echo $rowlistaPlan["nombre_plan"];?></option>
+                      <option value="<?php echo $rowlistaPlan["id_plan"]; ?>"><?php echo $rowlistaPlan["nombre_plan"];?></option>
                   <?php endwhile; ?>
                 </select>
               </article>
