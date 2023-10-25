@@ -19,7 +19,7 @@ include "consultas.php";
   <?php
   include "header.php";
   ?>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
+    <form action="insertPrograma.php" method="post" enctype="multipart/form-data">
 
       <div class="fila">
           <section class="seleccion">
@@ -51,6 +51,8 @@ include "consultas.php";
                   <?php 
                     $consultPlan = "SELECT  DISTINCT nombre_plan  FROM plan_de_estudio";
                     $resultPlan = $conn->query($consultPlan);
+                  
+                    //value: string "nombre plan"
 
                   while ($rowlistaPlan = $resultPlan->fetch_assoc()) : ?>
                       <option value="<?php echo $rowlistaPlan["nombre_plan"]; ?>"><?php echo $rowlistaPlan["nombre_plan"];?></option>

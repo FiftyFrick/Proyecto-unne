@@ -20,7 +20,7 @@ include "header.php";
 ?>
     
 
-    <form action="upload.php" method="post" enctype="multipart/form-data" class="formulario">
+    <form action="insertPlan.php" method="post" enctype="multipart/form-data" class="formulario">
     
     <div class="fila">
         <label for="plan_de_estudio">Nombre Plan de Estudio:</label>
