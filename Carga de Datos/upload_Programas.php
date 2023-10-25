@@ -51,9 +51,11 @@ include "consultas.php";
                   <?php 
                     $consultPlan = "SELECT  DISTINCT nombre_plan  FROM plan_de_estudio";
                     $resultPlan = $conn->query($consultPlan);
+                  
+                    //value: string "nombre plan"
 
                   while ($rowlistaPlan = $resultPlan->fetch_assoc()) : ?>
-                      <option value="<?php echo $rowlistaPlan["id_plan"]; ?>"><?php echo $rowlistaPlan["nombre_plan"];?></option>
+                      <option value="<?php echo $rowlistaPlan["nombre_plan"]; ?>"><?php echo $rowlistaPlan["nombre_plan"];?></option>
                   <?php endwhile; ?>
                 </select>
               </article>

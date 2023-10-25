@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['asignatura'])) {
         // Formulario de planes de estudio
         $asignatura = $_POST['asignatura'];
-        $nombre_plan = $_POST['nombre_plan'];
+        $nombre_plan = $_POST['nombre_plan']; //necesito que sea un int "id_plan"
         $nombre_carrera = $_POST['nombre_carrera'];
         $cuatrimestre = $_POST['cuatrimestre'];
         $responsable = $_POST['responsable'];
