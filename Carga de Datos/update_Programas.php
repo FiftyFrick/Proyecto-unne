@@ -104,7 +104,7 @@ include "consultas.php";
 
       <div class="fila">
         <label for="documento">Documento (PDF):</label>
-        <input type="file" id="documento" name="documento" >
+        <input type="file" id="documento" name="archivo" >
         <br>
        
         <div class="boton-container">
