@@ -1,18 +1,17 @@
 <?php
 // Conexión a la base de datos
 require "../logica/conexion.php";
-
-// Verificar si la clave "plan_de_estudio" está presente en $_POST
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['plan_de_estudio'])) {
-        // Formulario de planes de estudio
-        if (isset($_POST['nombre_plan']) && !empty($_POST['nombre_plan'])) {
-            $nombre_plan = $_POST['nombre_plan'];
-        } else {
-            $nombre_plan = $_POST['plan_de_estudio'];
-        }
-        
-        
+// // Verificar si la clave "plan_de_estudio" está presente en $_POST
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     if (isset($_POST['plan_de_estudio'])) {
+//         // Formulario de planes de estudio
+//         if (isset($_POST['nombre_plan']) && !empty($_POST['nombre_plan'])) {
+//             $nombre_plan = $_POST['nombre_plan'];
+//         } else {
+//             $nombre_plan = $_POST['plan_de_estudio'];
+//         }
+ 
+        $nombre_plan = $_POST['nombre_plan'];
         $nombre_carrera = $_POST['nombre_carrera'];
         $fecha_inicio = $_POST['fecha_inicio'];
         $fecha_fin = $_POST['fecha_fin'];
@@ -20,6 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $res_sd = $_POST['res_sd'];
         $res_coneau = $_POST['res_coneau'];
         $res_modif = $_POST['res_modif'];
+
+        echo $nombre_plan;
+        echo $nombre_carrera;
+        
 
         // Verifica que el campo de plan de estudio no esté vacío
         if (!empty($nombre_plan)) {
@@ -37,8 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             echo "El campo de plan de estudio no puede estar vacío.";
         }
-    }
-} else {
-    echo "La solicitud no es de tipo POST.";
-}
+//    }
+// } else {
+//     echo "La solicitud no es de tipo POST.";
+//}
 ?>
