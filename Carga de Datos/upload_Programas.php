@@ -26,8 +26,12 @@ include "consultas.php";
             <label for="nombre_carrera">Nombre Carrera:</label>
             <select id="nombre_carrera" name="nombre_carrera" required>
               <option value=""></option>
-              <?php while ($rowlista = $resultlistcarrera->fetch_assoc()) : ?>
-                <option value="<?php echo $rowlista["id_carrera"]; ?>"><?php echo $rowlista["nombre_carrera"];?></option>
+              <?php 
+              $sql = "SELECT id_plan,  carreras.id_carrera, carreras.nombre_carrera              FROM plan_de_estudio              INNER JOIN carreras ON carreras.id_carrera = plan_de_estudio.id_carrera              GROUP BY carreras.id_carrera;";
+              $resPlan2 = $conn->query($sql);
+
+              while ($rowlista2 = $resPlan2->fetch_assoc()) : ?>
+                <option value="<?php echo $rowlista2["id_carrera"]; ?>"><?php echo $rowlista2["nombre_carrera"];?></option>
               <?php endwhile; ?>
             </select>
 
