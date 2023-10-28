@@ -72,3 +72,81 @@ WHERE  carreras.nombre_carrera LIKE '%$busqueda%'
                   ?>
                   <h3>Resultado de la busqueda: se encontraron  <?php echo $total; ?> resultados</h3> 
               </article>
+
+
+
+              ----------------------------------------------------------
+
+              <!-- -------------------------------------------------------------------------- -->
+            <!-- <article>
+                <label for="nombre_plan">Nombre Plan:</label>
+                <select id="nombre_plan" name="nombre_plan" required>
+                  <option value=""></option>
+                  <?php 
+                    $consultPlan = "SELECT  DISTINCT nombre_plan  FROM plan_de_estudio ";
+                    $resultPlan = $conn->query($consultPlan);
+                  
+                    //value: string "nombre plan"
+
+                  while ($rowlistaPlan = $resultPlan->fetch_assoc()) : ?>
+                      <option value="<?php echo $rowlistaPlan["nombre_plan"]; ?>"><?php echo $rowlistaPlan["nombre_plan"];?></option>
+                  <?php endwhile; ?>
+                </select>
+              </article> -->
+
+            <!-- ------------------------------------------------- -->
+              <!-- <label for="nombre_crrera">Nombre Carrera:</label>
+              <select id="nombre_carrera" name="nombre_carrera" required>
+                <option value=""></option>
+                <?php 
+
+                    //
+                    $colsuCarrera = 'SELECT * FROM `plan_de_estudio` INNER JOIN carreras ON carreras.id_carrera = plan_de_estudio.id_carrera';
+
+                    $resColsuCarrera= mysqli_query($conn,$colsuCarrera); 
+                    while ($rowlistanombre = $resColsuCarrera->fetch_assoc()) : ?>
+                    <option value="<?php echo $rowlistanombre["id_carrera"]; ?>"><?php echo $rowlistanombre["nombre_carrera"];?></option>
+                <?php endwhile; 
+                ?>
+              </select>
+            </article>
+              <script>
+                document.getElementById('nombre_carrera').addEventListener('change', function () {
+                // Obtén el valor seleccionado en el campo de carrera
+                var selectedCarrera = this.value;
+                
+                // Habilita el campo de nombre_plan si se ha seleccionado una carrera
+                document.getElementById('nombre_plan').disabled = (selectedCarrera === '');
+
+                  // Actualiza el contenido del elemento con el id "carreraSeleccionada"
+                  document.getElementById('carreraSeleccionada').textContent = 'Carrera seleccionada: ' + selectedCarrera;
+  
+              });
+              </script>
+
+            <label for="nombre_plan">Nombre Plan:</label>
+              <select id="nombre_plan" name="nombre_plan" required disabled>
+                <option value=""> <p id="valor_seleccionado"></p> </option>
+              </select> -->
+
+
+              <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  // Cuando cambia la opción de la carrera
+  $('#nombre_carrera').change(function() {
+    var selectedCarrera = $(this).val();
+
+    // Realizar una solicitud AJAX para obtener los planes asociados a la carrera
+    $.ajax({
+      url: 'upload_Programas.php', // Reemplaza 'tuscript.php' con la URL de tu script PHP que consulta los planes
+      method: 'POST',
+      data: { carrera: selectedCarrera },
+      success: function(data) {
+        // Limpiar y actualizar el menú de planes con los resultados
+        $('#nombre_plan').html(data);
+      }
+    });
+  });
+});
+</script>
