@@ -120,6 +120,18 @@ include "logica/conexion.php";
                       }
                       ?>
                       </select>
+                      <!-- <input type="text" id="nombre_carrera" name="nombre_carrera" list="opciones_carrera" required> 
+                      <datalist id="opciones_carrera">
+                      <option value=""></option>
+                      <?php
+                      $distCarrera = "SELECT * FROM carreras";
+                      $resDistCarrera = $conn->query($distCarrera);
+                      while ($rowDistCarreras = $resDistCarrera->fetch_assoc()) {
+                        echo '<option value="' . $rowDistCarreras["id_carrera"] . '">' . $rowDistCarreras["nombre_carrera"] . '</option>';
+                        
+                          }
+                      ?>
+                      </datalist> -->
                   </article>
 
                   <br>
@@ -314,21 +326,10 @@ include "logica/conexion.php";
 
 
                          </table>
-              </article>
-              
-              <article>
-                <!-- <a href="upload_form.html">subir programa</a> -->
-                <br>
-                <!-- <a href="view_programas.php">Ver lista de Programas</a> -->
-              </article>
+              </article>        
 
-
-             
-
-              
-              
-              
-              <a href="documentos/index.php">ver documentos</a>
+                            
+              <!-- <a href="documentos/index.php">ver documentos</a> -->
                            
             </section>
           </center>

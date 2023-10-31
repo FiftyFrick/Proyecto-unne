@@ -27,7 +27,7 @@ include "consultas.php";
             <select id="nombre_carrera" name="nombre_carrera" required>
               <option value=""></option>
               <?php 
-              $sql = "SELECT id_plan,  carreras.id_carrera, carreras.nombre_carrera              FROM plan_de_estudio              INNER JOIN carreras ON carreras.id_carrera = plan_de_estudio.id_carrera              GROUP BY carreras.id_carrera;";
+              $sql = "SELECT id_plan, carreras.id_carrera, carreras.nombre_carrera FROM plan_de_estudio INNER JOIN carreras ON carreras.id_carrera = plan_de_estudio.id_carrera GROUP BY carreras.id_carrera;";
               $resPlan2 = $conn->query($sql);
 
               while ($rowlista2 = $resPlan2->fetch_assoc()) : ?>
@@ -69,13 +69,18 @@ include "consultas.php";
             </script>
 
               <label for="nombre_asignatura">Nombre Asignatura:</label>
-              <select id="asignatura" name="asignatura" required>
-                <option value=""></option>
-                <?php
-                  while ($row = $resultListAsig->fetch_assoc()) : ?>
-                    <option value="<?php echo $row["id_asignatura"]; ?>"><?php echo $row["nom_asignatura"];?></option>
-                <?php endwhile; ?>
-              </select> 
+              <input type="text" id="asignatura" name="asignatura" list="opciones_asignatura" required autocomplete="off"> 
+              <datalist id="opciones_asignatura">
+              <option value=""></option>
+              <?php
+              $distAsignatura = "SELECT nom_asignatura FROM asignaturas";
+              $resDistAsignatura = $conn->query($distAsignatura);
+              while ($rowDistAsignatura = $resDistAsignatura->fetch_assoc()) {
+                echo '<option value="' . $rowDistAsignatura["nom_asignatura"] . '">';
+                
+                }
+              ?>
+              </datalist>
             
       </div>
       <br>
