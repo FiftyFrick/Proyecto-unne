@@ -70,9 +70,9 @@ include "logica/conexion.php";
 
               echo "<li> <a href='Sesion/logica/salir.php'>   Cerrar Sesion </a> </li>";
 
-               echo "<li> <a href='Sesion/mi_cuenta.php'> Mi cuenta </a> </li>";
+              // echo "<li> <a href='Sesion/mi_cuenta.php'> Mi cuenta </a> </li>";
 
-              echo "<li> <a href='Sesion/registro.html'> Registrar Nuevo Adimistrador </a> </li>";
+              // echo "<li> <a href='Sesion/registro.html'> Registrar Nuevo Adimistrador </a> </li>";
 
 
             ?>
@@ -130,16 +130,28 @@ include "logica/conexion.php";
                         <option value="0"></option>
 
                         <?php
-                        // Consulta para obtener los datos de la tabla Programas
-                        $consultPlan = "SELECT * FROM plan_de_estudio";
+                        $consultPlan = "SELECT DISTINCT nombre_plan FROM plan_de_estudio";
                         $resultPlan = $conn->query($consultPlan);
-                                                
+
                         while ($rowPlan = $resultPlan->fetch_assoc()) : ?>
-                          <option value="<?php echo $rowPlan["id_plan"]; ?>"><?php echo $rowPlan["nombre_plan"];?></option>
+                          <option value="<?php echo $rowPlan["nombre_plan"]; ?>"><?php echo $rowPlan["nombre_plan"];?></option>
                         <?php endwhile; ?>
                       </select>
+                        <!-- 
+                           <option value=""></option>
+                <?php 
+                $conPlan = "SELECT  DISTINCT nombre_plan  FROM plan_de_estudio";
+                $resuPlan = $conn->query($conPlan);
+
+                while ($rowlisPlan = $resuPlan->fetch_assoc()) : ?>
+                    <option value="<?php echo $rowlisPlan["nombre_plan"]; ?>"><?php echo $rowlisPlan["nombre_plan"];?></option>
+                <?php endwhile; ?>
+                         -->
+                      </select>
                   </article>
+                  
                   <br>
+
                   <article>
                     <label for="asignatura">Asignatura:</label>
                     <select id="asignatura" name="buscarAsignatura">
@@ -154,10 +166,11 @@ include "logica/conexion.php";
                       <?php endwhile; ?>
                     </select>
                   </article>
+                  
                   <br>
+
                   <article>
                     <label for="responsable">Responsable:</label>
-
                     <select id="responsable" name="buscarResponsable">
                     <option value="0"></option>
 
@@ -182,12 +195,11 @@ include "logica/conexion.php";
           </center>
           <br>
           <center>
-            
             <section class="Result-busqueda">
               <article>
               <table border="1">
                     <tr>
-                        <th>ID Programa</th>
+                        <th>N° Programa</th>
                         <th>Asignatura</th>
                         <th>Carrera	</th>
                         <th>Plan</th>
@@ -195,7 +207,7 @@ include "logica/conexion.php";
                         <th>Responsable</th>
                         <th>Resolución CD</th>
                         <th>Fecha Resolución</th>
-                        <th>ID Documento</th>
+                        <th>Documento PDF</th>
                     </tr>
 
               <?php
@@ -206,9 +218,9 @@ include "logica/conexion.php";
                                 if (isset($_GET['buscarCarrera']) && $_GET['buscarCarrera'] > 0) {
                                   $busqueda = $_GET['buscarCarrera'];
                                   $idColumna = 'carreras.id_carrera';
-                              } elseif (isset($_GET['buscarPlan']) && $_GET['buscarPlan'] > 0) {
+                              } elseif (isset($_GET['buscarPlan']) && $_GET['buscarPlan'] !=="" && $_GET['buscarPlan'] >"0") {
                                   $busqueda = $_GET['buscarPlan'];
-                                  $idColumna = 'plan_de_estudio.id_plan';
+                                  $idColumna = 'plan_de_estudio.nombre_plan';
                               } elseif (isset($_GET['buscarAsignatura']) && $_GET['buscarAsignatura'] > 0) {
                                   $busqueda = $_GET['buscarAsignatura'];
                                   $idColumna = 'asignaturas.id_asignatura';
@@ -216,7 +228,7 @@ include "logica/conexion.php";
                                   $busqueda = $_GET['buscarResponsable'];
                                   $idColumna = 'responsable';
                               }
-                              //echo $busqueda;
+                              // echo $busqueda;
                               $consulta = "SELECT * FROM programas
                               INNER JOIN carreras ON carreras.id_carrera = programas.id_carrera
                               INNER JOIN asignaturas ON asignaturas.id_asignatura = programas.id_asignatura
@@ -238,7 +250,11 @@ include "logica/conexion.php";
                                       <td><?php echo $row["responsable"]; ?></td>
                                       <td><?php echo $row["resolucion_CD"]; ?></td>
                                       <td><?php echo $row["fecha_resolucion"]; ?></td>
-                                      <td><?php echo $row["archivo_PDF"]; ?></td>
+                                      <td><a href="mostrarpdf.php
+                                      ?id_programa=<?php echo $row["id_programa"];?> 
+                                      &nom_asignatura=<?php echo $row["nom_asignatura"];?>
+                                      &nombre_carrera=<?php echo $row["nombre_carrera"];?>
+                                      ">ver documento</a></td>
                                     </tr>
                                     <?php
                                   endwhile; 
