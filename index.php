@@ -340,19 +340,67 @@ include "logica/conexion.php";
           <img src="img/licen_en_sist_de_inform.jpg">
           <h4>Licenciatura en Sistema de Informacion</h4>
         </article>
+        
         <article>
-          <img src="img/biomica.jpg">
-          <h4>Biomica</h4>
-        </article>
-        <article>
-          <img src="img/ing_agrimensura.jpeg">
-          <h4>Ingenieria Agrimensura</h4>
-        </article>
-        <article>
-          <img  src="img/ing_electronica.jpg">
-          <h4>Ingenieria Electronica</h4>
+          <img src="img/bioquimica.png" width="200px" height="150px">
+          <h4>Bioquimica</h4>
         </article>
 
+        <article>
+          <img src="img/ing_agrimensura.jpeg" width="200px" height="150px">
+          <h4>Ingenieria en Agrimensura</h4>
+        </article>
+
+        <article>
+          <img  src="img/ing_electronica.jpg" width="200px" height="150px">
+          <h4>Ingenieria en Electronica</h4>
+        </article>
+
+        <article>
+          <img src="img/licen_en_ciencias_quimicas.jpg" width="200px" height="140px">
+          <h4>Licenciatura en Ciencias Quimicas</h4>
+        </article>
+
+        <article>
+          <img src="img/ing_electrica.jpg" width="200px" height="150px">
+          <h4>Ingenieria Electrica</h4>
+        </article>
+
+        <article>
+          <img src="img/licen_en_biologia.jpg">
+          <h4>Licenciatura en Biologia</h4>
+        </article>
+
+        <article>
+          <img src="img/licen_en_matematica.jpg" width="200px" height="150px">
+          <h4>Licenciatura en Matematica</h4>
+        </article>
+
+        <article>
+          <img src="img/licen_en_fisica.jpg" width="200px" height="150px">
+          <h4>Licenciatura en Fisica</h4>
+        </article>
+
+        <article>
+          <img src="img/profe_en_biologia.jpg">
+          <h4>Profesorado en Biologia</h4>
+        </article>
+
+        <article>
+          <img src="img/profe_en_matematica.jpeg" width="200px" height="150px">
+          <h4>Profesorado en Matematica</h4>
+        </article>
+
+        <article>
+          <img src="img/profe_en_fisica.jpg" width="200px" height="150px">
+          <h4>Profesorado en Fisica</h4>
+        </article>
+
+        <article>
+          <img src="img/profe_en_Cs_quimica_y_del_ambiente.jpg" width="200px" height="150px">
+          <h4>Profesorado en Cs Quimicas y del Ambiente</h4>
+        </article>
+        
       </section>
 
     </main>
