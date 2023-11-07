@@ -186,7 +186,7 @@ h5{
 .carreras article{
   margin: auto;
   width: 250px;
-  background-color: rgb(155, 25, 25);
+  border-radius: 32px;
 }
 
 .carreras img{
@@ -196,14 +196,18 @@ h5{
   margin-bottom: 15px;
   box-shadow: 0 0 6px rgb(0, 0, 0, 0.5);
   cursor: pointer;
+  border-radius: 32px;
 }
 .carrera img:hover{
   transition: all 0.3s ease-in-out;
     transform: scale(1.1);
 }
 .carreras h4{
-  text-align: center;
+  text-align: -webkit-center;
   color: #fff;
+  background-color: rgb(155, 25, 25);
+  display: flow-root;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* ---------------- footer ------------------ */
