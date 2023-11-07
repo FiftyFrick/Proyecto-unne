@@ -178,22 +178,39 @@ h5{
 /* Section carreras  */
 .carreras{
   display: flex;
-  flex-direction: row;
-  text-align: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+
 }
 .carreras article{
   margin: auto;
+  margin-bottom: 1%;
   width: 250px;
-  background-color: rgb(155, 25, 25);
+  height: 200px;
+  border-radius: 32px;
+
 }
 
-.carreras img{
+.carreras article img{
   width: 250px;
-  height: 250px;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 15px;
+  box-shadow: 0 0 6px rgb(0, 0, 0, 0.5);
+  border-radius: 32px;
+}
+.carrera img:hover{
+  transition: all 0.3s ease-in-out;
+    transform: scale(1.1);
 }
 .carreras h4{
-  text-align: center;
+  text-align: -webkit-center;
   color: #fff;
+  background-color: rgb(155, 25, 25);
+  display: flow-root;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* ---------------- footer ------------------ */
