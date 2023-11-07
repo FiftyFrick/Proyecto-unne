@@ -9,7 +9,7 @@ $clave = $_POST ["clave"];
 $telefono = $_POST ["telefono"];
 
 
-$verificar_usuario = mysqli_query($conexion, "select * from Bd_cuentas where usuario = '$usuario' ");
+$verificar_usuario = mysqli_query($conn, "select * from Bd_cuentas where usuario = '$usuario' ");
 
 if (mysqli_num_rows($verificar_usuario) > 0){
     echo '<script>

@@ -30,7 +30,7 @@ include "header.php";
                 <center>
 
                     <!-- Tu primer formulario y contenido aquí -->
-                    <form action="upload.php" method="post" enctype="multipart/form-data">
+                    <form action="insert.php" method="post" enctype="multipart/form-data">
                     
                     <label for="carreras">Carreras:</label>
                     <input type="text" id="carreras" name="carreras">
@@ -75,7 +75,7 @@ include "header.php";
                 <center>
 
                     <!-- Tu segundo formulario y contenido aquí -->
-                    <form action="upload.php" method="post" enctype="multipart/form-data">
+                    <form action="insert.php" method="post" enctype="multipart/form-data">
                     
                     <label for="asignatura">Asignatura:</label>
                     <input type="text" id="asignatura" name="asignatura">
@@ -102,7 +102,7 @@ include "header.php";
                         <article>
                             <table border="1">
                             <tr>
-                                <th>ID Asignatura</th>
+                                <th>N° Asignatura</th>
                                 <th>Nombre Asignatura</th>
                             </tr>
                             <?php while ($row = $resultAsignaturas->fetch_assoc()) : ?>

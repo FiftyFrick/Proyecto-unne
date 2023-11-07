@@ -19,46 +19,69 @@ include "consultas.php";
   <?php
   include "header.php";
   ?>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
+    <form action="insertPrograma.php" method="post" enctype="multipart/form-data">
 
       <div class="fila">
-          <section class="seleccion">
-            <article>
+           
+            <label for="nombre_carrera">Nombre Carrera:</label>
+            <select id="nombre_carrera" name="nombre_carrera" required>
+              <option value=""></option>
+              <?php 
+              $sql = "SELECT id_plan, carreras.id_carrera, carreras.nombre_carrera FROM plan_de_estudio INNER JOIN carreras ON carreras.id_carrera = plan_de_estudio.id_carrera GROUP BY carreras.id_carrera;";
+              $resPlan2 = $conn->query($sql);
+
+              while ($rowlista2 = $resPlan2->fetch_assoc()) : ?>
+                <option value="<?php echo $rowlista2["id_carrera"]; ?>"><?php echo $rowlista2["nombre_carrera"];?></option>
+              <?php endwhile; ?>
+            </select>
+
+            <label for="nombre_plan">Nombre Plan:</label>
+
+            <select id="nombre_plan" name="nombre_plan" required disabled>
+              <option value=""></option>
+            </select>
+
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script>
+            $(document).ready(function() {
+              // Cuando cambia la opción de nombre de carrera
+              $('#nombre_carrera').change(function() {
+                var selectedCarrera = $(this).val();
+
+                // Habilita o deshabilita el campo de nombre_plan según la selección
+                if (selectedCarrera !== '') {
+                  $('#nombre_plan').prop('disabled', false);
+                  // Realiza una solicitud AJAX para obtener los planes basados en la carrera seleccionada
+                  $.ajax({
+                    url: 'filtroPost.php', // Reemplaza 'tuscript.php' con la URL de tu script PHP que consulta los planes
+                    method: 'POST', // O 'GET' según tus necesidades
+                    data: { carrera: selectedCarrera }, // Envía el valor seleccionado
+                    success: function(data) {
+                      // Limpia y actualiza el menú de planes con los resultados
+                      $('#nombre_plan').html(data);
+                    }
+                  });
+                } else {
+                  $('#nombre_plan').prop('disabled', true);
+                }
+              });
+            });
+            </script>
+
               <label for="nombre_asignatura">Nombre Asignatura:</label>
-              <select id="asignatura" name="asignatura">
-                <option value=""></option>
-                <?php
-                  while ($row = $resultListAsig->fetch_assoc()) : ?>
-                    <option value="<?php echo $row["id_asignatura"]; ?>"><?php echo $row["nom_asignatura"];?></option>
-                <?php endwhile; ?>
-              </select> 
-            </article>
+              <input type="text" id="asignatura" name="asignatura" list="opciones_asignatura" required autocomplete="off"> 
+              <datalist id="opciones_asignatura">
+              <option value=""></option>
+              <?php
+              $distAsignatura = "SELECT nom_asignatura FROM asignaturas";
+              $resDistAsignatura = $conn->query($distAsignatura);
+              while ($rowDistAsignatura = $resDistAsignatura->fetch_assoc()) {
+                echo '<option value="' . $rowDistAsignatura["nom_asignatura"] . '">';
+                
+                }
+              ?>
+              </datalist>
             
-            <article>
-              <label for="nombre_crrera">Nombre Carrera:</label>
-              <select id="nombre_carrera" name="nombre_carrera">
-                <option value=""></option>
-                <?php while ($rowlistanombre = $resultlistcarrera->fetch_assoc()) : ?>
-                    <option value="<?php echo $rowlistanombre["id_carrera"]; ?>"><?php echo $rowlistanombre["nombre_carrera"];?></option>
-                <?php endwhile; ?>
-              </select>
-            </article>
-          
-              <article>
-                <label for="nombre_plan">Nombre Plan:</label>
-                <select id="nombre_plan" name="nombre_plan">
-                  <option value=""></option>
-                  <?php 
-                    $consultPlan = "SELECT  DISTINCT nombre_plan  FROM plan_de_estudio";
-                    $resultPlan = $conn->query($consultPlan);
-
-                  while ($rowlistaPlan = $resultPlan->fetch_assoc()) : ?>
-                      <option value="<?php echo $rowlistaPlan["nombre_plan"]; ?>"><?php echo $rowlistaPlan["nombre_plan"];?></option>
-                  <?php endwhile; ?>
-                </select>
-              </article>
-
-          </section>        
       </div>
       <br>
       <div class="fila">  
@@ -66,20 +89,18 @@ include "consultas.php";
         <input type="text" id="cuatrimestre" name="cuatrimestre">
         <br>
         <label for="Responsable">Responsable:</label>
-        <input type="text" id="responsable" name="responsable">
-
-        <select id="responsable" name="responsable">
+        <input type="text" id="responsable" name="responsable" list="opciones_responsable">
+        <datalist id="opciones_responsable">
           <option value=""></option>
-
           <?php
-            // Consulta para obtener los datos de la tabla Programas
-            $consultProgramas = "SELECT  DISTINCT responsable  FROM Programas";
-            $resultProgramas = $conn->query($consultProgramas);
-          
-          while ($row = $resultProgramas->fetch_assoc()) : ?>
-            <option value="<?php echo $row["responsable"]; ?>"><?php echo $row["responsable"];?></option>
-          <?php endwhile; ?>
-        </select>        
+          include"consultas.php";
+          $consultProgramas = "SELECT DISTINCT responsable FROM Programas";
+          $resultProgramas = $conn->query($consultProgramas);
+          while ($row = $resultProgramas->fetch_assoc()) {
+            echo '<option value="' . $row["responsable"] . '">';
+          }
+          ?>
+        </datalist>        
       <br>
       </div>
       <br>        
@@ -116,7 +137,7 @@ include "consultas.php";
         <center>
           <table border="1">
             <tr>
-              <th>ID Programa</th>
+              <th>N° Programa</th>
               <!-- --------------------> 
               <th>Nombre de Asignatura</th>
               <!-- ------------------->
@@ -129,7 +150,7 @@ include "consultas.php";
               <th>Resolución CD</th>
               <th>Fecha Resolución</th>
               <!-- ------------------->
-              <th>ID Documento</th>
+              <th>Documento PDF</th>
               <!-- <th>Archivo PDF</th> -->
             </tr>
             <?php
@@ -152,8 +173,12 @@ include "consultas.php";
                                       <td><?php echo $rowPro["responsable"]; ?></td>
                                       <td><?php echo $rowPro["resolucion_CD"]; ?></td>
                                       <td><?php echo $rowPro["fecha_resolucion"]; ?></td>
-                                      <td><?php echo $rowPro["archivo_PDF"]; ?></td>
-                                    </tr>
+                                      <td><a href="../mostrarpdf.php
+                                ?id_programa=<?php echo $rowPro["id_programa"];?> 
+                                &nom_asignatura=<?php echo $rowPro["nom_asignatura"];?>
+                                &nombre_carrera=<?php echo $rowPro["nombre_carrera"];?>
+                                ">ver documento</a></td>                                     
+                              </tr>
                                     <?php
                                   endwhile; ?>
 

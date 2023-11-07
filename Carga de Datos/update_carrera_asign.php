@@ -30,7 +30,7 @@ include "header.php";
                 <center>
 
                     <!-- Tu primer formulario y contenido aquí -->
-                    <form action="upload.php" method="post" enctype="multipart/form-data">
+                    <form action="modify_carreras.php" method="post" enctype="multipart/form-data">
                     
                     <label for="carreras">Carreras:</label>
                      <select id="carrera" name="idCarrera">
@@ -39,14 +39,14 @@ include "header.php";
                         <?php endwhile; ?>
 
                       </select>                   
-                    <input type="text" id="carreras" name="carreras">
+                    <input type="text" id="carreras" name="carrera" required>
 
                     
                     <br>
                     
-                    <label for="visible">visible:</label>
-                    <input type="checkbox" value="visible">
-                    <br>
+                    <!-- <label for="visible">visible:</label>
+                    <input type="checkbox" value="visible"> 
+                    <br>-->
                     <input type="submit" value="Modificar">
 
                     
@@ -62,7 +62,7 @@ include "header.php";
                         <article>
                             <table border="1">
                             <tr>
-                                <th>ID Carrera</th>
+                                <th>N° Carrera</th>
                                 <th>Nombre Carrera</th>
                             </tr>
                             <?php while ($row = $resultcarrera->fetch_assoc()) : ?>
@@ -83,7 +83,7 @@ include "header.php";
                 <center>
 
                     <!-- Tu segundo formulario y contenido aquí -->
-                    <form action="upload.php" method="post" enctype="multipart/form-data">
+                    <form action="modify_asignaturas.php" method="post" enctype="multipart/form-data">
                     
                     <label for="asignatura">Asignatura:</label>
                     
@@ -94,14 +94,14 @@ include "header.php";
                       <?php endwhile; ?>
                     </select> 
                     
-                    <input type="text" id="asignatura" name="asignatura">
+                    <input type="text" id="asignatura" name="asignatura" required>
                     
                     <br>
 
                                         
-                    <label for="visible">visible:</label>
+                    <!-- <label for="visible">visible:</label>
                     <input type="checkbox" value="visible">
-                    <br>
+                    <br> -->
                     
 
                     <input type="submit" value="Modificar">
@@ -117,7 +117,7 @@ include "header.php";
                         <article>
                             <table border="1">
                             <tr>
-                                <th>ID Asignatura</th>
+                                <th>N° Asignatura</th>
                                 <th>Nombre Asignatura</th>
                             </tr>
                             <?php while ($row = $resultAsignaturas->fetch_assoc()) : ?>

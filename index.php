@@ -120,6 +120,18 @@ include "logica/conexion.php";
                       }
                       ?>
                       </select>
+                      <!-- <input type="text" id="nombre_carrera" name="nombre_carrera" list="opciones_carrera" required> 
+                      <datalist id="opciones_carrera">
+                      <option value=""></option>
+                      <?php
+                      $distCarrera = "SELECT * FROM carreras";
+                      $resDistCarrera = $conn->query($distCarrera);
+                      while ($rowDistCarreras = $resDistCarrera->fetch_assoc()) {
+                        echo '<option value="' . $rowDistCarreras["id_carrera"] . '">' . $rowDistCarreras["nombre_carrera"] . '</option>';
+                        
+                          }
+                      ?>
+                      </datalist> -->
                   </article>
 
                   <br>
@@ -197,25 +209,27 @@ include "logica/conexion.php";
           <center>
             <section class="Result-busqueda">
               <article>
+              <div style="max-height: 400px; overflow-y: scroll;">
               <table border="1">
-                    <tr>
-                        <th>N° Programa</th>
-                        <th>Asignatura</th>
-                        <th>Carrera	</th>
-                        <th>Plan</th>
-                        <th>Cuatrimestre</th>
-                        <th>Responsable</th>
-                        <th>Resolución CD</th>
-                        <th>Fecha Resolución</th>
-                        <th>Documento PDF</th>
-                    </tr>
+                <thead>
+                  <tr>
+                    <th>N° Programa</th>
+                    <th>Asignatura</th>
+                    <th>Carrera</th>
+                    <th>Plan</th>
+                    <th>Cuatrimestre</th>
+                    <th>Responsable</th>
+                    <th>Resolución CD</th>
+                    <th>Fecha Resolución</th>
+                    <th>Documento PDF</th>
+                  </tr>
+                </thead>
 
-              <?php
+                <tbody>
+                  <?php
                         include "logica/conexion.php";
-// 1- buscarCarrera  //2-buscarPlan // 3-buscarAsignatura //4-buscarResponsable
-// 1- carreras.id_carrera //2 - asignaturas.id_asignatura // 3 - plan_de_estudio.id_plan // 4- id_programa                                          
 
-                                if (isset($_GET['buscarCarrera']) && $_GET['buscarCarrera'] > 0) {
+                        if (isset($_GET['buscarCarrera']) && $_GET['buscarCarrera'] > 0) {
                                   $busqueda = $_GET['buscarCarrera'];
                                   $idColumna = 'carreras.id_carrera';
                               } elseif (isset($_GET['buscarPlan']) && $_GET['buscarPlan'] !=="" && $_GET['buscarPlan'] >"0") {
@@ -312,23 +326,15 @@ include "logica/conexion.php";
                             }
                             ?>
 
+                            </tbody>
 
-                         </table>
-              </article>
-              
-              <article>
-                <!-- <a href="upload_form.html">subir programa</a> -->
-                <br>
-                <!-- <a href="view_programas.php">Ver lista de Programas</a> -->
-              </article>
+                          </table>
+                         </div>
 
+              </article>        
 
-             
-
-              
-              
-              
-              <a href="documentos/index.php">ver documentos</a>
+                            
+              <!-- <a href="documentos/index.php">ver documentos</a> -->
                            
             </section>
           </center>
@@ -336,33 +342,33 @@ include "logica/conexion.php";
 
       <section class="carreras">
 
-        <article>
+      <article>
           <img src="img/licen_en_sist_de_inform.jpg">
           <h4>Licenciatura en Sistema de Informacion</h4>
         </article>
         
         <article>
-          <img src="img/bioquimica.png" width="200px" height="150px">
+          <img src="img/bioquimica.png" >
           <h4>Bioquimica</h4>
         </article>
 
         <article>
-          <img src="img/ing_agrimensura.jpeg" width="200px" height="150px">
+          <img src="img/ing_agrimensura.jpeg" >
           <h4>Ingenieria en Agrimensura</h4>
         </article>
 
         <article>
-          <img  src="img/ing_electronica.jpg" width="200px" height="150px">
+          <img  src="img/ing_electronica.jpg" >
           <h4>Ingenieria en Electronica</h4>
         </article>
 
         <article>
-          <img src="img/licen_en_ciencias_quimicas.jpg" width="200px" height="140px">
+          <img src="img/licen_en_ciencias_quimicas.jpg" >
           <h4>Licenciatura en Ciencias Quimicas</h4>
         </article>
 
         <article>
-          <img src="img/ing_electrica.jpg" width="200px" height="150px">
+          <img src="img/ing_electrica.jpg" >
           <h4>Ingenieria Electrica</h4>
         </article>
 
@@ -372,12 +378,12 @@ include "logica/conexion.php";
         </article>
 
         <article>
-          <img src="img/licen_en_matematica.jpg" width="200px" height="150px">
+          <img src="img/licen_en_matematica.jpg" >
           <h4>Licenciatura en Matematica</h4>
         </article>
 
         <article>
-          <img src="img/licen_en_fisica.jpg" width="200px" height="150px">
+          <img src="img/licen_en_fisica.jpg" >
           <h4>Licenciatura en Fisica</h4>
         </article>
 
@@ -387,20 +393,20 @@ include "logica/conexion.php";
         </article>
 
         <article>
-          <img src="img/profe_en_matematica.jpeg" width="200px" height="150px">
-          <h4>Profesorado en Matematica</h4>
+          <img src="img/profe_en_matematica.jpeg" >
+           <h4>Profesorado en Matematica</h4>
         </article>
 
         <article>
-          <img src="img/profe_en_fisica.jpg" width="200px" height="150px">
+          <img src="img/profe_en_fisica.jpg" >
           <h4>Profesorado en Fisica</h4>
         </article>
 
         <article>
-          <img src="img/profe_en_Cs_quimica_y_del_ambiente.jpg" width="200px" height="150px">
+          <img src="img/profe_en_Cs_quimica_y_del_ambiente.jpg" >
           <h4>Profesorado en Cs Quimicas y del Ambiente</h4>
         </article>
-        
+
       </section>
 
     </main>
