@@ -19,33 +19,22 @@ include "../logica/conexion.php";
         // Obtener datos de la base de datos
         $sql = "SELECT * FROM plan_de_estudio WHERE id_plan = $IdPlanForm";
         $resultado = mysqli_query($conn, $sql);    
-        
-        // while ($row = $resultado->fetch_assoc()) : 
-  
-        //     //     echo $row["id_plan"];
-        //     //     echo $row["nombre_plan"]; 
-        //     //     echo $row["nombre_carrera"]; 
-        //          echo $row["fecha_inicio"]; 
-        //     //     echo $row["fecha_fin"];
-        //     //     echo $row["res_cd"]; 
-        //     //     echo $row["res_sd"];
-        //     //     echo $row["res_coneau"];
-        //     //     echo $row["res_modif"];
-        //         endwhile;
-  
+
+
 
        if (mysqli_num_rows($resultado) > 0) {
         $row = $resultado->fetch_assoc();
-
-                  echo $row["fecha_inicio"]; 
+// ----------------------------------------------
+// TESTER de datos actualizados
+// ----------------------------------------------
 
         // Crear una tabla para mostrar los datos del formulario y de la base de datos
-        echo '<table border="1">';
-        echo '<tr><th>Campo</th><th>Dato del Formulario</th><th>Dato de la Base de Datos</th></tr>';
+         echo '<table border="1">';
+         echo '<tr><th>Campo</th><th>Dato del Formulario</th><th>Dato de la Base de Datos</th></tr>';
         
         // Comparar y mostrar los datos en la tabla
         function mostrarFilaComparativa($nombreCampo, $datoFormulario, $datoBD) {
-            echo "<tr><td>$nombreCampo</td><td>$datoFormulario</td><td>$datoBD</td></tr>";
+             echo "<tr><td>$nombreCampo</td><td>$datoFormulario</td><td>$datoBD</td></tr>";
         }
     
         mostrarFilaComparativa("ID Plan", $IdPlanForm, $row["id_plan"]);
@@ -58,15 +47,13 @@ include "../logica/conexion.php";
         mostrarFilaComparativa("Resolución CONEAU", $res_coneauForm, $row["res_coneau"]);
         mostrarFilaComparativa("Resolución Modificada", $res_modifForm, $row["res_modif"]);
     
-        echo '</table>';
+         echo '</table>';
     } else {
         echo "No se encontraron resultados para el ID de plan proporcionado.";
     }
 
 // Obtener datos de la base de datos
 if (mysqli_num_rows($resultado) > 0) {
-    echo "asta aca todo bien <br>";
-    echo "ORIGINAL ROW:" . $row["fecha_inicio"];
 
     $datos = array(
         "ID Plan" => $row["id_plan"],
@@ -79,8 +66,6 @@ if (mysqli_num_rows($resultado) > 0) {
         "Resolución CONEAU" => $row["res_coneau"],
         "Resolución Modificada" => $row["res_modif"]
     );
-
-    echo "<br> REMPLAZO DATOS:". $datos["Fecha de Inicio"] ."<br>";
 
 
 } else {
@@ -95,11 +80,7 @@ if (!empty($NombPlanForm)) {
 if (!empty($nombre_carreraForm)) {
     $datos["Nombre de Carrera"] = $nombre_carreraForm;
 }
-echo "BD: " . $datos["Fecha de Inicio"];
-
 if (!empty($fecha_inicioForm)) {
-    echo "FORM: " . $fecha_inicioForm; 
-
     $datos["Fecha de Inicio"] = $fecha_inicioForm;
 }
 if (!empty($fecha_finForm)) {
@@ -118,7 +99,7 @@ if (!empty($res_modifForm)) {
     $datos["Resolución Modificada"] = $res_modifForm;
 }
 
-echo '</table>';
+ echo '</table>';
 
 if (!empty($IdPlanForm)) {
     $updateQuery = "UPDATE plan_de_estudio SET 
@@ -133,48 +114,44 @@ if (!empty($IdPlanForm)) {
         res_modif = '" . $datos["Resolución Modificada"] . "'
         
     WHERE id_plan = $IdPlanForm";
-    
-    
-    
-    
-    
-    $updateResult = mysqli_query($conn, $updateQuery);
-    if ($updateResult) {
-        echo "Plan actualizado con éxito.<br>";
-    } else {
-        echo "Error al actualizar el Plan: " . mysqli_error($conn) . "<br>";
-    }
 }
+    
+    
+    
+    
+    
+// ----------------------------------------------
+// TESTER de datos actualizados
+// ----------------------------------------------
 
-// Imprimir los datos
-echo '<table border="1">';
-echo '<tr><th>Campo</th><th>Dato</th></tr>';
-
-foreach ($datos as $campo => $dato) {
-    echo "<tr><td>$campo</td><td>$dato</td></tr>";
-}
-
-echo '</table>';
-//    echo $id_carrera;
-
-//    echo $carrera;
-
-// $sql = "UPDATE carreras SET nombre_carrera = '$carrera' where id_carrera = $id_carrera";
-
-// $resultado= mysqli_query($conn,$sql);
+    // $updateResult = mysqli_query($conn, $updateQuery);
+    // if ($updateResult) {
+    //     echo "Plan actualizado con éxito.<br>";
+    // } else {
+    //     echo "Error al actualizar el Plan: " . mysqli_error($conn) . "<br>";
+    // }
 
 
+// // Imprimir los datos
+// echo '<table border="1">';
+// echo '<tr><th>Campo</th><th>Dato</th></tr>';
 
-// if ($resultado) {
-//     echo "<script language='javascript'>
-//     alert('Modificado correctamente');
-//     location.assign('update_carrera_asign.php');
-//     </script>";
-// } else {
-//     echo "<script language='javascript'>
-//     alert('Error al Modificar carrera');
-//     location.assign('update_carrera_asign.php');
-//     </script>";
+// foreach ($datos as $campo => $dato) {
+//     echo "<tr><td>$campo</td><td>$dato</td></tr>";
 // }
+
+// echo '</table>';
+
+if ($resultado) {
+    echo "<script language='javascript'>
+    location.assign('update_Plan de estudio.php');
+
+    </script>";
+} else {
+    echo "<script language='javascript'>
+    location.assign('update_Plan de estudio.php');
+
+    </script>";
+} 
 
 ?>
