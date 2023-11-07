@@ -13,44 +13,39 @@ include "../logica/conexion.php";
     $res_coneauForm = $_POST ["res_coneau"]; 
     $res_modifForm = $_POST ["res_modif"]; 
 
-
-
-
         // Obtener datos de la base de datos
         $sql = "SELECT * FROM plan_de_estudio WHERE id_plan = $IdPlanForm";
         $resultado = mysqli_query($conn, $sql);    
 
-
-
        if (mysqli_num_rows($resultado) > 0) {
         $row = $resultado->fetch_assoc();
 // ----------------------------------------------
-// TESTER de datos actualizados
+// TESTER de Comparacion de datos
 // ----------------------------------------------
 
         // Crear una tabla para mostrar los datos del formulario y de la base de datos
-         echo '<table border="1">';
-         echo '<tr><th>Campo</th><th>Dato del Formulario</th><th>Dato de la Base de Datos</th></tr>';
+        //  echo '<table border="1">';
+        //  echo '<tr><th>Campo</th><th>Dato del Formulario</th><th>Dato de la Base de Datos</th></tr>';
         
-        // Comparar y mostrar los datos en la tabla
-        function mostrarFilaComparativa($nombreCampo, $datoFormulario, $datoBD) {
-             echo "<tr><td>$nombreCampo</td><td>$datoFormulario</td><td>$datoBD</td></tr>";
-        }
+    //     // Comparar y mostrar los datos en la tabla
+        // function mostrarFilaComparativa($nombreCampo, $datoFormulario, $datoBD) {
+        //     //   echo "<tr><td>$nombreCampo</td><td>$datoFormulario</td><td>$datoBD</td></tr>";
+        //  }
     
-        mostrarFilaComparativa("ID Plan", $IdPlanForm, $row["id_plan"]);
-        mostrarFilaComparativa("Nombre del Plan", $NombPlanForm, $row["nombre_plan"]);
-        mostrarFilaComparativa("Id Carrera", $nombre_carreraForm, $row["id_carrera"]);
-        mostrarFilaComparativa("Fecha de Inicio", $fecha_inicioForm, $row["fecha_inicio"]);
-        mostrarFilaComparativa("Fecha de Fin", $fecha_finForm, $row["fecha_fin"]);
-        mostrarFilaComparativa("Resolución CD", $res_cdForm, $row["res_cd"]);
-        mostrarFilaComparativa("Resolución SD", $res_sdForm, $row["res_sd"]);
-        mostrarFilaComparativa("Resolución CONEAU", $res_coneauForm, $row["res_coneau"]);
-        mostrarFilaComparativa("Resolución Modificada", $res_modifForm, $row["res_modif"]);
+        // mostrarFilaComparativa("ID Plan", $IdPlanForm, $row["id_plan"]);
+        // mostrarFilaComparativa("Nombre del Plan", $NombPlanForm, $row["nombre_plan"]);
+        // mostrarFilaComparativa("Id Carrera", $nombre_carreraForm, $row["id_carrera"]);
+        // mostrarFilaComparativa("Fecha de Inicio", $fecha_inicioForm, $row["fecha_inicio"]);
+        // mostrarFilaComparativa("Fecha de Fin", $fecha_finForm, $row["fecha_fin"]);
+        // mostrarFilaComparativa("Resolución CD", $res_cdForm, $row["res_cd"]);
+        // mostrarFilaComparativa("Resolución SD", $res_sdForm, $row["res_sd"]);
+        // mostrarFilaComparativa("Resolución CONEAU", $res_coneauForm, $row["res_coneau"]);
+        // mostrarFilaComparativa("Resolución Modificada", $res_modifForm, $row["res_modif"]);
     
-         echo '</table>';
-    } else {
-        echo "No se encontraron resultados para el ID de plan proporcionado.";
-    }
+        //   echo '</table>';
+    // } else {
+    //     echo "No se encontraron resultados para el ID de plan proporcionado.";
+     }
 
 // Obtener datos de la base de datos
 if (mysqli_num_rows($resultado) > 0) {
@@ -116,7 +111,8 @@ if (!empty($IdPlanForm)) {
     WHERE id_plan = $IdPlanForm";
 }
     
-    
+$updateResult = mysqli_query($conn, $updateQuery);
+
     
     
     
@@ -124,7 +120,6 @@ if (!empty($IdPlanForm)) {
 // TESTER de datos actualizados
 // ----------------------------------------------
 
-    // $updateResult = mysqli_query($conn, $updateQuery);
     // if ($updateResult) {
     //     echo "Plan actualizado con éxito.<br>";
     // } else {
@@ -141,6 +136,7 @@ if (!empty($IdPlanForm)) {
 // }
 
 // echo '</table>';
+// ----------------------------------------------
 
 if ($resultado) {
     echo "<script language='javascript'>
