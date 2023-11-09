@@ -52,18 +52,24 @@ include "header.php";
                         </article>
 
                         <article>
+                        <div style="max-height: 400px; overflow-y: scroll;">
+                            <thead>
                             <table border="1">
                             <tr>
-                                <th>ID Carrera</th>
+                                <th>N° Carrera</th>
                                 <th>Nombre Carrera</th>
                             </tr>
+                            </thead>
+                            <tbody>
                             <?php while ($row = $resultcarrera->fetch_assoc()) : ?>
                                 <tr>
                                     <td><?php echo $row["id_carrera"]; ?></td>
                                     <td><?php echo $row["nombre_carrera"]; ?></td>
                                 </tr>
                             <?php endwhile; ?>
+                            </tbody>
                         </table>
+                        </div>
 
                         </article>
                     </section>
@@ -100,18 +106,25 @@ include "header.php";
                         </article>
 
                         <article>
+                        <div style="max-height: 400px; overflow-y: scroll;">
                             <table border="1">
+                            <thead>
+
                             <tr>
                                 <th>N° Asignatura</th>
                                 <th>Nombre Asignatura</th>
                             </tr>
+                            </thead>
+                            <tbody>
                             <?php while ($row = $resultAsignaturas->fetch_assoc()) : ?>
                                 <tr>
                                     <td><?php echo $row["id_asignatura"]; ?></td>
                                     <td><?php echo $row["nom_asignatura"]; ?></td>
                                 </tr>
                             <?php endwhile; ?>
+                            </tbody>
                         </table>
+                        </div>
                         </article>
 
                     </section>
