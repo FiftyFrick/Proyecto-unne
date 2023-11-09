@@ -134,7 +134,10 @@ include "consultas.php";
           </center>
 
         <article class="tabla">
+          
         <center>
+        <div style="max-height: 400px; overflow-y: scroll;">
+          <thead>
           <table border="1">
             <tr>
               <th>N° Programa</th>
@@ -153,6 +156,8 @@ include "consultas.php";
               <th>Documento PDF</th>
               <!-- <th>Archivo PDF</th> -->
             </tr>
+            </thead>
+            <tbody>
             <?php
             $consulta = "SELECT * FROM programas
                                 INNER JOIN carreras ON carreras.id_carrera = programas.id_carrera
@@ -181,9 +186,10 @@ include "consultas.php";
                               </tr>
                                     <?php
                                   endwhile; ?>
-
+          </tbody>
 
           </table>
+          </div>
           </center>
         </article>
     
