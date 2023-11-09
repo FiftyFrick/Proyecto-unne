@@ -12,3 +12,21 @@
     background-color: #dddddd;
     font-family: Arial, Helvetica, sans-serif; 
   }
+
+  .cabeza{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border: 1mm solid rgb(216, 216, 216);
+  }
+
+  .datosBusqueda{
+    width: 80%;
+  }
+  
+  .volver{
+    margin: auto;
+    text-align: center;
+    width: 20%;
+  }
+
