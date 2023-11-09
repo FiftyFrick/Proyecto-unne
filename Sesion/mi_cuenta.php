@@ -59,32 +59,32 @@
                                                        
                     ?><tr>
                     <tr>
-                        <td>Nombre</td>
+                        <td>Nombre: </td>
                         <td><?php  echo $mostrar['nombre']; ?> </td>
                     </tr>
                     <tr>
-                    <td>Apellido</td>
+                    <td>Apellido: </td>
                         <td><?php  echo $mostrar['apellido']; ?> </td>
                     </tr>
                     <tr>
-                    <td>Email</td>
+                    <td>Email: </td>
                         <td><?php  echo $mostrar['email']; ?> </td>
                     </tr>
                     <tr>
-                    <td>Usuario</td>
+                    <td>Usuario: </td>
                         <td><?php  echo $mostrar['usuario']; ?> </td>
                     </tr>
                     <tr>
-                    <td>Clave</td>
+                    <td>Clave: </td>
                         <td> --- </td>
                     </tr>
                     <tr>
-                    <td>Telefono</td>
+                    <td>Telefono: </td>
                         <td><?php  echo $mostrar['telefono']; ?> </td>
                     </tr>
                     <tr>
                         <?php  if ($mostrar['administrador']==1){
-                    echo ' <td>Adminitrador</td>';
+                    echo ' <td>Adminitrador: </td>';
                     echo ' <td> SI </td>';
                         }?>
                     </tr>
@@ -108,27 +108,27 @@
                         echo '
                             
                             <tr>
-                                <td>Nombre</td>
+                                <td>Nombre: </td>
                                 <td><input type="text" name="nombre" value="'.$nombre.'"/></td>
                             </tr>
 
                             <tr>
-                                <td>Apellido</td>
+                                <td>Apellido: </td>
                                 <td><input type="text" name="apellido" value="'.$apellido.'"/></td>
                             </tr>
 
                             <tr>
-                                <td>Email</td>
+                                <td>Email: </td>
                                 <td><input type="text" name="email" value="'.$email.'"/></td>
                             </tr>
 
                             <tr>
-                                <td>Usuario</td>
+                                <td>Usuario: </td>
                                 <td><input type="text" name="usuario" value="'.$usuario.'"/> </td>
                             </tr>
 
                             <tr>
-                                <td>Clave</td>
+                                <td>Clave: </td>
                                 <td><input type="password" name="clave" value="'.$clave.'"/></td>
                             </tr>
                             
