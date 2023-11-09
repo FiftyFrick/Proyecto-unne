@@ -69,6 +69,9 @@ body{
 nav{ 
   background-color: #3d3d3d;
   width: 100%;
+  padding-top: 1mm;
+  padding-bottom: 1mm;
+
 }
 nav ul{
   list-style-type: none;
@@ -76,7 +79,14 @@ nav ul{
   padding: 0;
   display: flex;
   text-align: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  width: 100%;
+  height: auto;
+}
+nav ul li{
+  width: 30%;
+  height: 40px;
+
 }
 nav ul li a {
   display: block;
@@ -87,6 +97,8 @@ nav ul li a {
 nav ul li a:hover {
   background-color: rgb(233, 233, 233);
   color: #000000;
+  border-radius: 10px;
+
 }
 /* -------------- Fin Nav ---------------  */
 
