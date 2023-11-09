@@ -1,119 +1,118 @@
-*, *:before, *:after {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-  
-body {
-    font-family: 'Nunito', sans-serif;
-    color: #979595;
-}
-  
-form {
-    max-width: 300px;
-    margin: 10px auto;
-    padding: 10px 20px;
-    background-color: #cfcccc;
-    color:black;
-    border-radius: 35px;
-}
-  
-h1 {
-    margin: 0 0 30px 0;
-    text-align: center;
-    font-style: italic;
-}
-  
-input[type="text"],
-input[type="password"],
-input[type="date"],
-input[type="datetime"],
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="tel"],
-input[type="time"],
-input[type="url"],
-textarea,
-select {
-    background: rgba(255,255,255,0.1);
-    border: none;
-    font-size: 16px;
-    height: auto;
+* {
     margin: 0;
-    outline: 0;
-    padding: 15px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color:rgb(194, 189, 189); 
+}
+.wrapper {
+    max-width: 700px;
     width: 100%;
-    background-color: #e8eeef;
-    color: #8a97a0;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-    margin-bottom: 30px;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
 }
-  
-input[type="radio"],
-input[type="checkbox"] {
-    margin: 0 4px 8px 0;
+.wrapper .title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
 }
-  
-select {
-    padding: 6px;
-    height: 32px;
-    border-radius: 2px;
-}
-  
-button {
-    padding: 19px 39px 18px 39px;
-    color: #fdfdfd;
-    background-color: #080808;
-    font-size: 18px;
+.wrapper .title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 40px;
     text-align: center;
-    font-style: normal;
-    border-radius: 32px;
+    font-size: 40px;
+}
+.wrapper form .user-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+form .user-details .input-box {
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+.user-details .input-box input {
+    height: 45px;
     width: 100%;
-    border: 1px solid #141414;
-    border-width: 1px 1px 3px;
-    box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
-    margin-bottom: 10px;
 }
-  
-fieldset {
-    margin-bottom: 30px;
-    border: none;
-}
-  
-legend {
-    font-size: 1.4em;
-    margin-bottom: 10px;
-}
-  
-label {
+.user-details .input-box .details {
+    font-weight: 500;
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
+}
+.user-details .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all .3s ease;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid {
+    border-color: #9b59b6;
+}
+form .gender-details .gender-title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+form input[type="radio"] {
+    display: none;
+}
+form .button {
+    height: 45px;
+    margin: 45px 45px;
+    display: contents;
+}
+form .button input {
+    height: 100%;
+    width: 100%;
+    color: #fcf7f7;
+    outline: none;
+    border: none;
+    font-size: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 32px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #060707, #0a080a);
+}
+form .button input:hover {
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
 }
   
-label.light {
-    font-weight: 300;
-    display: inline;
-}
-  
-.number {
-    background-color: #5fcf80;
-    color: #0c0202;
-    height: 30px;
-    width: 30px;
-    display: inline-block;
-    font-size: 0.8em;
-    margin-right: 4px;
-    line-height: 30px;
-    text-align: center;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.2);
-    border-radius: 100%;
-}
-  
-@media screen and (min-width: 480px) {
-  
-form {
-    max-width: 480px;
+@media (max-width: 584px) {
+    .wrapper {
+      max-width: 100%;
     }
-  
+    form .user-details .input-box {
+      margin-bottom: 15px;
+      width: 100%;
+    }
+    .gender-details .category {
+      width: 100%;
+    }
+    .wrapper form .user-details {
+      max-height: 300px;
+      overflow-y: scroll;
+    }
+    .user-details::-webkit-scrollbar {
+      width: 0;
+    }
 }

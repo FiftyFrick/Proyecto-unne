@@ -118,9 +118,11 @@ include "header.php";
               </article>
 
               <article>
-
+              <div style="max-height: 400px; overflow-y: scroll;">
+                
                   <table border="1">
-                    <tr>
+                  <thead>
+                  <tr>
                         <th>N° Plan</th>
                         <th>Nombre Plan de Estudio</th>
                         <th>Nombre Carrera</th>
@@ -130,8 +132,9 @@ include "header.php";
                         <th>Resolucion SD</th>
                         <th>Resolucion CONEAU</th>
                         <th>Resolucion Modificada</th>
-
                     </tr>
+                    </thead>
+                    <tbody>
                     <?php while ($row = $resultPlan->fetch_assoc()) : ?>
                         <tr>
                             <td><?php echo $row["id_plan"]; ?></td>
@@ -145,7 +148,9 @@ include "header.php";
                             <td><?php echo $row["res_modif"]; ?></td>
                         </tr>
                     <?php endwhile; ?>
+                    </tbody>
                 </table>
+                </div>
 
               </article>
               
