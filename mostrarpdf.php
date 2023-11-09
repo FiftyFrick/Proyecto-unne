@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style_PDF.css">
 </head>
 <body>
-
+    
 <?php
     include "logica/conexion.php";
     $id_programa = $_GET["id_programa"]; // Cambiar al parámetro adecuado
