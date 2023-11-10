@@ -30,12 +30,10 @@
 
     <center>
 
-
-    <nav>
+    <nav class="menu">
       <ul>
           <li><a href="../index.php">Inicio</a></li>
           <!-- <li><a href="#">Estadistica</a></li> -->
-          <li><a href="https://exa.unne.edu.ar/r/">FaCENA</a></li>
 
           <?php
             // session_start();
@@ -45,9 +43,9 @@
             if ($varsession == null ){
                 echo '<li><a href="Sesion/login.html">Administracion</a></li>';
             }else{
-              echo "<li> <a href='#'> <strong> Bienvenido $varsession </strong> </a> </li>";
+              echo "<li><a href='#'><strong>Bienvenido $varsession</strong></a></li>";
 
-              echo "<li> <a href='../Sesion/logica/salir.php'>   Cerrar Sesion </a> </li>";
+              echo "<li><a href='../Sesion/logica/salir.php'>Cerrar Sesion</a></li>";
 
               // echo "<li> <a href='Sesion/mi_cuenta.php'> Mi cuenta </a> </li>";
 

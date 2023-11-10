@@ -27,14 +27,24 @@
 //  echo $row["archivo_PDF"]; 
 
 ?> -->
+<div class="cabeza">
 
-
-    <h1><?php echo $nombre_carrera; ?></h1>
-    <h2><?php echo  $nom_asignatura; ?></h2>
+    <div class="datosBusqueda">
+        <h1><?php echo $nombre_carrera; ?></h1>
+        <h2><?php echo  $nom_asignatura; ?></h2>
+    </div>
+    
+    <div class="volver">
+            <a href="index.php">volver</a>
+    </div>
+</div>
     <?php 
-    if($row["archivo_PDF"]=="") {
-        
-?>
+        if($row["archivo_PDF"]=="") {
+    
+    ?>
+
+
+
     <center>
     <h1>no existe el documento</h1>
 
