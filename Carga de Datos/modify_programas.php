@@ -3,6 +3,8 @@
 require "../logica/conexion.php";
 
 // Verificar si la clave "nombre_plan" está presente en $_POST
+$IdProgramaForm = $_POST["id_programa"];
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['asignatura'])) {
         // Formulario de planes de estudio
@@ -14,9 +16,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $resolucion_CD = $_POST['Resolucion_CD'];
         $fecha_resolucion = $_POST['fecha_resolucion'];
 
-        echo $nombre_carrera ;
-        echo $nombre_plan ;
-        echo $asignatura ;
+        // echo $nombre_carrera ;
+        // echo $nombre_plan ;
+        // echo $asignatura ;
 
         // Verifica la existencia de archivos en el formulario
         if (isset($_FILES['documento'])) {
@@ -57,8 +59,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          else {
             echo "No se ha seleccionado ningún archivo.";
 
-            $insertPrograma = "INSERT INTO programas (id_asignatura, id_carrera, id_plan, cuatrimestre, responsable, resolucion_CD, fecha_resolucion)
-                            VALUES ('$asignatura', '$nombre_carrera', '$nombre_plan', '$cuatrimestre', '$responsable', '$resolucion_CD', '$fecha_resolucion')";
+            // $insertPrograma = "INSERT INTO programas 
+            // (id_asignatura, id_carrera, id_plan, cuatrimestre, responsable, resolucion_CD, fecha_resolucion)
+            //                 VALUES ('$asignatura', '$nombre_carrera', '$nombre_plan', '$cuatrimestre', '$responsable', '$resolucion_CD', '$fecha_resolucion')";
                     // $resultado = mysqli_query($conn, $insertPrograma);
 
                     // if ($resultado) {
@@ -69,27 +72,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // } else {
                     //     echo "Error al insertar el programa: " . mysqli_error($conn);
                     // }exit(); // Asegurar que el script se detenga después de redirigir
-        }
+        
+                    if (!empty($IdProgramaForm)) {
+                        $updateQuery = "UPDATE programas SET 
+
+                            id_asignatura = '" . $asignatura. "',
+                            id_carrera = '" . $nombre_carrera. "',
+                            id_plan = '" . $nombre_plan . "',
+                            cuatrimestre = '" . $cuatrimestre . "',
+                            responsable = '" . $responsable . "',
+                            resolucion_CD = '" . $resolucion_CD . "',
+                            fecha_resolucion = '" . $fecha_resolucion . "'
+                            
+                        WHERE id_programa = $IdProgramaForm";
+                    }
+                        
+                    $updateResult = mysqli_query($conn, $updateQuery);
+                }
     }
 } else {
     echo "La solicitud no es de tipo POST.";
 }
 
-// if (!empty($IdPlanForm)) {
-//     $updateQuery = "UPDATE plan_de_estudio SET 
 
-//         nombre_plan = '" . $datos["Nombre del Plan"] . "',
-//         id_carrera = '" . $datos["Nombre de Carrera"] . "',
-//         fecha_inicio = '" . $datos["Fecha de Inicio"] . "',
-//         fecha_fin = '" . $datos["Fecha de Fin"] . "',
-//         res_cd = '" . $datos["Resolución CD"] . "',
-//         res_sd = '" . $datos["Resolución SD"] . "',
-//         res_coneau = '" . $datos["Resolución CONEAU"] . "',
-//         res_modif = '" . $datos["Resolución Modificada"] . "'
-        
-//     WHERE id_plan = $IdPlanForm";
-// }
-    
-// $updateResult = mysqli_query($conn, $updateQuery);
 
 ?>
