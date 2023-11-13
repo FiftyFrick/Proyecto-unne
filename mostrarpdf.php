@@ -35,7 +35,8 @@
     </div>
     
     <div class="volver">
-            <a href="index.php">volver</a>
+        <img src="img/flecha.png" width="50px" height="50px">
+        <a href="index.php">volver</a>
     </div>
 </div>
     <?php 
