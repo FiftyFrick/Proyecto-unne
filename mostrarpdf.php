@@ -35,7 +35,8 @@
     </div>
     
     <div class="volver">
-            <a href="index.php">volver</a>
+        <a href="index.php"><img src="img/flecha.png" width="50px" height="50px"></a>
+        <h3>volver atras</h3>
     </div>
 </div>
     <?php 
