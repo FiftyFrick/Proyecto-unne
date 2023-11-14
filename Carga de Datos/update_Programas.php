@@ -19,7 +19,7 @@ include "consultas.php";
   <?php
   include "header.php";
   ?>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
+    <form action="modify_programas.php" method="post" enctype="multipart/form-data">
 
     <div class="fila">
         <label for="N_programa">Programa Numero:</label>
@@ -93,10 +93,12 @@ include "consultas.php";
               <datalist id="opciones_asignatura">
               <option value=""></option>
               <?php
-              $distAsignatura = "SELECT nom_asignatura FROM asignaturas";
+              $distAsignatura = "SELECT * FROM asignaturas";
               $resDistAsignatura = $conn->query($distAsignatura);
-              while ($rowDistAsignatura = $resDistAsignatura->fetch_assoc()) {
-                echo '<option value="' . $rowDistAsignatura["nom_asignatura"] . '">';
+              while ($rowDistAsignatura = $resDistAsignatura->fetch_assoc()) { ?>
+                <option value="<?php echo $rowDistAsignatura["id_asignatura"]; ?>"><?php echo $rowDistAsignatura["nom_asignatura"];?></option>
+<?php
+                // echo '<option value="' . $rowDistAsignatura["id_asignatura"] . " ". $rowDistAsignatura["nom_asignatura"] . '">';
                 
                 }
               ?>
