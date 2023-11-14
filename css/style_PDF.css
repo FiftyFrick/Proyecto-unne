@@ -45,15 +45,15 @@
   .volver{
     margin: auto;
     text-align: center;
-    width: 20%;
+    width: 12%;
     background-color: rgb(180, 180, 180);
     color: rgb(8, 8, 8);
     border-radius: 32px;
     padding: 15px 25px;
   }
 
-.volver a{
+.volver a img{
   text-decoration: none;
   font: 1em sans-serif;
-  
+  height: 25px;  
 }
