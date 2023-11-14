@@ -43,9 +43,9 @@
             if ($varsession == null ){
                 echo '<li><a href="Sesion/login.html">Administracion</a></li>';
             }else{
-              echo "<li><a href='#'><strong>Bienvenido $varsession</strong></a></li>";
+              echo "<li> <a href='#'> <strong> Bienvenido $varsession </strong> </a> </li>";
 
-              echo "<li><a href='../Sesion/logica/salir.php'>Cerrar Sesion</a></li>";
+              echo "<li> <a href='../Sesion/logica/salir.php'>   Cerrar Sesion </a> </li>";
 
               // echo "<li> <a href='Sesion/mi_cuenta.php'> Mi cuenta </a> </li>";
 
