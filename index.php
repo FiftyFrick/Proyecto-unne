@@ -242,7 +242,7 @@ include "logica/conexion.php";
                                   $busqueda = $_GET['buscarResponsable'];
                                   $idColumna = 'responsable';
                               }
-                              // echo $busqueda;
+                               echo $busqueda;
                               $consulta = "SELECT * FROM programas
                               INNER JOIN carreras ON carreras.id_carrera = programas.id_carrera
                               INNER JOIN asignaturas ON asignaturas.id_asignatura = programas.id_asignatura
