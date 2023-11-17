@@ -113,7 +113,7 @@ include "consultas.php";
         <input type="text" id="cuatrimestre" name="cuatrimestre">
         <br>
         <label for="Responsable">Responsable:</label>
-        <input type="text" id="responsable" name="responsable" list="opciones_responsable">
+        <input type="text" id="responsable" name="responsable" list="opciones_responsable" autocomplete="off">
         <datalist id="opciones_responsable">
           <option value=""></option>
           <?php
