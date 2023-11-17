@@ -69,14 +69,17 @@ include "consultas.php";
             </script>
 
               <label for="nombre_asignatura">Nombre Asignatura:</label>
+              
               <input type="text" id="asignatura" name="asignatura" list="opciones_asignatura" required autocomplete="off"> 
               <datalist id="opciones_asignatura">
               <option value=""></option>
               <?php
-              $distAsignatura = "SELECT nom_asignatura FROM asignaturas";
+              $distAsignatura = "SELECT * FROM asignaturas";
               $resDistAsignatura = $conn->query($distAsignatura);
-              while ($rowDistAsignatura = $resDistAsignatura->fetch_assoc()) {
-                echo '<option value="' . $rowDistAsignatura["nom_asignatura"] . '">';
+              while ($rowDistAsignatura = $resDistAsignatura->fetch_assoc()) { ?>
+                <option value="<?php echo $rowDistAsignatura["id_asignatura"]; ?>"><?php echo $rowDistAsignatura["nom_asignatura"];?></option>
+<?php
+                // echo '<option value="' . $rowDistAsignatura["id_asignatura"] . " ". $rowDistAsignatura["nom_asignatura"] . '">';
                 
                 }
               ?>
