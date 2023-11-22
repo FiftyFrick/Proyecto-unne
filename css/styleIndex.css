@@ -254,6 +254,9 @@ table{
 th {
   background-color: #000000;
   color: #fff;
+  position: fixed;
+  position: sticky;
+  top: -1px;
 }
 table tr:nth-child(odd){
   background-color: rgba(190, 199, 247, 0.918);

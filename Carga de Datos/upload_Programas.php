@@ -140,9 +140,9 @@ include "consultas.php";
           
         <center>
         <div style="max-height: 400px; overflow-y: scroll;">
-          <thead>
           <table border="1">
-            <tr>
+          <thead class="cab">
+          <tr>
               <th>N° Programa</th>
               <!-- --------------------> 
               <th>Nombre de Asignatura</th>
@@ -166,6 +166,7 @@ include "consultas.php";
                                 INNER JOIN carreras ON carreras.id_carrera = programas.id_carrera
                                 INNER JOIN asignaturas ON asignaturas.id_asignatura = programas.id_asignatura
                                 INNER JOIN plan_de_estudio ON plan_de_estudio.id_plan = programas.id_plan
+                                ORDER BY id_programa
                                 ";
                                 $result = $conn->query($consulta);
 

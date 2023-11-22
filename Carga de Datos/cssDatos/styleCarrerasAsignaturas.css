@@ -111,6 +111,9 @@ th {
     background-color: #000000;
     color: #fff;
     text-align: center;
+    position: fixed;
+    position: sticky;
+    top: -1px;
 
 }
 table tr:nth-child(odd){

@@ -75,6 +75,9 @@ nav{
   flex-direction: column;
   padding-top: 1mm;
   padding-bottom: 1mm;
+  position: fixed;
+  position: sticky;
+  top: -1px;
 }
 /* .menu{
   position: right;

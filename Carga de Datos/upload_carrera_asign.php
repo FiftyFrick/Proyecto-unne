@@ -53,8 +53,9 @@ include "header.php";
 
                         <article>
                         <div style="max-height: 400px; overflow-y: scroll;">
-                            <thead>
                             <table border="1">
+                            <thead>
+
                             <tr>
                                 <th>N° Carrera</th>
                                 <th>Nombre Carrera</th>

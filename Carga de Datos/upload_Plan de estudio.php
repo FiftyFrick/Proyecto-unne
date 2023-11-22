@@ -94,9 +94,10 @@ include "header.php";
 
               <article>
               <div style="max-height: 400px; overflow-y: scroll;">
-                    <thead>
                   <table border="1">
-                    <tr>
+                  <thead>
+
+                  <tr>
                         <th>N° Plan</th>
                         <th>Nombre Plan de Estudio</th>
                         <th>Nombre Carrera</th>

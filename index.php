@@ -70,9 +70,9 @@ include "logica/conexion.php";
 
               echo "<li> <a href='Sesion/logica/salir.php'>   Cerrar Sesion </a> </li>";
 
-              // echo "<li> <a href='Sesion/mi_cuenta.php'> Mi cuenta </a> </li>";
+              echo "<li> <a href='Sesion/mi_cuenta.php'> Mi cuenta </a> </li>";
 
-              // echo "<li> <a href='Sesion/registro.html'> Registrar Nuevo Adimistrador </a> </li>";
+              echo "<li> <a href='Sesion/registro.html'> Registrar Nuevo Adimistrador </a> </li>";
 
 
             ?>
@@ -248,9 +248,10 @@ include "logica/conexion.php";
                               INNER JOIN asignaturas ON asignaturas.id_asignatura = programas.id_asignatura
                               INNER JOIN plan_de_estudio ON plan_de_estudio.id_plan = programas.id_plan
                               
-                              WHERE $idColumna LIKE '$busqueda'";
+                              WHERE $idColumna LIKE '$busqueda'
+                              ORDER BY id_programa";
                                 $result = $conn->query($consulta);
-                                if (isset($_GET['enviar'])) {
+                                if (isset($_GET['enviar']) && $busqueda>"0" && $idColumna > "0") {
                                 // if
                                   while ($row = $result->fetch_assoc()) : 
                             
@@ -278,6 +279,7 @@ include "logica/conexion.php";
                                                     INNER JOIN carreras ON carreras.id_carrera = programas.id_carrera
                                                     INNER JOIN asignaturas ON asignaturas.id_asignatura = programas.id_asignatura
                                                     INNER JOIN plan_de_estudio ON plan_de_estudio.id_plan = programas.id_plan
+                                                    ORDER BY id_programa
                                                   ";
                                       $result = $conn->query($consulta);
                                       ?>

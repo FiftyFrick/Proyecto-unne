@@ -118,6 +118,9 @@ th {
 
     background-color: #000000;
     color: #fff;
+    position: fixed;
+    position: sticky;
+    top: -1px;
 }
 .tabla tr:nth-child(odd){
     text-align: center;
