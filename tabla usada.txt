@@ -150,3 +150,75 @@ $(document).ready(function() {
   });
 });
 </script>
+
+
+---------------------------------------------------------------------------------------------------
+ // Verifica la existencia de archivos en el formulario
+        if (isset($_FILES['documento']) && !empty ($_FILES['documento'] && $_FILES['documento'] == "A"  )) {
+            // Definir carpeta destino
+            $carpeta_destino = "files/";
+
+            // Obtener el nombre y la extensión del archivo
+            $nombre_archivo = basename($_FILES["documento"]["name"]);
+
+            $extension = strtolower(pathinfo($nombre_archivo, PATHINFO_EXTENSION));
+
+            // Verifica que el archivo sea un PDF
+            if ($extension == "pdf") {
+                // Mueve el archivo a la carpeta destino
+                if (move_uploaded_file($_FILES['documento']['tmp_name'], $carpeta_destino . $nombre_archivo)) {
+                    
+                    // ACTUALIZAR en la base de datos
+                    
+                    $updatePrograma = "INSERT INTO programas (id_asignatura, id_carrera, id_plan, cuatrimestre, responsable, resolucion_CD, fecha_resolucion, archivo_PDF)
+                                       VALUES ('$asignatura', '$nombre_carrera', '$nombre_plan', '$cuatrimestre', '$responsable', '$resolucion_CD', '$fecha_resolucion', '$nombre_archivo')";
+                    // $resultado = mysqli_query($conn, $updatePrograma);
+
+                    // if ($resultado) {
+                    //     // Redirigir de vuelta a la página anterior con un mensaje de éxito
+                    //     header("Location: {$_SERVER['HTTP_REFERER']}?mensaje=exito");
+                    //     exit(); // Asegurar que el script se detenga después de redirigir
+                    // } else {
+                    //     echo "Error al insertar el programa: " . mysqli_error($conn);
+                    // }
+                } else {
+                    echo "Error al mover el archivo a la carpeta destino.";
+                }
+            } else {
+                echo "Solo se permiten archivos PDF.";
+            }
+            
+         }
+         else {
+            echo "No se ha seleccionado ningún archivo.";
+
+            // $insertPrograma = "INSERT INTO programas 
+            // (id_asignatura, id_carrera, id_plan, cuatrimestre, responsable, resolucion_CD, fecha_resolucion)
+            //                 VALUES ('$asignatura', '$nombre_carrera', '$nombre_plan', '$cuatrimestre', '$responsable', '$resolucion_CD', '$fecha_resolucion')";
+                    // $resultado = mysqli_query($conn, $insertPrograma);
+
+                    // if ($resultado) {
+                    //     // Redirigir de vuelta a la página anterior con un mensaje de éxito
+                    //     header("Location: {$_SERVER['HTTP_REFERER']}?mensaje=exito");
+                        
+                        
+                    // } else {
+                    //     echo "Error al insertar el programa: " . mysqli_error($conn);
+                    // }exit(); // Asegurar que el script se detenga después de redirigir
+        
+                    if (!empty($IdProgramaForm)) {
+                        $updateQuery = "UPDATE programas SET 
+
+                            id_asignatura = '" . $asignatura. "',
+                            id_carrera = '" . $nombre_carrera. "',
+                            id_plan = '" . $nombre_plan . "',
+                            cuatrimestre = '" . $cuatrimestre . "',
+                            responsable = '" . $responsable . "',
+                            resolucion_CD = '" . $resolucion_CD . "',
+                            fecha_resolucion = '" . $fecha_resolucion . "'
+                            
+                        WHERE id_programa = $IdProgramaForm";
+                    }
+                        
+                    $updateResult = mysqli_query($conn, $updateQuery);
+                }
