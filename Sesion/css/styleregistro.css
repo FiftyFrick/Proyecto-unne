@@ -9,14 +9,22 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color:rgb(194, 189, 189); 
+    background: linear-gradient(#cb997e, #ddbea9, #ffe8d6, #b7b7a4, #a5a58d, #6b705c)
 }
+
 .wrapper {
     max-width: 700px;
     width: 100%;
-    background: #fff;
+    background-color: #d8c6ee;
     padding: 25px 30px;
-    border-radius: 5px;
+    border-radius: 32px;
+    border-color: rgb(3, 3, 3);
+
+}
+
+h1{
+    text-align: center;
+    font-family: cursive;
 }
 .wrapper .title {
     font-size: 25px;
@@ -57,10 +65,10 @@ form .user-details .input-box {
     width: 100%;
     outline: none;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #070606;
     padding-left: 15px;
     font-size: 16px;
-    border-bottom-width: 2px;
+    border-bottom-width: 5px;
     transition: all .3s ease;
 }
 .user-details .input-box input:focus,
@@ -86,12 +94,13 @@ form .button input {
     color: #fcf7f7;
     outline: none;
     border: none;
-    font-size: 25px;
+    font-size: 35px;
     font-weight: 500;
     cursor: pointer;
     border-radius: 32px;
     letter-spacing: 1px;
     background: linear-gradient(135deg, #060707, #0a080a);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 form .button input:hover {
     background: linear-gradient(-135deg, #71b7e6, #9b59b6);
