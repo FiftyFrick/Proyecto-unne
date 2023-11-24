@@ -178,4 +178,12 @@ body {
     width: auto;
   }
 }
-
+/*--------Foother------------*/
+footer{
+  background-color: black;
+  color:#e0e0e0;
+}
+p{
+  width: 50px;
+  text-align: center;
+}

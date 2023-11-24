@@ -22,15 +22,15 @@ include "logica/conexion.php";
         <ul class="social"> 
                 
           <li>
-            <a href="https://www.instagram.com/"><img src="img/instagram.png"></a>
+            <a href="https://www.instagram.com/facenaunne/"><img src="img/instagram.png"></a>
           </li>
 
           <li>
-            <a href="https://www.facebook.com/"><img src="img/facebook.png"></a>
+            <a href="https://www.facebook.com/facenaunneargentina"><img src="img/facebook.png"></a>
           </li>
       
           <li>
-            <a href="https://twitter.com/"><img src="img/twitter.png"></a>
+            <a href="https://twitter.com/facenaunne"><img src="img/twitter.png"></a>
           </li>
 
         </ul>
@@ -216,7 +216,7 @@ include "logica/conexion.php";
                     <th>N° Programa</th>
                     <th>Asignatura</th>
                     <th>Carrera</th>
-                    <th>Plan</th>
+                    <th>Plan de Estudio</th>
                     <th>Cuatrimestre</th>
                     <th>Responsable</th>
                     <th>Resolución CD</th>

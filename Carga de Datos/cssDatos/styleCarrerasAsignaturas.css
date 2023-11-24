@@ -100,9 +100,7 @@ form select{
   
 /*Estilo de la tabla*/
 table{
-    width: 70%;
-
-    border-color: #040607;
+    border-color: #bfc0c0;
     background-color: rgb(253, 253, 253);
     text-align: center;
 

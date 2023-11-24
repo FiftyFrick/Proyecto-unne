@@ -146,11 +146,12 @@ form input[type="text"]:hover {
 }
 form select{
   text-align: center;
-  width: 70%;
+  width: 400px;
   padding: 8px;
   margin-bottom: 10px;
   border: 1px solid rgb(66, 66, 66);
   border-radius: 5px;
+  display: -webkit-inline-box;   
 }
 
 
@@ -183,7 +184,7 @@ h5{
   text-align: center;
   width: 70%;
   height: auto;
-  border: solid 1px #000000 ;
+  border: solid 1px #d6d3d3 ;
 }
 
 
@@ -248,7 +249,7 @@ footer section article {
 
 /*Estilo de la tabla */
 table{
-  border-color: #040607;
+  border-color: #aeb0b1;
   background-color: rgb(253, 253, 253);
 }
 th {
