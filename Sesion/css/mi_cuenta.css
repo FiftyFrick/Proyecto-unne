@@ -11,8 +11,8 @@ header{
 }
 /*--------*/
 body{	
-    color: #ffffff;
-    background: no-repeat center url("../img/fondo_panal_verde.jpg") ;
+    color: #d4b8b8;
+    background: linear-gradient(#2f517a, #6d5976, #9c5968, #a36e52, #664041, #9c908e);
     background-size:cover ;
     background-position:center;
     background-attachment: fixed;
@@ -21,8 +21,8 @@ body{
 }
 
 nav{
-    background-color: #080808;
-    color: #ffffff;
+    background-color: #b9b8b8;
+    color: #080707;
     position: sticky;
     top: -1px;
     text-align: center;
@@ -39,6 +39,10 @@ nav{
     font-size: 30px;
 }
 
+.menu li a{
+    font-family: inherit;
+    text-decoration: none;
+}
 .fullbox{
     margin: 0%;
 }
