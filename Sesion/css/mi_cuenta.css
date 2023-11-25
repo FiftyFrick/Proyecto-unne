@@ -53,8 +53,8 @@ nav{
 }
 
 .crud div{
-    background: rgba(174, 175, 174, 0.884) ; 
-    border: #f52626ad solid 1px;
+    background: rgba(232, 243, 232, 0.884) ; 
+    border: #080808ad solid 1px;
     width: 40%;
     margin: 1.5%;
     text-align: center;
@@ -81,7 +81,7 @@ td{
     border-radius: 40px;
 }
 table input[type="submit"]{
-    background-color: black;
+    background-color: rgb(89 43 195);
     color: #ffffff;
     padding: 21px 21px;
     border-radius: 32px;
