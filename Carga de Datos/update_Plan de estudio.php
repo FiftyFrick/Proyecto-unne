@@ -36,7 +36,7 @@ include "header.php";
     </div>
     <div class="fila">
         <label for="plan_de_estudio">Nombre Plan de Estudio:</label>
-        <input type="text" id="plan_de_estudio" name="nombre_plan" list="opciones_plan" required>
+        <input type="text" id="plan_de_estudio" name="nombre_plan" list="opciones_plan" required autocomplete="off">
         <datalist id="opciones_plan">
         <option value=""></option>
         <?php

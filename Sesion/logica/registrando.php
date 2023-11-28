@@ -1,8 +1,14 @@
 <?php
+<<<<<<< HEAD
 
 include "../../logica/conexion.php";
 require "../../logica/conexion.php";
 session_start();
+=======
+include "conexion.php";
+
+// require "conexion.php";
+>>>>>>> 75ee65802d1611d710fae1b91a3a36b3a9142503
 $nombre = $_POST ["nombre"];
 $apellido = $_POST ["apellido"];
 $email = $_POST ["email"];
@@ -10,7 +16,7 @@ $usuario = $_POST ["usuario"];
 $clave = $_POST ["clave"];
 
 
-$verificar_usuario = mysqli_query($conexion, "select * from bd_cuentas where usuario = '$usuario' ");
+$verificar_usuario = mysqli_query($conn, "select * from bd_cuentas where usuario = '$usuario' ");
 
 if (mysqli_num_rows($verificar_usuario) > 0){
     echo '<script>
@@ -19,7 +25,7 @@ if (mysqli_num_rows($verificar_usuario) > 0){
             </script>';
     exit;
 }else{
-    $verificar_email = mysqli_query($conexion, "select * from bd_cuentas where email = '$email' ");
+    $verificar_email = mysqli_query($conn, "select * from bd_cuentas where email = '$email' ");
 
     if (mysqli_num_rows($verificar_email) > 0){
         echo '<script>
@@ -31,7 +37,7 @@ if (mysqli_num_rows($verificar_usuario) > 0){
     
     $insertar = "insert into bd_cuentas(nombre, apellido,email,usuario,clave) values ( '$nombre', '$apellido', '$email', '$usuario','$clave')" ;
 
-    $resultado = mysqli_query($conexion, $insertar);
+    $resultado = mysqli_query($conn, $insertar);
 
     }
 }
@@ -48,4 +54,4 @@ if (!$resultado){
     </script>';
 }
 
-mysqli_close($conexion);
+mysqli_close($conn);
