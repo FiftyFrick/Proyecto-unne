@@ -9,7 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(#cb997e, #ddbea9, #ffe8d6, #b7b7a4, #a5a58d, #6b705c)
+    background: linear-gradient(#cb997e, #a5a58d, #6b705c)
 }
 
 .wrapper {
