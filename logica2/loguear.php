@@ -29,7 +29,7 @@ if ($array['CONTAR'] > 0){
     alert("datos incorrectos");
     window.history.go(-1);
     </script>';
-    echo "<a href='../../index.php'> Volver a la Pagina Principal </a>";
+    echo "<a href='../index.php'> Volver a la Pagina Principal </a>";
 }
 
 mysqli_free_result($consulta);
