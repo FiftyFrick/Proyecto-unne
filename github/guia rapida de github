@@ -21,6 +21,8 @@ luego
 
     - git remote add origin https://github.com/FiftyFrick/Proyecto-unne.git  (direcciona nuestro repo. local al repositorio remoto)
 
+    - git pull master master
+    
 - git status
 
 - git add . (incorpora temporalmente todos los cambios realizados del proyecto local)
