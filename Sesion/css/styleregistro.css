@@ -94,10 +94,10 @@ form .button input {
     color: #fcf7f7;
     outline: none;
     border: none;
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 500;
     cursor: pointer;
-    border-radius: 32px;
+    border-radius: 25px;
     letter-spacing: 1px;
     background: linear-gradient(135deg, #060707, #0a080a);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

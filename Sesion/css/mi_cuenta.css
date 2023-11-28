@@ -12,7 +12,7 @@ header{
 /*--------*/
 body{	
     color: #d4b8b8;
-    background: linear-gradient(#2f517a, #6d5976, #9c5968, #a36e52, #664041, #9c908e);
+    background: linear-gradient( #d8b6e9, #a36e52, #9c908e);
     background-size:cover ;
     background-position:center;
     background-attachment: fixed;
@@ -21,7 +21,7 @@ body{
 }
 
 nav{
-    background-color: #b9b8b8;
+    background-color: #f0c6c6;
     color: #080707;
     position: sticky;
     top: -1px;
@@ -42,6 +42,7 @@ nav{
 .menu li a{
     font-family: inherit;
     text-decoration: none;
+    color: black;
 }
 .fullbox{
     margin: 0%;
