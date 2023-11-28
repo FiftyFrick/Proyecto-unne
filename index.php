@@ -68,7 +68,7 @@ include "logica/conexion.php";
             }else{
               echo "<li> <a href='#'> <strong> Bienvenido $varsession </strong> </a> </li>";
 
-              echo "<li> <a href='Sesion/logica/salir.php'>   Cerrar Sesion </a> </li>";
+              echo "<li> <a href='logica2/salir.php'>   Cerrar Sesion </a> </li>";
 
               echo "<li> <a href='Sesion/mi_cuenta.php'> Mi cuenta </a> </li>";
 

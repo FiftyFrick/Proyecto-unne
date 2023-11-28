@@ -30,7 +30,7 @@
                     }else{
                         echo "<strong> Bienvenido $varsession </strong>  ";
                         
-                        echo "<li> <a href='logica/salir.php'> Cerrar Sesion </a> </li>";
+                        echo "<li> <a href='../logica2/salir.php'> Cerrar Sesion </a> </li>";
                         
                     }
                 ?>
@@ -102,7 +102,7 @@
                     <h2>Actualizar <br> Datos</h2>
                     
                     <?php
-                        echo '<form name="update-user" action="logica/update_info_user.php" method="post" autocomplete="off">';
+                        echo '<form name="update-user" action="../logica2/update_info_user.php" method="post" autocomplete="off">';
             
                         echo '<input type="hidden" name="id" value="'.$Id.'"/>';
                         echo '
@@ -150,7 +150,7 @@
                 <h2>Eliminar <br> Cuenta</h2>
                 <table>
                     <tr>
-                        <form name="eliminar" action="logica/delete_user.php" method="POST">
+                        <form name="eliminar" action="../logica2/delete_user.php" method="POST">
                         <td align="center" ><input type="submit"  value="ELIMINAR" /></td>
                         </form>
                     </tr>

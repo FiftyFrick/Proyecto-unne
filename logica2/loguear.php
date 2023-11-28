@@ -1,5 +1,5 @@
 <?php
-require "../../logica/conexion.php";
+require "../logica/conexion.php";
 
 $conexion= $conn;
 
@@ -21,7 +21,7 @@ $array= mysqli_fetch_array($consulta);
 
 if ($array['CONTAR'] > 0){
     $_SESSION ['username'] = $usuario;
-    header("location: ../../index.php");
+    header("location: ../index.php");
      
 }else{
     echo

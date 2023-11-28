@@ -5,7 +5,7 @@
 
 
     $sql =("SELECT * from bd_cuentas where usuario = '$varsession' ");                   
-    $res_sql=mysqli_query($conexion,$sql);
+    $res_sql=mysqli_query($conn,$sql);
     $return=mysqli_fetch_array($res_sql);
 
     $ID =  $return["id"];    
@@ -25,7 +25,7 @@
              
              
             //Execute Query
-            $cname__select_Query= mysqli_query($conexion,$cname__select);
+            $cname__select_Query= mysqli_query($conn,$cname__select);
              
              
              
