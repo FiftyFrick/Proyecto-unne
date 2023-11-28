@@ -1,7 +1,8 @@
 <?php
+
+include "../../logica/conexion.php";
+require "../../logica/conexion.php";
 session_start();
-include "conexion.php";
-require "conexion.php";
 $nombre = $_POST ["nombre"];
 $apellido = $_POST ["apellido"];
 $email = $_POST ["email"];
