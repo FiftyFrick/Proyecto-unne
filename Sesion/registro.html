@@ -11,7 +11,7 @@
 
   <div class="wrapper">
     <div class="title" text-align="center">Registro</div>
-    <form action="logica/registrando.php">
+    <form action="../logica2/registrando.php" method="POST">
       <div class="user-details">
 
         <div class="input-box">
@@ -42,6 +42,14 @@
       <div class="input-box">
         <span class="details">Confirmar Contraseña</span>
         <input type="password" placeholder="Confirm your Password" required autocomplete="off">
+      </div>
+
+      <div class="input-box">
+        <span class="details">Tipo de Usuario</span>
+        <select name="tipo_usuario" required>
+          <option value="0">Normal</option>
+          <option value="1">Administrador</option>
+        </select>
       </div>
 
       <div class="button">
