@@ -8,7 +8,7 @@ body {
   height: 100%;
 }
 body {
-  background: linear-gradient(45deg, rgb(189, 50, 82), rgb(241, 90, 90));
+  background-color: rgb(185, 184, 184);
   font-family: "Roboto", sans-serif;
   margin: 0;
   overflow: hidden;
@@ -17,7 +17,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 78%;
 }
 .card {
   display: flex;
@@ -30,7 +30,7 @@ body {
   top: calc(100% - 400px);
   left: -80px;
   z-index: -1;
-  background: rgb(211, 67, 86);
+  background: rgb(185, 184, 184);
   border-radius: 50%;
   width: 500px;
   height: 500px;
@@ -41,7 +41,7 @@ body {
   top: -80px;
   right: -16px;
   z-index: -1;
-  background: rgb(228, 79, 87);
+  background:  rgb(185, 184, 184);
   border-radius: 50%;
   width: 300px;
   height: 300px;
@@ -52,7 +52,7 @@ body {
   justify-content: center;
   font-size: 2rem;
   color: #ffffff;
-  background: linear-gradient(180deg, rgb(189, 50, 82), rgb(241, 90, 90));
+  background: linear-gradient(180deg, rgb(160, 7, 7), rgb(170, 2, 2));
   padding-left: 2rem;
   padding-right: 3rem;
   border-top-left-radius: 8px;
@@ -102,7 +102,7 @@ body {
   text-transform: uppercase;
 }
 .card .container-form input {
-  color: rgb(120, 96, 96);
+  color: rgb(53, 51, 51);
   background-color: transparent;
   padding: 8px;
   border: none;
@@ -110,11 +110,11 @@ body {
   width: 100%;
 }
 .card .container-form input:focus {
-  border-color: rgb(189, 50, 82);
+  border-color: rgb(185, 4, 46);
   outline: 0;
 }
 .card .container-form input::placeholder {
-  color: rgb(233, 157, 175);
+  color: rgb(58, 57, 57);
 }
 .card .container-form #email {
   margin-bottom: 1.75rem;
@@ -139,13 +139,13 @@ body {
   color: rgb(189, 50, 82);
 }
 .card .container-form button {
-  color: #ffffff;
+  color: #080808;
   text-transform: uppercase;
-  background: linear-gradient(180deg, rgb(189, 50, 82), rgb(241, 90, 90));
+  background: linear-gradient(180deg, rgb(165, 164, 164), rgb(241, 90, 90));
   padding: 12px 16px;
   margin-top: 2rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 32px;
   cursor: pointer;
 }
 @media (max-width: 768px) {
@@ -178,9 +178,9 @@ body {
     width: auto;
   }
 }
-
+/*--------Foother------------*/
 footer{
-  text-align: left;
+  text-align: left ;
   width: 100%;
   background-color: rgb(80, 80, 80);
   color: #ffffff;
@@ -194,6 +194,14 @@ footer section article {
   padding-left: 10%;
   height: 100px;
   width: 50%;
-  border: #080707ce solid 0.5px;
+  border: #fffefe solid 0.5px;
   margin: auto;
+}
+
+footer section h3{
+  font-size: small;
+}
+footer div{
+  text-align: center;
+  font-size: large;
 }

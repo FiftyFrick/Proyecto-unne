@@ -10,8 +10,8 @@ $conexion= $conn;
 // //     echo"no se pudo conectar";
 // // }
 
-session_start();
-
+/* session_start();
+ */
 $usuario= $_POST["usuario"];
 $clave= $_POST["clave"];
 
@@ -29,7 +29,6 @@ if ($array['CONTAR'] > 0){
     alert("datos incorrectos");
     window.history.go(-1);
     </script>';
-    echo "<a href='../../index.php'> Volver a la Pagina Principal </a>";
 }
 
 mysqli_free_result($consulta);

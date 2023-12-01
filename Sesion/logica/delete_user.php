@@ -1,6 +1,6 @@
 <?php
-    include "conexion.php";
-    $varsession = $_SESSION ['username'];
+    /*include "conexion.php";
+     $varsession = $_SESSION ['username'];
 
 
     $sql =("SELECT * from bd_cuentas where usuario = '$varsession' ");                   
@@ -16,4 +16,11 @@
 
     header("location: ../inicio.php");
 
-exit();
+    exit(); */
+
+    echo '<script>
+    alert("El Usuario NO puede ser borrado solamente Modificado.");
+    window.history.go(-1);
+    </script>';
+
+?>

@@ -2,17 +2,17 @@
 header, section, footer, aside, nav, article {
     display: block;
     font-size: 20px;
-    color:  aliceblue ;
+    color:  white ;
 
 }
-
+/*----- */
 header{
     text-align: center;
 }
-
+/*--------*/
 body{	
-    color: #ffffff;
-    background: no-repeat center url("../img/fondo_panal_verde.jpg") ;
+    color: #d4b8b8;
+    background: linear-gradient( #d8b6e9, #a36e52, #9c908e);
     background-size:cover ;
     background-position:center;
     background-attachment: fixed;
@@ -21,23 +21,29 @@ body{
 }
 
 nav{
-    background: #B8C1C8;
-    position: right;
-    position: -webkit-sticky;
+    background-color: #f0c6c6;
+    color: #080707;
     position: sticky;
     top: -1px;
-    text-align: right;
+    text-align: center;
     font-size: 1.4em;
+    display: flex ;
+    justify-content: center;
 }
 
 .menu li{
-    text-align: right;
+    text-align: center;
     list-style: none;
-    padding: 1%;
-    display: inline;
-    color: black;
- }
+    padding: 10%;
+    display: contents;
+    font-size: 30px;
+}
 
+.menu li a{
+    font-family: inherit;
+    text-decoration: none;
+    color: black;
+}
 .fullbox{
     margin: 0%;
 }
@@ -48,12 +54,13 @@ nav{
 }
 
 .crud div{
-    background: rgba(24, 83, 51, 0.5 ) ; 
-    border: #d4d0d0ad solid 1px;
+    background: rgba(232, 243, 232, 0.884) ; 
+    border: #080808ad solid 1px;
     width: 40%;
     margin: 1.5%;
     text-align: center;
-    font-size: 1.1em;
+    font-size: 1.15em;
+    color: black;
 }
 
 .select-info-user{
@@ -64,8 +71,28 @@ table{
     height: 2%;
     width: 100%;
     text-align: center;
-    font-size: 1.3em;
+    font-size: 1.1em;
 }
 td{
-   height: 3%;
+    text-align: left;
+   display: initial;
 }
+
+.Delete-info-user {
+    border-radius: 40px;
+}
+table input[type="submit"]{
+    background-color: rgb(89 43 195);
+    color: #ffffff;
+    padding: 21px 21px;
+    border-radius: 32px;
+    text-align: center;
+}
+.update-info-user{
+    border-radius: 40px;
+}
+
+.select-info-user{
+    border-radius: 40px;
+}
+

@@ -30,7 +30,7 @@
                     }else{
                         echo "<strong> Bienvenido $varsession </strong>  ";
                         
-                        echo "<li> <a href='logica/salir.php'> Cerrar Sesion </a> </li>";
+                        echo "<li> <a href='../logica2/salir.php'> Cerrar Sesion </a> </li>";
                         
                     }
                 ?>
@@ -51,40 +51,37 @@
                     
                     <?php
 
-                            include "../logica/conexion.php";
-                            
-                            $sql =("SELECT * from bd_cuentas where usuario = '$varsession' ");                           
-                            $res_sql = $conn->query($sql);
-                            while ($mostrar = $res_sql->fetch_assoc()) {
+                    include "logica/conexion.php";
+                    
+                    $sql =("SELECT * from bd_cuentas where usuario = '$varsession' ");                           
+                    $res_sql = $conn->query($sql);
+                    while ($mostrar = $res_sql->fetch_assoc()) {
                                                        
                     ?><tr>
                     <tr>
-                        <td>Nombre</td>
+                        <td>Nombre: </td>
                         <td><?php  echo $mostrar['nombre']; ?> </td>
                     </tr>
                     <tr>
-                    <td>Apellido</td>
+                    <td>Apellido: </td>
                         <td><?php  echo $mostrar['apellido']; ?> </td>
                     </tr>
                     <tr>
-                    <td>Email</td>
+                    <td>Email: </td>
                         <td><?php  echo $mostrar['email']; ?> </td>
                     </tr>
                     <tr>
-                    <td>Usuario</td>
+                    <td>Usuario: </td>
                         <td><?php  echo $mostrar['usuario']; ?> </td>
                     </tr>
                     <tr>
-                    <td>Clave</td>
+                    <td>Clave: </td>
                         <td> --- </td>
                     </tr>
                     <tr>
-                    <td>Telefono</td>
-                        <td><?php  echo $mostrar['telefono']; ?> </td>
-                    </tr>
                     <tr>
                         <?php  if ($mostrar['administrador']==1){
-                    echo ' <td>Adminitrador</td>';
+                    echo ' <td>Adminitrador: </td>';
                     echo ' <td> SI </td>';
                         }?>
                     </tr>
@@ -108,28 +105,28 @@
                         echo '
                             
                             <tr>
-                                <td>Nombre</td>
-                                <td><input type="text" name="nombre" value="'.$nombre.'"/></td>
+                                <td>Nombre: </td>
+                                <td><input type="text" name="nombre" value="'.$nombre.'" required autocomplete="off"/></td>
                             </tr>
 
                             <tr>
-                                <td>Apellido</td>
-                                <td><input type="text" name="apellido" value="'.$apellido.'"/></td>
+                                <td>Apellido: </td>
+                                <td><input type="text" name="apellido" value="'.$apellido.'" required autocomplete="off"/></td>
                             </tr>
 
                             <tr>
-                                <td>Email</td>
-                                <td><input type="text" name="email" value="'.$email.'"/></td>
+                                <td>Email: </td>
+                                <td><input type="text" name="email" value="'.$email.'" required autocomplete="off"/></td>
                             </tr>
 
                             <tr>
-                                <td>Usuario</td>
-                                <td><input type="text" name="usuario" value="'.$usuario.'"/> </td>
+                                <td>Usuario: </td>
+                                <td><input type="text" name="usuario" value="'.$usuario.'" required autocomplete="off"/> </td>
                             </tr>
 
                             <tr>
-                                <td>Clave</td>
-                                <td><input type="password" name="clave" value="'.$clave.'"/></td>
+                                <td>Clave: </td>
+                                <td><input type="password" name="clave" value="'.$clave.'" required autocomplete="off"/></td>
                             </tr>
                             
                             <tr>

@@ -72,3 +72,153 @@ WHERE  carreras.nombre_carrera LIKE '%$busqueda%'
                   ?>
                   <h3>Resultado de la busqueda: se encontraron  <?php echo $total; ?> resultados</h3> 
               </article>
+
+
+
+              ----------------------------------------------------------
+
+              <!-- -------------------------------------------------------------------------- -->
+            <!-- <article>
+                <label for="nombre_plan">Nombre Plan:</label>
+                <select id="nombre_plan" name="nombre_plan" required>
+                  <option value=""></option>
+                  <?php 
+                    $consultPlan = "SELECT  DISTINCT nombre_plan  FROM plan_de_estudio ";
+                    $resultPlan = $conn->query($consultPlan);
+                  
+                    //value: string "nombre plan"
+
+                  while ($rowlistaPlan = $resultPlan->fetch_assoc()) : ?>
+                      <option value="<?php echo $rowlistaPlan["nombre_plan"]; ?>"><?php echo $rowlistaPlan["nombre_plan"];?></option>
+                  <?php endwhile; ?>
+                </select>
+              </article> -->
+
+            <!-- ------------------------------------------------- -->
+              <!-- <label for="nombre_crrera">Nombre Carrera:</label>
+              <select id="nombre_carrera" name="nombre_carrera" required>
+                <option value=""></option>
+                <?php 
+
+                    //
+                    $colsuCarrera = 'SELECT * FROM `plan_de_estudio` INNER JOIN carreras ON carreras.id_carrera = plan_de_estudio.id_carrera';
+
+                    $resColsuCarrera= mysqli_query($conn,$colsuCarrera); 
+                    while ($rowlistanombre = $resColsuCarrera->fetch_assoc()) : ?>
+                    <option value="<?php echo $rowlistanombre["id_carrera"]; ?>"><?php echo $rowlistanombre["nombre_carrera"];?></option>
+                <?php endwhile; 
+                ?>
+              </select>
+            </article>
+              <script>
+                document.getElementById('nombre_carrera').addEventListener('change', function () {
+                // Obtén el valor seleccionado en el campo de carrera
+                var selectedCarrera = this.value;
+                
+                // Habilita el campo de nombre_plan si se ha seleccionado una carrera
+                document.getElementById('nombre_plan').disabled = (selectedCarrera === '');
+
+                  // Actualiza el contenido del elemento con el id "carreraSeleccionada"
+                  document.getElementById('carreraSeleccionada').textContent = 'Carrera seleccionada: ' + selectedCarrera;
+  
+              });
+              </script>
+
+            <label for="nombre_plan">Nombre Plan:</label>
+              <select id="nombre_plan" name="nombre_plan" required disabled>
+                <option value=""> <p id="valor_seleccionado"></p> </option>
+              </select> -->
+
+
+              <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  // Cuando cambia la opción de la carrera
+  $('#nombre_carrera').change(function() {
+    var selectedCarrera = $(this).val();
+
+    // Realizar una solicitud AJAX para obtener los planes asociados a la carrera
+    $.ajax({
+      url: 'upload_Programas.php', // Reemplaza 'tuscript.php' con la URL de tu script PHP que consulta los planes
+      method: 'POST',
+      data: { carrera: selectedCarrera },
+      success: function(data) {
+        // Limpiar y actualizar el menú de planes con los resultados
+        $('#nombre_plan').html(data);
+      }
+    });
+  });
+});
+</script>
+
+
+---------------------------------------------------------------------------------------------------
+ // Verifica la existencia de archivos en el formulario
+        if (isset($_FILES['documento']) && !empty ($_FILES['documento'] && $_FILES['documento'] == "A"  )) {
+            // Definir carpeta destino
+            $carpeta_destino = "files/";
+
+            // Obtener el nombre y la extensión del archivo
+            $nombre_archivo = basename($_FILES["documento"]["name"]);
+
+            $extension = strtolower(pathinfo($nombre_archivo, PATHINFO_EXTENSION));
+
+            // Verifica que el archivo sea un PDF
+            if ($extension == "pdf") {
+                // Mueve el archivo a la carpeta destino
+                if (move_uploaded_file($_FILES['documento']['tmp_name'], $carpeta_destino . $nombre_archivo)) {
+
+                    // ACTUALIZAR en la base de datos
+
+                    $updatePrograma = "INSERT INTO programas (id_asignatura, id_carrera, id_plan, cuatrimestre, responsable, resolucion_CD, fecha_resolucion, archivo_PDF)
+                                       VALUES ('$asignatura', '$nombre_carrera', '$nombre_plan', '$cuatrimestre', '$responsable', '$resolucion_CD', '$fecha_resolucion', '$nombre_archivo')";
+                    // $resultado = mysqli_query($conn, $updatePrograma);
+
+                    // if ($resultado) {
+                    //     // Redirigir de vuelta a la página anterior con un mensaje de éxito
+                    //     header("Location: {$_SERVER['HTTP_REFERER']}?mensaje=exito");
+                    //     exit(); // Asegurar que el script se detenga después de redirigir
+                    // } else {
+                    //     echo "Error al insertar el programa: " . mysqli_error($conn);
+                    // }
+                } else {
+                    echo "Error al mover el archivo a la carpeta destino.";
+                }
+            } else {
+                echo "Solo se permiten archivos PDF.";
+            }
+
+         }
+         else {
+            echo "No se ha seleccionado ningún archivo.";
+
+            // $insertPrograma = "INSERT INTO programas 
+            // (id_asignatura, id_carrera, id_plan, cuatrimestre, responsable, resolucion_CD, fecha_resolucion)
+            //                 VALUES ('$asignatura', '$nombre_carrera', '$nombre_plan', '$cuatrimestre', '$responsable', '$resolucion_CD', '$fecha_resolucion')";
+                    // $resultado = mysqli_query($conn, $insertPrograma);
+
+                    // if ($resultado) {
+                    //     // Redirigir de vuelta a la página anterior con un mensaje de éxito
+                    //     header("Location: {$_SERVER['HTTP_REFERER']}?mensaje=exito");
+
+
+                    // } else {
+                    //     echo "Error al insertar el programa: " . mysqli_error($conn);
+                    // }exit(); // Asegurar que el script se detenga después de redirigir
+
+                    if (!empty($IdProgramaForm)) {
+                        $updateQuery = "UPDATE programas SET 
+
+                            id_asignatura = '" . $asignatura. "',
+                            id_carrera = '" . $nombre_carrera. "',
+                            id_plan = '" . $nombre_plan . "',
+                            cuatrimestre = '" . $cuatrimestre . "',
+                            responsable = '" . $responsable . "',
+                            resolucion_CD = '" . $resolucion_CD . "',
+                            fecha_resolucion = '" . $fecha_resolucion . "'
+
+                        WHERE id_programa = $IdProgramaForm";
+                    }
+
+                    $updateResult = mysqli_query($conn, $updateQuery);
+                }
