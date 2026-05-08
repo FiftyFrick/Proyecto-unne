@@ -4,14 +4,14 @@ Para visualizar el proyecto sin problemas se debe importar el tester de la base 
 
 **A Continuacion se muestra el flujo de la Pagina Web**
 
-![muestras](imgMuestras/01.jpg)
+![muestras](ImgMuestras/01.jpg)
 
-![muestras](imgMuestras/02.jpg)
+![muestras](ImgMuestras/02.jpg)
 
-![muestras](imgMuestras/03.jpg)
+![muestras](ImgMuestras/03.jpg)
 
-![muestras](imgMuestras/04.jpg)
+![muestras](ImgMuestras/04.jpg)
 
-![muestras](imgMuestras/05.jpg)
+![muestras](ImgMuestras/05.jpg)
 
-![muestras](imgMuestras/06.jpg)
+![muestras](ImgMuestras/06.jpg)
